@@ -1,0 +1,820 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Peninsula Surf School — Samaná, Dominican Republic</title>
+  <meta name="description" content="Peninsula Surf School in Samaná, Dominican Republic. Surf lessons, coaching, and guided surf sessions for all levels." />
+
+  <style>
+    :root{
+      --bg: #ffffff;
+      --text: #0b1220;
+      --muted: #5b667a;
+      --blue: #0a66ff;
+      --blue2: #1fb6ff;
+      --card: rgba(255,255,255,0.78);
+      --card-strong: rgba(255,255,255,0.92);
+      --border: rgba(11,18,32,0.10);
+      --shadow: 0 18px 45px rgba(11,18,32,0.10);
+      --radius: 22px;
+      --max: 1080px;
+    }
+
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
+      color:var(--text);
+      background:var(--bg);
+      line-height:1.55;
+    }
+
+    /* Subtle page grain / depth */
+    body::before{
+      content:"";
+      position:fixed;
+      inset:0;
+      pointer-events:none;
+      background:
+        radial-gradient(1200px 500px at 15% 10%, rgba(31,182,255,0.14), transparent 55%),
+        radial-gradient(900px 450px at 85% 20%, rgba(10,102,255,0.10), transparent 60%),
+        linear-gradient(180deg, rgba(0,0,0,0.02), rgba(0,0,0,0));
+      z-index:-1;
+    }
+
+    a{color:inherit; text-decoration:none}
+    .container{max-width:var(--max); margin:0 auto; padding:0 20px}
+    .section{padding:84px 0}
+    .kicker{letter-spacing:.14em; text-transform:uppercase; font-size:12px; color:var(--muted)}
+    h2{margin:.5rem 0 1rem; font-size:34px; line-height:1.15}
+    p{margin:.6rem 0; color:var(--muted)}
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      padding:12px 16px;
+      border-radius:999px;
+      background:rgba(255,255,255,0.90);
+      border:1px solid var(--border);
+      box-shadow: 0 10px 30px rgba(11,18,32,0.08);
+      transition: transform .18s ease, box-shadow .18s ease, background .18s ease;
+      user-select:none;
+    }
+    .btn:hover{transform: translateY(-2px); box-shadow: 0 16px 35px rgba(11,18,32,0.12); background:#fff}
+    .btn.primary{
+      background: linear-gradient(135deg, var(--blue), var(--blue2));
+      color:white;
+      border-color: rgba(255,255,255,0.25);
+    }
+    .btn.primary:hover{transform: translateY(-2px) scale(1.01)}
+    .pill{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      padding:8px 12px;
+      border-radius:999px;
+      background:rgba(255,255,255,0.65);
+      border:1px solid rgba(255,255,255,0.35);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      font-size:13px;
+      color: rgba(255,255,255,0.92);
+      text-shadow: 0 1px 18px rgba(0,0,0,0.25);
+    }
+    .dot{
+      width:8px; height:8px; border-radius:999px;
+      background: rgba(255,255,255,0.95);
+      box-shadow: 0 0 0 3px rgba(255,255,255,0.22);
+    }
+
+    /* Top nav */
+    .nav{
+      position:fixed;
+      top:12px; left:0; right:0;
+      z-index:50;
+    }
+    .nav-inner{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:14px;
+      padding:10px 14px;
+      border-radius:999px;
+      background: rgba(255,255,255,0.72);
+      border:1px solid rgba(11,18,32,0.10);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      box-shadow: 0 12px 35px rgba(11,18,32,0.12);
+    }
+    .brand{
+      display:flex; align-items:center; gap:10px;
+      font-weight:700;
+      letter-spacing:.01em;
+    }
+    .logo{
+      width:34px; height:34px; border-radius:12px;
+      background: linear-gradient(135deg, var(--blue), var(--blue2));
+      position:relative;
+      box-shadow: 0 16px 35px rgba(10,102,255,0.28);
+    }
+    .logo::after{
+      content:"";
+      position:absolute; inset:8px 10px;
+      border-radius:999px;
+      border:2px solid rgba(255,255,255,0.85);
+      transform: rotate(-22deg);
+    }
+    .nav-links{
+      display:flex;
+      gap:14px;
+      align-items:center;
+      font-size:14px;
+      color: var(--text);
+    }
+    .nav-links a{
+      padding:8px 10px;
+      border-radius:999px;
+      transition: background .18s ease, transform .18s ease;
+    }
+    .nav-links a:hover{background: rgba(10,102,255,0.10); transform: translateY(-1px)}
+    .nav-cta{display:flex; gap:10px; align-items:center}
+    .hamburger{display:none}
+
+    /* Hero */
+    .hero{
+      min-height: 92vh;
+      position:relative;
+      display:flex;
+      align-items:flex-end;
+      padding:110px 0 64px;
+      overflow:hidden;
+    }
+    .hero-media{
+      position:absolute; inset:0;
+      z-index:-2;
+      background:
+        radial-gradient(1200px 700px at 20% 20%, rgba(31,182,255,0.45), transparent 60%),
+        radial-gradient(900px 600px at 80% 30%, rgba(10,102,255,0.45), transparent 62%),
+        linear-gradient(180deg, rgba(3,8,20,0.75), rgba(3,8,20,0.35), rgba(255,255,255,0.02));
+    }
+    video.hero-video{
+      position:absolute; inset:0;
+      width:100%; height:100%;
+      object-fit:cover;
+      z-index:-3;
+      filter: saturate(1.12) contrast(1.05) brightness(0.92);
+    }
+    .hero-overlay{
+      position:absolute; inset:0;
+      background: linear-gradient(180deg, rgba(0,0,0,0.45), rgba(0,0,0,0.10), rgba(255,255,255,0.02));
+      z-index:-1;
+    }
+    .hero-card{
+      width:min(720px, 100%);
+      padding:26px 22px;
+      border-radius: var(--radius);
+      border: 1px solid rgba(255,255,255,0.22);
+      background: rgba(255,255,255,0.10);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      box-shadow: 0 22px 60px rgba(0,0,0,0.25);
+      color:white;
+    }
+    .hero h1{
+      margin:10px 0 10px;
+      font-size: clamp(38px, 6vw, 60px);
+      line-height: 1.02;
+      letter-spacing: -0.02em;
+    }
+    .hero p{
+      color: rgba(255,255,255,0.88);
+      margin: 0 0 18px;
+      font-size: 16px;
+      max-width: 58ch;
+    }
+    .hero-actions{display:flex; gap:12px; flex-wrap:wrap; align-items:center}
+    .hero-note{
+      margin-top:14px;
+      font-size: 13px;
+      color: rgba(255,255,255,0.82);
+    }
+    .arrow-down{
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      margin-top:20px;
+      color: rgba(255,255,255,0.9);
+      font-size: 14px;
+      opacity: .95;
+    }
+    .arrow{
+      width:34px; height:34px; border-radius:999px;
+      border:1px solid rgba(255,255,255,0.30);
+      display:grid; place-items:center;
+      background: rgba(255,255,255,0.08);
+      transition: transform .18s ease, background .18s ease;
+    }
+    .arrow-down:hover .arrow{transform: translateY(2px); background: rgba(255,255,255,0.12)}
+    .arrow svg{width:16px; height:16px; fill:none; stroke:white; stroke-width:2.2}
+
+    /* About */
+    .split{
+      display:grid;
+      grid-template-columns: 1.2fr .8fr;
+      gap: 26px;
+      align-items: center;
+    }
+    .card{
+      border-radius: var(--radius);
+      border: 1px solid var(--border);
+      background: var(--card);
+      box-shadow: var(--shadow);
+      overflow:hidden;
+    }
+    .card.pad{padding:20px}
+    .about-img{
+      aspect-ratio: 4/3;
+      width:100%;
+      object-fit:cover;
+      display:block;
+      transform: scale(1.02);
+      transition: transform .35s ease;
+    }
+    .card:hover .about-img{transform: scale(1.06)}
+    .tag-row{display:flex; gap:10px; flex-wrap:wrap; margin-top:14px}
+    .tag{
+      font-size: 13px;
+      color: var(--text);
+      padding: 8px 12px;
+      border-radius: 999px;
+      border:1px solid rgba(11,18,32,0.12);
+      background: rgba(255,255,255,0.75);
+    }
+
+    /* Services */
+    .services-grid{
+      display:grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      margin-top: 22px;
+    }
+    .service{
+      position:relative;
+      cursor:pointer;
+      border-radius: var(--radius);
+      border: 1px solid var(--border);
+      background: var(--card);
+      box-shadow: var(--shadow);
+      padding: 18px;
+      min-height: 220px;
+      transition: transform .2s ease, background .2s ease, border-color .2s ease, box-shadow .2s ease;
+      display:flex;
+      flex-direction:column;
+      gap:10px;
+      overflow:hidden;
+    }
+    .service:hover{
+      transform: translateY(-3px);
+      background: var(--card-strong);
+      border-color: rgba(10,102,255,0.22);
+      box-shadow: 0 22px 55px rgba(11,18,32,0.14);
+    }
+    .service .icon{
+      width:46px; height:46px; border-radius:16px;
+      background: linear-gradient(135deg, rgba(10,102,255,0.14), rgba(31,182,255,0.14));
+      border: 1px solid rgba(10,102,255,0.18);
+      display:grid; place-items:center;
+    }
+    .service h3{margin:0; font-size:18px; color: var(--text)}
+    .service .summary{margin:0; color: var(--muted); font-size:14px}
+    .service .meta{
+      margin-top:auto;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      font-size:13px;
+      color: var(--muted);
+      gap:10px;
+    }
+    .service .chev{
+      width:34px; height:34px; border-radius:999px;
+      border:1px solid rgba(11,18,32,0.12);
+      display:grid; place-items:center;
+      transition: transform .2s ease, background .2s ease;
+      background: rgba(255,255,255,0.65);
+    }
+    .service:hover .chev{background: rgba(10,102,255,0.08)}
+    .service.expanded .chev{transform: rotate(180deg)}
+
+    .service .details{
+      max-height: 0;
+      overflow:hidden;
+      opacity: 0;
+      transform: translateY(6px);
+      transition: max-height .35s ease, opacity .28s ease, transform .28s ease;
+      border-top: 1px solid rgba(11,18,32,0.10);
+      padding-top: 0;
+      margin-top: 0;
+    }
+    .service.expanded .details{
+      max-height: 420px;
+      opacity: 1;
+      transform: translateY(0);
+      padding-top: 12px;
+      margin-top: 8px;
+    }
+    .details ul{margin:10px 0 0; padding-left: 18px; color: var(--muted); font-size:14px}
+    .details li{margin:6px 0}
+    .service .badge{
+      position:absolute;
+      top:14px; right:14px;
+      font-size: 12px;
+      padding: 8px 10px;
+      border-radius: 999px;
+      background: rgba(10,102,255,0.10);
+      border: 1px solid rgba(10,102,255,0.18);
+      color: rgba(11,18,32,0.85);
+    }
+
+    /* Team */
+    .team-wrap{
+      display:grid;
+      grid-template-columns: .9fr 1.1fr;
+      gap: 18px;
+      align-items: stretch;
+      margin-top: 22px;
+    }
+    .team-photo{
+      width:100%;
+      height:100%;
+      min-height: 320px;
+      object-fit:cover;
+      display:block;
+      transition: transform .35s ease;
+    }
+    .card:hover .team-photo{transform: scale(1.05)}
+    .quote{
+      margin-top: 14px;
+      padding: 14px 14px;
+      border-radius: 18px;
+      background: rgba(10,102,255,0.06);
+      border: 1px solid rgba(10,102,255,0.14);
+      color: rgba(11,18,32,0.85);
+      font-size: 14px;
+    }
+
+    /* FAQ */
+    .faq{
+      margin-top: 20px;
+      display:grid;
+      gap: 12px;
+    }
+    details{
+      border-radius: var(--radius);
+      border: 1px solid var(--border);
+      background: var(--card);
+      box-shadow: var(--shadow);
+      padding: 16px 16px;
+      transition: transform .18s ease, background .18s ease;
+    }
+    details:hover{transform: translateY(-2px); background: var(--card-strong)}
+    summary{
+      list-style:none;
+      cursor:pointer;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:14px;
+      font-weight: 650;
+      color: var(--text);
+    }
+    summary::-webkit-details-marker{display:none}
+    .faq-arrow{
+      width:34px; height:34px; border-radius:999px;
+      display:grid; place-items:center;
+      border:1px solid rgba(11,18,32,0.12);
+      background: rgba(255,255,255,0.70);
+      transition: transform .18s ease;
+      flex: 0 0 auto;
+    }
+    details[open] .faq-arrow{transform: rotate(180deg)}
+    details p{margin:10px 0 0; color: var(--muted)}
+
+    /* Footer */
+    footer{
+      padding: 34px 0 44px;
+      border-top: 1px solid rgba(11,18,32,0.08);
+      color: var(--muted);
+      font-size: 14px;
+    }
+    .footer-row{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      gap:14px;
+      flex-wrap:wrap;
+    }
+    .tiny-links{display:flex; gap:12px; flex-wrap:wrap}
+    .tiny-links a{opacity:.9}
+    .tiny-links a:hover{opacity:1; color: var(--blue)}
+
+    /* Responsive */
+    @media (max-width: 920px){
+      .split{grid-template-columns: 1fr}
+      .services-grid{grid-template-columns: 1fr}
+      .team-wrap{grid-template-columns: 1fr}
+      .nav-links{display:none}
+      .hamburger{
+        display:inline-flex;
+        width:42px; height:42px;
+        border-radius:999px;
+        border:1px solid rgba(11,18,32,0.12);
+        background: rgba(255,255,255,0.85);
+        align-items:center;
+        justify-content:center;
+        cursor:pointer;
+        transition: transform .18s ease;
+      }
+      .hamburger:hover{transform: translateY(-1px)}
+      .mobile-menu{
+        display:none;
+        margin-top:10px;
+        padding:10px;
+        border-radius: 18px;
+        border:1px solid rgba(11,18,32,0.10);
+        background: rgba(255,255,255,0.86);
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+        box-shadow: 0 18px 45px rgba(11,18,32,0.14);
+      }
+      .mobile-menu a{
+        display:block;
+        padding:10px 10px;
+        border-radius: 14px;
+      }
+      .mobile-menu a:hover{background: rgba(10,102,255,0.08)}
+      .mobile-menu.show{display:block}
+    }
+  </style>
+</head>
+
+<body>
+  <!-- NAV -->
+  <div class="nav">
+    <div class="container">
+      <div class="nav-inner">
+        <a class="brand" href="#top" aria-label="Peninsula Surf School home">
+          <span class="logo" aria-hidden="true"></span>
+          <span>Peninsula Surf School</span>
+        </a>
+
+        <nav class="nav-links" aria-label="Primary">
+          <a href="#about">About</a>
+          <a href="#services">Services</a>
+          <a href="#team">Team</a>
+          <a href="#faq">FAQ</a>
+        </nav>
+
+        <div class="nav-cta">
+          <a class="btn primary" href="#services" aria-label="Explore services">
+            Start Surfing
+            <span aria-hidden="true">→</span>
+          </a>
+          <button class="hamburger" id="menuBtn" aria-label="Open menu" aria-expanded="false">
+            ☰
+          </button>
+        </div>
+      </div>
+
+      <div class="mobile-menu" id="mobileMenu" aria-label="Mobile menu">
+        <a href="#about">About</a>
+        <a href="#services">Services</a>
+        <a href="#team">Team</a>
+        <a href="#faq">FAQ</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- HERO -->
+  <header id="top" class="hero">
+    <!-- If you add hero.mp4 in the same folder, it will autoplay. Otherwise the gradient background still looks good. -->
+    <div class="hero-media" aria-hidden="true"></div>
+    <video class="hero-video" autoplay muted loop playsinline preload="auto" poster="">
+      <source src="hero.mp4" type="video/mp4" />
+    </video>
+    <div class="hero-overlay" aria-hidden="true"></div>
+
+    <div class="container">
+      <div class="hero-card">
+        <div class="pill"><span class="dot"></span> Samaná Peninsula • Dominican Republic</div>
+        <h1>Surf lessons that feel like vacation.</h1>
+        <p>
+          Clean coaching, calm vibes, and real progression — from your first pop-up to
+          confident green-waves. Small groups, local knowledge, and the best sessions we can find.
+        </p>
+
+        <div class="hero-actions">
+          <a class="btn primary" href="#services">See Lessons</a>
+          <a class="btn" href="#about">About the School</a>
+        </div>
+
+        <a class="arrow-down" href="#about" aria-label="Scroll to about section">
+          <span class="arrow" aria-hidden="true">
+            <svg viewBox="0 0 24 24">
+              <path d="M12 5v14"></path>
+              <path d="M19 12l-7 7-7-7"></path>
+            </svg>
+          </span>
+          <span>Scroll for details</span>
+        </a>
+
+        <div class="hero-note">
+          Tip: Upload <strong>hero.mp4</strong> (short, ~10–20s loop) to make the header video come alive.
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- ABOUT -->
+  <section id="about" class="section">
+    <div class="container">
+      <div class="split">
+        <div>
+          <div class="kicker">About</div>
+          <h2>Simple, safe, and seriously fun.</h2>
+          <p>
+            Peninsula Surf School is a small surf school based on the Samaná Peninsula.
+            We teach with patience, clear technique cues, and the kind of local ocean awareness that
+            helps you relax and progress fast.
+          </p>
+          <p>
+            Expect warm water, uncrowded moments, and coaching tailored to your level —
+            whether you’re here for your first wave or to sharpen turns.
+          </p>
+
+          <div class="tag-row" aria-label="Highlights">
+            <span class="tag">Beginner-friendly</span>
+            <span class="tag">Small groups</span>
+            <span class="tag">Local surf spots</span>
+            <span class="tag">Board included</span>
+          </div>
+        </div>
+
+        <div class="card">
+          <!-- Replace about.jpg with your image (same folder). -->
+          <img class="about-img" src="about.jpg" alt="Surf lesson in Samaná, Dominican Republic" onerror="this.style.display='none'; this.parentElement.style.padding='20px'; this.parentElement.innerHTML += '<div style=&quot;color:var(--muted);font-size:14px;line-height:1.5;&quot;><strong>Optional image:</strong> Add <code>about.jpg</code> next to <code>index.html</code> (or update the filename).<br/>Recommended: 1200×900.</div>';">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES -->
+  <section id="services" class="section" style="padding-top: 30px;">
+    <div class="container">
+      <div class="kicker">Services</div>
+      <h2>Pick your session. Click to expand.</h2>
+      <p>Tap a card to see what’s included. Only one stays open at a time (clean + focused).</p>
+
+      <div class="services-grid" role="list">
+        <article class="service" role="listitem" tabindex="0" data-service>
+          <div class="badge">Most Popular</div>
+          <div class="icon" aria-hidden="true">🏄‍♂️</div>
+          <h3>Beginner Surf Lesson</h3>
+          <p class="summary">Your first waves — pop-up, stance, safety, and smooth takeoffs.</p>
+
+          <div class="details" aria-label="Beginner lesson details">
+            <p class="summary" style="margin-top:0;">
+              Perfect if you’ve never surfed (or tried once and want it to click).
+              We keep it simple and confidence-building.
+            </p>
+            <ul>
+              <li>Beach warm-up + pop-up practice</li>
+              <li>Water safety + reading the lineup</li>
+              <li>Hands-on coaching in the water</li>
+              <li>Board + leash included</li>
+            </ul>
+          </div>
+
+          <div class="meta">
+            <span>~90 minutes</span>
+            <span class="chev" aria-hidden="true">⌄</span>
+          </div>
+        </article>
+
+        <article class="service" role="listitem" tabindex="0" data-service>
+          <div class="icon" aria-hidden="true">🎯</div>
+          <h3>Private Coaching</h3>
+          <p class="summary">1-on-1 (or 2-on-1) to fast-track technique and confidence.</p>
+
+          <div class="details" aria-label="Private coaching details">
+            <p class="summary" style="margin-top:0;">
+              Get targeted feedback, wave selection help, and drills built around your goals.
+            </p>
+            <ul>
+              <li>Technique tune-ups (stance, trim, turns)</li>
+              <li>Wave timing + positioning coaching</li>
+              <li>Optional video feedback (if you bring a phone/tripod)</li>
+              <li>Great for intermediate surfers</li>
+            </ul>
+          </div>
+
+          <div class="meta">
+            <span>~90–120 minutes</span>
+            <span class="chev" aria-hidden="true">⌄</span>
+          </div>
+        </article>
+
+        <article class="service" role="listitem" tabindex="0" data-service>
+          <div class="icon" aria-hidden="true">🧭</div>
+          <h3>Guided Surf Session</h3>
+          <p class="summary">We find the best conditions and guide you to the right spot.</p>
+
+          <div class="details" aria-label="Guided session details">
+            <p class="summary" style="margin-top:0;">
+              Ideal if you can paddle and catch waves but want local knowledge and a smoother session.
+            </p>
+            <ul>
+              <li>Spot selection based on swell + wind</li>
+              <li>Safety briefing + lineup strategy</li>
+              <li>Local guidance throughout the session</li>
+              <li>Bring your board or rent locally</li>
+            </ul>
+          </div>
+
+          <div class="meta">
+            <span>~2 hours</span>
+            <span class="chev" aria-hidden="true">⌄</span>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- TEAM -->
+  <section id="team" class="section">
+    <div class="container">
+      <div class="kicker">Team</div>
+      <h2>Local guides. Clear coaching.</h2>
+      <p>We’re small on purpose — more attention, better waves, better sessions.</p>
+
+      <div class="team-wrap">
+        <div class="card">
+          <!-- Replace team.jpg with your image (same folder). -->
+          <img class="team-photo" src="team.jpg" alt="Peninsula Surf School instructor" onerror="this.style.display='none'; this.parentElement.style.padding='20px'; this.parentElement.innerHTML += '<div style=&quot;color:var(--muted);font-size:14px;line-height:1.5;&quot;><strong>Optional image:</strong> Add <code>team.jpg</code> next to <code>index.html</code> (or update the filename).<br/>Recommended: 1200×1400.</div>';">
+        </div>
+
+        <div class="card pad">
+          <h3 style="margin:0 0 6px; font-size:20px;">Meet your coach</h3>
+          <p style="margin-top:0;">
+            Founded by a Samaná-based surfer who loves teaching as much as surfing.
+            Our focus is simple: safe sessions, real progression, and good vibes —
+            the kind you remember long after you leave the beach.
+          </p>
+
+          <div class="quote">
+            <strong>Our promise:</strong> You’ll leave the water knowing exactly what to improve next —
+            and feeling proud of what you did today.
+          </div>
+
+          <div style="display:flex; gap:12px; flex-wrap:wrap; margin-top:16px;">
+            <a class="btn primary" href="#services">Choose a Lesson</a>
+            <a class="btn" href="#faq">Read FAQ</a>
+          </div>
+
+          <p style="font-size:13px; margin-top:14px;">
+            Want to add contact buttons? You can swap these links for WhatsApp / Instagram later.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section id="faq" class="section" style="padding-top: 40px;">
+    <div class="container">
+      <div class="kicker">FAQ</div>
+      <h2>Quick answers, easy planning.</h2>
+      <p>Click a question to expand.</p>
+
+      <div class="faq" aria-label="Frequently asked questions">
+        <details>
+          <summary>
+            Do I need experience to take a lesson?
+            <span class="faq-arrow" aria-hidden="true">⌄</span>
+          </summary>
+          <p>Nope. Beginner lessons are designed for first-timers. We start on the sand, then head into gentle water with coaching the whole time.</p>
+        </details>
+
+        <details>
+          <summary>
+            What’s included?
+            <span class="faq-arrow" aria-hidden="true">⌄</span>
+          </summary>
+          <p>Typically: board + leash, safety briefing, technique instruction, and in-water coaching. If you want a rash guard or sunscreen, bring your own.</p>
+        </details>
+
+        <details>
+          <summary>
+            How long are sessions?
+            <span class="faq-arrow" aria-hidden="true">⌄</span>
+          </summary>
+          <p>Most lessons are ~90 minutes. Guided sessions are usually ~2 hours depending on conditions and the group.</p>
+        </details>
+
+        <details>
+          <summary>
+            What should I bring?
+            <span class="faq-arrow" aria-hidden="true">⌄</span>
+          </summary>
+          <p>Swimsuit, towel, water, reef-safe sunscreen, and good vibes. If you have your own surf booties or rash guard, feel free to bring them.</p>
+        </details>
+
+        <details>
+          <summary>
+            Can you choose the best time for waves?
+            <span class="faq-arrow" aria-hidden="true">⌄</span>
+          </summary>
+          <p>Yes. We’ll recommend a time based on wind and swell, and pick a spot that matches your level.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <div class="footer-row">
+        <div>
+          <strong style="color:var(--text);">Peninsula Surf School</strong>
+          <div>Samaná Peninsula, Dominican Republic</div>
+        </div>
+        <div class="tiny-links">
+          <a href="#about">About</a>
+          <a href="#services">Services</a>
+          <a href="#team">Team</a>
+          <a href="#faq">FAQ</a>
+        </div>
+      </div>
+      <div style="margin-top:14px; font-size:12px; opacity:.9;">
+        © <span id="year"></span> Peninsula Surf School. Built as a single-page static site.
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Footer year
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Mobile menu toggle
+    const menuBtn = document.getElementById('menuBtn');
+    const mobileMenu = document.getElementById('mobileMenu');
+    if (menuBtn && mobileMenu) {
+      menuBtn.addEventListener('click', () => {
+        const isOpen = mobileMenu.classList.toggle('show');
+        menuBtn.setAttribute('aria-expanded', String(isOpen));
+      });
+      // Close menu when clicking a link
+      mobileMenu.querySelectorAll('a').forEach(a => {
+        a.addEventListener('click', () => {
+          mobileMenu.classList.remove('show');
+          menuBtn.setAttribute('aria-expanded', 'false');
+        });
+      });
+    }
+
+    // Services: click-to-expand (only one open at a time)
+    const serviceCards = Array.from(document.querySelectorAll('[data-service]'));
+    function collapseAll(except) {
+      serviceCards.forEach(card => {
+        if (card !== except) card.classList.remove('expanded');
+      });
+    }
+
+    serviceCards.forEach(card => {
+      card.addEventListener('click', () => {
+        const willExpand = !card.classList.contains('expanded');
+        collapseAll(card);
+        card.classList.toggle('expanded', willExpand);
+      });
+      // Keyboard accessibility (Enter/Space)
+      card.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          card.click();
+        }
+      });
+    });
+
+    // If hero.mp4 is missing, hide the <video> element cleanly (keeps gradient background)
+    const heroVideo = document.querySelector('video.hero-video');
+    if (heroVideo) {
+      heroVideo.addEventListener('error', () => heroVideo.style.display = 'none');
+      // Some hosts won't fire error for missing file; detect if it never loads.
+      setTimeout(() => {
+        if (heroVideo.readyState === 0) heroVideo.style.display = 'none';
+      }, 1200);
+    }
+  </script>
+</body>
+</html>
