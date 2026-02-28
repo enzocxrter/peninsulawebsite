@@ -13,13 +13,11 @@
 
   <style>
     :root{
-      /* palette */
       --ink: #111111;
       --navy: #445366;
       --sand: #f2e0c4;
       --white: #ffffff;
 
-      /* ui */
       --muted: rgba(17,17,17,0.62);
       --border: rgba(17,17,17,0.14);
       --shadow: 0 20px 55px rgba(17,17,17,0.10);
@@ -36,8 +34,8 @@
       background: var(--white);
       line-height:1.55;
 
-      /* Improved surfboard cursor (black/white outline, closer to your image) */
-      cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='44' height='44' viewBox='0 0 44 44'%3E%3Cg transform='translate(22 22) rotate(-25) translate(-22 -22)'%3E%3Cpath d='M22 4 C16 8, 11 16, 11 22 C11 28, 16 36, 22 40 C28 36, 33 28, 33 22 C33 16, 28 8, 22 4 Z' fill='white' stroke='black' stroke-width='2.2'/%3E%3Cpath d='M21.3 8.2 C16.5 12.3, 13.6 17.3, 13.6 22 C13.6 26.7, 16.5 31.7, 21.3 35.8' fill='none' stroke='black' stroke-width='1.6' stroke-linecap='round' opacity='0.85'/%3E%3Cpath d='M29.2 29.5 C28.2 32.6, 26.4 35.4, 24.2 37.5' fill='none' stroke='black' stroke-width='1.6' stroke-linecap='round' opacity='0.75'/%3E%3Cpath d='M27.6 30.6 C29.6 31.2, 30.8 33.0, 30.0 35.2 C28.6 34.0, 27.6 32.4, 27.6 30.6 Z' fill='white' stroke='black' stroke-width='1.6'/%3E%3C/g%3E%3C/svg%3E") 14 14, auto;
+      /* Slim surfboard cursor (black/white, longer + skinnier) */
+      cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='54' height='54' viewBox='0 0 54 54'%3E%3Cg transform='translate(27 27) rotate(-25) translate(-27 -27)'%3E%3Cpath d='M27 4 C20 9, 15 18, 15 27 C15 36, 20 45, 27 50 C34 45, 39 36, 39 27 C39 18, 34 9, 27 4 Z' fill='white' stroke='black' stroke-width='1.6'/%3E%3Cpath d='M26.3 7.6 C20.6 12.7, 17.8 20.0, 17.8 27 C17.8 34.0, 20.6 41.3, 26.3 46.4' fill='none' stroke='black' stroke-width='1.2' stroke-linecap='round' opacity='0.8'/%3E%3Cpath d='M34.2 36.2 C33.1 39.5, 31.0 42.8, 28.6 45.2' fill='none' stroke='black' stroke-width='1.2' stroke-linecap='round' opacity='0.75'/%3E%3C/g%3E%3C/svg%3E") 16 16, auto;
     }
 
     a{color:inherit; text-decoration:none}
@@ -156,19 +154,25 @@
         linear-gradient(180deg, rgba(0,0,0,0.55), rgba(0,0,0,0.18), rgba(255,255,255,0.02));
     }
 
-    /* YouTube player container */
     .hero-youtube{
       position:absolute;
       inset:0;
       z-index:-3;
       overflow:hidden;
     }
-    /* YouTube iframe (created by API) */
+
+    /* IMPORTANT: let the API container fill the hero */
+    #ytPlayer{
+      position:absolute;
+      inset:0;
+    }
+
+    /* iframe created by API */
     .hero-youtube iframe{
       position:absolute;
       top:50%;
       left:50%;
-      width:177.78vh; /* 16:9 cover trick */
+      width:177.78vh;
       height:100vh;
       min-width:100vw;
       min-height:56.25vw;
@@ -190,7 +194,6 @@
       text-align:center;
     }
 
-    /* Big fading logo overlay */
     .hero-logo-wrap{
       display:flex;
       justify-content:center;
@@ -205,7 +208,6 @@
       opacity: 1;
       transform: translateY(0) scale(1);
       transition: opacity .12s linear, transform .12s linear;
-      /* black logo on video: give a subtle soft edge */
       filter: drop-shadow(0 18px 60px rgba(255,255,255,0.14)) drop-shadow(0 18px 60px rgba(0,0,0,0.18));
       user-select:none;
     }
@@ -599,7 +601,6 @@
     <div class="container">
       <div class="nav-inner">
         <a class="brand" href="#top" aria-label="Peninsula Surf School home">
-          <!-- 1) swapped header mark for your uploaded white logo -->
           <img class="brand-logo" src="cristianlogowhite.png" alt="Peninsula Surf School logo">
           <span data-i18n="brand">Peninsula Surf School</span>
         </a>
@@ -619,7 +620,7 @@
             </svg>
           </a>
 
-          <!-- 4) WhatsApp placeholder (update href later) -->
+          <!-- WhatsApp placeholder -->
           <a class="icon-btn" id="whatsappBtn" href="#" aria-label="WhatsApp">
             <svg class="icon" viewBox="0 0 24 24">
               <path d="M20 11.5a8 8 0 0 1-12.7 6.4L4 19l1.2-3.1A8 8 0 1 1 20 11.5z"/>
@@ -627,7 +628,7 @@
             </svg>
           </a>
 
-          <!-- 5) Language toggle -->
+          <!-- Language toggle -->
           <button class="lang-btn" id="langToggle" aria-label="Switch language">Español</button>
 
           <button class="hamburger" id="menuBtn" aria-label="Open menu" aria-expanded="false">☰</button>
@@ -647,7 +648,7 @@
   <header id="top" class="hero">
     <div class="hero-media" aria-hidden="true"></div>
 
-    <!-- YouTube background (IFrame API will inject an iframe into this div) -->
+    <!-- YouTube background -->
     <div class="hero-youtube" aria-hidden="true">
       <div id="ytPlayer"></div>
     </div>
@@ -656,12 +657,10 @@
 
     <div class="container">
       <div class="hero-inner">
-        <!-- 2) Large black logo overlay that fades out on scroll -->
         <div class="hero-logo-wrap" aria-hidden="true">
           <img id="heroLogo" class="hero-logo" src="cristianlogoblack.png" alt="">
         </div>
 
-        <!-- Only keep this text + buttons -->
         <p class="hero-sub" data-i18n="hero_sub">
           Clean coaching, calm vibes, and real progression — from your first pop-up to confident green waves.
           Small groups. Local knowledge. Tropical water.
@@ -729,9 +728,7 @@
           <p class="brief" data-i18n="s1_brief">Your first waves — pop-up, stance, safety, and smooth takeoffs.</p>
 
           <div class="details" data-i18n="s1_details">
-            <p class="brief" style="margin:0">
-              Perfect if you’ve never surfed (or tried once and want it to click).
-            </p>
+            <p class="brief" style="margin:0">Perfect if you’ve never surfed (or tried once and want it to click).</p>
             <ul>
               <li>Beach warm-up + pop-up practice</li>
               <li>Ocean safety + wave timing</li>
@@ -752,9 +749,7 @@
           <p class="brief" data-i18n="s2_brief">1-on-1 (or 2-on-1) for technique, confidence, and faster progression.</p>
 
           <div class="details" data-i18n="s2_details">
-            <p class="brief" style="margin:0">
-              Targeted feedback and drills built around your goals.
-            </p>
+            <p class="brief" style="margin:0">Targeted feedback and drills built around your goals.</p>
             <ul>
               <li>Stance, trim, turns, and positioning</li>
               <li>Wave selection and timing</li>
@@ -775,9 +770,7 @@
           <p class="brief" data-i18n="s3_brief">We pick the right spot for the day and guide you through a clean session.</p>
 
           <div class="details" data-i18n="s3_details">
-            <p class="brief" style="margin:0">
-              Great if you can paddle and catch waves but want local knowledge.
-            </p>
+            <p class="brief" style="margin:0">Great if you can paddle and catch waves but want local knowledge.</p>
             <ul>
               <li>Spot selection based on swell + wind</li>
               <li>Safety briefing + lineup strategy</li>
@@ -902,7 +895,7 @@
     </div>
   </footer>
 
-  <!-- YouTube IFrame API (helps autoplay/mute reliably) -->
+  <!-- YouTube IFrame API -->
   <script src="https://www.youtube.com/iframe_api"></script>
 
   <script>
@@ -946,13 +939,13 @@
       });
     });
 
-    // 2) Fade out large hero logo on scroll
+    // Fade out big hero logo on scroll
     const heroLogo = document.getElementById('heroLogo');
     function clamp(n, min, max){ return Math.max(min, Math.min(max, n)); }
     function onScrollFade(){
       if(!heroLogo) return;
       const y = window.scrollY || 0;
-      const fadeDistance = 320; // tweak
+      const fadeDistance = 320;
       const t = clamp(1 - (y / fadeDistance), 0, 1);
       heroLogo.style.opacity = String(t);
       heroLogo.style.transform = `translateY(${(1 - t) * -10}px) scale(${1 + (1 - t) * 0.03})`;
@@ -960,7 +953,7 @@
     window.addEventListener('scroll', onScrollFade, { passive:true });
     onScrollFade();
 
-    // 5) Language toggle (English <-> Español)
+    // Language toggle
     const dict = {
       en: {
         brand: "Peninsula Surf School",
@@ -968,12 +961,10 @@
         nav_services: "Services",
         nav_team: "Team",
         nav_faq: "FAQ",
-
         hero_sub: "Clean coaching, calm vibes, and real progression — from your first pop-up to confident green waves. Small groups. Local knowledge. Tropical water.",
         hero_btn_services: "Explore Lessons →",
         hero_btn_faq: "Quick FAQ",
         hero_btn_contact: "Contact",
-
         about_kicker: "Who we are",
         about_title: "Warm water. Clear coaching.<br><span class=\"accent\">No stress.</span>",
         about_p1: "Peninsula Surf School is based in Samaná, Dominican Republic. We teach surfing in a simple, supportive way: you’ll understand what to do, why it works, and how to improve fast.",
@@ -982,13 +973,11 @@
         tag_2: "Small groups",
         tag_3: "Local surf spots",
         tag_4: "Boards included",
-
         services_kicker: "What we do",
         services_title: "Three ways to get <span class=\"accent\">better fast.</span>",
         services_sub: "Click a service card to expand details. Only one stays open at a time (clean + focused).",
         services_intro: "Surf lessons<br>in Samaná.",
         services_readmore: "Read more →",
-
         s1_num: "01",
         s1_title: "Beginner Lesson",
         s1_brief: "Your first waves — pop-up, stance, safety, and smooth takeoffs.",
@@ -1000,7 +989,6 @@
                       <li>Board + leash included</li>
                     </ul>`,
         s1_time: "~90 minutes",
-
         s2_num: "02",
         s2_title: "Private Coaching",
         s2_brief: "1-on-1 (or 2-on-1) for technique, confidence, and faster progression.",
@@ -1012,7 +1000,6 @@
                       <li>Ideal for intermediate surfers</li>
                     </ul>`,
         s2_time: "~90–120 minutes",
-
         s3_num: "03",
         s3_title: "Guided Session",
         s3_brief: "We pick the right spot for the day and guide you through a clean session.",
@@ -1024,7 +1011,6 @@
                       <li>Bring your board or rent locally</li>
                     </ul>`,
         s3_time: "~2 hours",
-
         team_kicker: "Team",
         team_title: "Local guides, <span class=\"accent\">good energy.</span>",
         team_sub: "Small on purpose — more attention, better waves, better sessions.",
@@ -1034,7 +1020,6 @@
         team_btn: "Choose a Lesson →",
         team_btn2: "Email us",
         team_note: "Want WhatsApp + Instagram buttons? Swap the links and you’re done.",
-
         faq_kicker: "FAQ",
         faq_title: "Quick answers, <span class=\"accent\">easy planning.</span>",
         faq_sub: "Click a question to expand.",
@@ -1048,24 +1033,20 @@
         a4: "Swimsuit, towel, reef-safe sunscreen, water, and good vibes. If you have a rash guard, bring it.",
         q5: "Can you choose the best time for waves?",
         a5: "Yes. We’ll recommend a time based on wind and swell, and pick a spot that matches your level.",
-
         footer_brand: "Peninsula Surf School",
         footer_loc: "Samaná Peninsula, Dominican Republic",
         footer_rights: "Peninsula Surf School."
       },
-
       es: {
         brand: "Peninsula Surf School",
         nav_about: "Nosotros",
         nav_services: "Servicios",
         nav_team: "Equipo",
         nav_faq: "Preguntas",
-
         hero_sub: "Entrenamiento claro, buenas vibras y progreso real — desde tu primer pop-up hasta olas verdes con confianza. Grupos pequeños. Conocimiento local. Agua tropical.",
         hero_btn_services: "Ver clases →",
         hero_btn_faq: "FAQ rápido",
         hero_btn_contact: "Contacto",
-
         about_kicker: "Quiénes somos",
         about_title: "Agua cálida. Coaching claro.<br><span class=\"accent\">Cero estrés.</span>",
         about_p1: "Peninsula Surf School está en Samaná, República Dominicana. Enseñamos surf de forma simple y con apoyo: entenderás qué hacer, por qué funciona y cómo mejorar rápido.",
@@ -1074,13 +1055,11 @@
         tag_2: "Grupos pequeños",
         tag_3: "Spots locales",
         tag_4: "Tablas incluidas",
-
         services_kicker: "Qué hacemos",
         services_title: "Tres formas de mejorar <span class=\"accent\">rápido.</span>",
         services_sub: "Haz clic en un servicio para ver más detalles. Solo uno queda abierto a la vez (limpio y enfocado).",
         services_intro: "Clases de surf<br>en Samaná.",
         services_readmore: "Leer más →",
-
         s1_num: "01",
         s1_title: "Clase para principiantes",
         s1_brief: "Tus primeras olas — pop-up, postura, seguridad y despegues suaves.",
@@ -1092,7 +1071,6 @@
                       <li>Tabla + leash incluidos</li>
                     </ul>`,
         s1_time: "~90 minutos",
-
         s2_num: "02",
         s2_title: "Coaching privado",
         s2_brief: "1 a 1 (o 2 a 1) para técnica, confianza y progreso más rápido.",
@@ -1104,7 +1082,6 @@
                       <li>Ideal para nivel intermedio</li>
                     </ul>`,
         s2_time: "~90–120 minutos",
-
         s3_num: "03",
         s3_title: "Sesión guiada",
         s3_brief: "Elegimos el mejor spot del día y te guiamos en una sesión limpia y segura.",
@@ -1116,7 +1093,6 @@
                       <li>Trae tu tabla o alquila localmente</li>
                     </ul>`,
         s3_time: "~2 horas",
-
         team_kicker: "Equipo",
         team_title: "Guías locales, <span class=\"accent\">buena energía.</span>",
         team_sub: "Pequeño a propósito — más atención, mejores olas, mejores sesiones.",
@@ -1126,7 +1102,6 @@
         team_btn: "Elegir clase →",
         team_btn2: "Escríbenos por email",
         team_note: "¿Quieres botones de WhatsApp e Instagram? Solo cambia los links y listo.",
-
         faq_kicker: "Preguntas",
         faq_title: "Respuestas rápidas, <span class=\"accent\">plan fácil.</span>",
         faq_sub: "Haz clic para ver la respuesta.",
@@ -1140,7 +1115,6 @@
         a4: "Traje de baño, toalla, protector solar reef-safe, agua y buenas vibras. Si tienes lycra, tráela.",
         q5: "¿Pueden elegir el mejor horario para olas?",
         a5: "Sí. Recomendamos hora según viento y swell, y elegimos un spot que encaje con tu nivel.",
-
         footer_brand: "Peninsula Surf School",
         footer_loc: "Península de Samaná, República Dominicana",
         footer_rights: "Peninsula Surf School."
@@ -1157,15 +1131,13 @@
         const key = el.getAttribute("data-i18n");
         if (!map[key]) return;
 
-        // For blocks containing HTML (like headings with <span>, details lists)
-        if (el.tagName === "H2" || el.classList.contains("details") || el.tagName === "DIV" && el.classList.contains("quote")) {
+        if (el.tagName === "H2" || el.classList.contains("details") || (el.tagName === "DIV" && el.classList.contains("quote"))) {
           el.innerHTML = map[key];
         } else {
           el.textContent = map[key];
         }
       });
 
-      // Toggle button label
       langToggle.textContent = (lang === "en") ? "Español" : "English";
       document.documentElement.lang = (lang === "en") ? "en" : "es";
     }
@@ -1174,16 +1146,15 @@
       applyLang(currentLang === "en" ? "es" : "en");
     });
 
-    // Initialize
     applyLang("en");
 
-    // ---- YouTube IFrame API setup (reliable autoplay/mute) ----
-    // Video ID
+    // ---- YouTube IFrame API: improved autoplay reliability ----
     const VIDEO_ID = "NQyanL1QEPw";
     let player;
 
     function onYouTubeIframeAPIReady() {
-      player = new YT.Player('ytPlayer', {
+      player = new YT.Player("ytPlayer", {
+        host: "https://www.youtube-nocookie.com",
         videoId: VIDEO_ID,
         playerVars: {
           autoplay: 1,
@@ -1195,17 +1166,25 @@
           loop: 1,
           playlist: VIDEO_ID,
           iv_load_policy: 3,
-          disablekb: 1
+          disablekb: 1,
+          fs: 0,
+          origin: window.location.origin
         },
         events: {
           onReady: (event) => {
             try {
+              const iframe = event.target.getIframe();
+              iframe.setAttribute("allow", "autoplay; encrypted-media; picture-in-picture");
+              iframe.setAttribute("referrerpolicy", "strict-origin-when-cross-origin");
+
               event.target.mute();
+              event.target.setVolume(0);
+
               event.target.playVideo();
+              setTimeout(() => { try { event.target.playVideo(); } catch(e){} }, 400);
             } catch (e) {}
           },
           onStateChange: (event) => {
-            // If it pauses/buffers, try to resume (light touch)
             if (event.data === YT.PlayerState.PAUSED) {
               try { event.target.playVideo(); } catch (e) {}
             }
@@ -1213,7 +1192,6 @@
         }
       });
     }
-    // Expose for API callback
     window.onYouTubeIframeAPIReady = onYouTubeIframeAPIReady;
   </script>
 </body>
