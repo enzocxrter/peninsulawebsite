@@ -6,168 +6,148 @@
   <title>Peninsula Surf School — Samaná, Dominican Republic</title>
   <meta name="description" content="Peninsula Surf School in Samaná, Dominican Republic. Surf lessons, coaching, and guided surf sessions for all levels." />
 
+  <!-- Optional: clean modern fonts (no extra files, just a CDN) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,500;1,400;1,500&display=swap" rel="stylesheet">
+
   <style>
     :root{
-      --bg: #ffffff;
-      --text: #0b1220;
-      --muted: #5b667a;
-      --blue: #0a66ff;
-      --blue2: #1fb6ff;
-      --card: rgba(255,255,255,0.78);
-      --card-strong: rgba(255,255,255,0.92);
-      --border: rgba(11,18,32,0.10);
-      --shadow: 0 18px 45px rgba(11,18,32,0.10);
+      /* Your palette */
+      --ink: #111111;
+      --navy: #445366;
+      --sand: #f2e0c4;
+      --white: #ffffff;
+
+      /* UI */
+      --muted: rgba(17,17,17,0.62);
+      --border: rgba(17,17,17,0.14);
+      --shadow: 0 20px 55px rgba(17,17,17,0.10);
       --radius: 22px;
-      --max: 1080px;
+      --max: 1120px;
     }
 
     *{box-sizing:border-box}
     html{scroll-behavior:smooth}
     body{
       margin:0;
-      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
-      color:var(--text);
-      background:var(--bg);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
+      color:var(--ink);
+      background: var(--white);
       line-height:1.55;
-    }
 
-    /* Subtle page grain / depth */
-    body::before{
-      content:"";
-      position:fixed;
-      inset:0;
-      pointer-events:none;
-      background:
-        radial-gradient(1200px 500px at 15% 10%, rgba(31,182,255,0.14), transparent 55%),
-        radial-gradient(900px 450px at 85% 20%, rgba(10,102,255,0.10), transparent 60%),
-        linear-gradient(180deg, rgba(0,0,0,0.02), rgba(0,0,0,0));
-      z-index:-1;
+      /* Fun surfboard cursor (SVG data URI) */
+      cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='36' height='36' viewBox='0 0 36 36'%3E%3Cg transform='translate(18 18) rotate(-25) translate(-18 -18)'%3E%3Cpath d='M18 3 C14 6, 10 13, 10 18 C10 23, 14 30, 18 33 C22 30, 26 23, 26 18 C26 13, 22 6, 18 3 Z' fill='%23445366'/%3E%3Cpath d='M18 6 C15 9, 12 14, 12 18 C12 22, 15 27, 18 30 C21 27, 24 22, 24 18 C24 14, 21 9, 18 6 Z' fill='%23f2e0c4' opacity='0.95'/%3E%3Cpath d='M18 8 L18 28' stroke='%23111111' stroke-width='1.2' opacity='0.7'/%3E%3C/g%3E%3C/svg%3E") 12 12, auto;
     }
 
     a{color:inherit; text-decoration:none}
-    .container{max-width:var(--max); margin:0 auto; padding:0 20px}
-    .section{padding:84px 0}
-    .kicker{letter-spacing:.14em; text-transform:uppercase; font-size:12px; color:var(--muted)}
-    h2{margin:.5rem 0 1rem; font-size:34px; line-height:1.15}
-    p{margin:.6rem 0; color:var(--muted)}
-    .btn{
-      display:inline-flex;
-      align-items:center;
-      gap:10px;
-      padding:12px 16px;
-      border-radius:999px;
-      background:rgba(255,255,255,0.90);
-      border:1px solid var(--border);
-      box-shadow: 0 10px 30px rgba(11,18,32,0.08);
-      transition: transform .18s ease, box-shadow .18s ease, background .18s ease;
-      user-select:none;
-    }
-    .btn:hover{transform: translateY(-2px); box-shadow: 0 16px 35px rgba(11,18,32,0.12); background:#fff}
-    .btn.primary{
-      background: linear-gradient(135deg, var(--blue), var(--blue2));
-      color:white;
-      border-color: rgba(255,255,255,0.25);
-    }
-    .btn.primary:hover{transform: translateY(-2px) scale(1.01)}
-    .pill{
-      display:inline-flex;
-      align-items:center;
-      gap:8px;
-      padding:8px 12px;
-      border-radius:999px;
-      background:rgba(255,255,255,0.65);
-      border:1px solid rgba(255,255,255,0.35);
-      backdrop-filter: blur(10px);
-      -webkit-backdrop-filter: blur(10px);
-      font-size:13px;
-      color: rgba(255,255,255,0.92);
-      text-shadow: 0 1px 18px rgba(0,0,0,0.25);
-    }
-    .dot{
-      width:8px; height:8px; border-radius:999px;
-      background: rgba(255,255,255,0.95);
-      box-shadow: 0 0 0 3px rgba(255,255,255,0.22);
-    }
+    .container{max-width:var(--max); margin:0 auto; padding:0 22px}
 
-    /* Top nav */
+    /* --- NAV (matches screenshot vibe) --- */
     .nav{
       position:fixed;
-      top:12px; left:0; right:0;
+      top:0; left:0; right:0;
       z-index:50;
+      padding:18px 0;
+      pointer-events:none; /* allow hero click-through except nav elements */
     }
     .nav-inner{
+      pointer-events:auto;
       display:flex;
       align-items:center;
       justify-content:space-between;
       gap:14px;
-      padding:10px 14px;
-      border-radius:999px;
-      background: rgba(255,255,255,0.72);
-      border:1px solid rgba(11,18,32,0.10);
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
-      box-shadow: 0 12px 35px rgba(11,18,32,0.12);
+      color: rgba(255,255,255,0.95);
+      mix-blend-mode: normal;
     }
     .brand{
-      display:flex; align-items:center; gap:10px;
-      font-weight:700;
-      letter-spacing:.01em;
+      display:flex; align-items:center; gap:12px;
+      font-weight:500;
+      letter-spacing:0.02em;
     }
-    .logo{
-      width:34px; height:34px; border-radius:12px;
-      background: linear-gradient(135deg, var(--blue), var(--blue2));
-      position:relative;
-      box-shadow: 0 16px 35px rgba(10,102,255,0.28);
-    }
-    .logo::after{
-      content:"";
-      position:absolute; inset:8px 10px;
+    .brand-mark{
+      width:34px; height:34px;
       border-radius:999px;
-      border:2px solid rgba(255,255,255,0.85);
-      transform: rotate(-22deg);
+      border:1px solid rgba(255,255,255,0.55);
+      display:grid;
+      place-items:center;
     }
+    .brand-mark svg{width:18px; height:18px; fill:none; stroke:white; stroke-width:1.8}
     .nav-links{
+      display:flex;
+      gap:22px;
+      align-items:center;
+      font-size:14px;
+      opacity:0.95;
+    }
+    .nav-links a{
+      position:relative;
+      padding:6px 0;
+      opacity:0.92;
+      transition: opacity .18s ease;
+    }
+    .nav-links a:hover{opacity:1}
+    .nav-links a::after{
+      content:"";
+      position:absolute;
+      left:0; right:0; bottom:-2px;
+      height:1px;
+      background: rgba(255,255,255,0.75);
+      transform: scaleX(0);
+      transform-origin:left;
+      transition: transform .22s ease;
+    }
+    .nav-links a:hover::after{transform: scaleX(1)}
+    .nav-social{
       display:flex;
       gap:14px;
       align-items:center;
-      font-size:14px;
-      color: var(--text);
+      opacity:0.92;
     }
-    .nav-links a{
-      padding:8px 10px;
+    .icon-btn{
+      width:34px; height:34px;
       border-radius:999px;
-      transition: background .18s ease, transform .18s ease;
+      border:1px solid rgba(255,255,255,0.40);
+      background: rgba(0,0,0,0.12);
+      display:grid;
+      place-items:center;
+      transition: transform .18s ease, background .18s ease, opacity .18s ease;
     }
-    .nav-links a:hover{background: rgba(10,102,255,0.10); transform: translateY(-1px)}
-    .nav-cta{display:flex; gap:10px; align-items:center}
+    .icon-btn:hover{transform: translateY(-1px); background: rgba(0,0,0,0.18); opacity:1}
+    .icon{
+      width:16px; height:16px;
+      fill:none;
+      stroke:white;
+      stroke-width:2;
+      opacity:0.95;
+    }
+
     .hamburger{display:none}
 
-    /* Hero */
-    .hero{
-      min-height: 92vh;
+    /* --- HERO --- */
+    header.hero{
       position:relative;
+      min-height: 94vh;
       display:flex;
-      align-items:flex-end;
-      padding:110px 0 64px;
+      align-items:center;
       overflow:hidden;
+      color:white;
+      background: #0b0f14;
     }
     .hero-media{
       position:absolute; inset:0;
       z-index:-2;
       background:
-        radial-gradient(1200px 700px at 20% 20%, rgba(31,182,255,0.45), transparent 60%),
-        radial-gradient(900px 600px at 80% 30%, rgba(10,102,255,0.45), transparent 62%),
-        linear-gradient(180deg, rgba(3,8,20,0.75), rgba(3,8,20,0.35), rgba(255,255,255,0.02));
+        radial-gradient(1200px 700px at 20% 20%, rgba(242,224,196,0.12), transparent 60%),
+        radial-gradient(900px 600px at 80% 30%, rgba(68,83,102,0.22), transparent 62%),
+        linear-gradient(180deg, rgba(0,0,0,0.55), rgba(0,0,0,0.18), rgba(255,255,255,0.02));
     }
-
-    /* YouTube background container */
     .hero-youtube{
       position:absolute;
       inset:0;
       z-index:-3;
       overflow:hidden;
     }
-    /* Make iframe behave like a “cover” video */
     .hero-youtube iframe{
       position:absolute;
       top:50%;
@@ -176,153 +156,261 @@
       height:100vh;
       min-width:100vw;
       min-height:56.25vw;
-      transform:translate(-50%, -50%) scale(1.06);
-      pointer-events:none; /* prevents clicking the video */
+      transform:translate(-50%, -50%) scale(1.05);
+      pointer-events:none;
       border:0;
-      filter: saturate(1.12) contrast(1.05) brightness(0.92);
+      filter: saturate(1.08) contrast(1.05) brightness(0.90);
     }
-
     .hero-overlay{
       position:absolute; inset:0;
-      background: linear-gradient(180deg, rgba(0,0,0,0.45), rgba(0,0,0,0.10), rgba(255,255,255,0.02));
+      background: linear-gradient(180deg, rgba(0,0,0,0.48), rgba(0,0,0,0.18), rgba(255,255,255,0.02));
       z-index:-1;
     }
-    .hero-card{
-      width:min(720px, 100%);
-      padding:26px 22px;
-      border-radius: var(--radius);
-      border: 1px solid rgba(255,255,255,0.22);
-      background: rgba(255,255,255,0.10);
-      backdrop-filter: blur(14px);
-      -webkit-backdrop-filter: blur(14px);
-      box-shadow: 0 22px 60px rgba(0,0,0,0.25);
-      color:white;
+
+    .hero-inner{
+      width:100%;
+      padding: 140px 0 90px;
     }
-    .hero h1{
-      margin:10px 0 10px;
-      font-size: clamp(38px, 6vw, 60px);
+    .hero-title{
+      margin:0;
+      text-align:center;
+      font-size: clamp(44px, 6.6vw, 86px);
+      font-weight: 300;
+      letter-spacing: -0.03em;
       line-height: 1.02;
-      letter-spacing: -0.02em;
+      text-shadow: 0 18px 60px rgba(0,0,0,0.35);
     }
-    .hero p{
-      color: rgba(255,255,255,0.88);
-      margin: 0 0 18px;
+    .hero-title .accent{
+      font-family: "Playfair Display", serif;
+      font-style: italic;
+      font-weight: 400;
+      letter-spacing: -0.01em;
+    }
+    .hero-sub{
+      margin: 18px auto 0;
+      max-width: 68ch;
+      text-align:center;
       font-size: 16px;
-      max-width: 58ch;
+      color: rgba(255,255,255,0.88);
     }
-    .hero-actions{display:flex; gap:12px; flex-wrap:wrap; align-items:center}
-    .hero-note{
-      margin-top:14px;
-      font-size: 13px;
-      color: rgba(255,255,255,0.82);
+
+    .hero-cta{
+      margin-top: 28px;
+      display:flex;
+      justify-content:center;
+      gap:12px;
+      flex-wrap:wrap;
     }
-    .arrow-down{
+    .btn{
       display:inline-flex;
       align-items:center;
       gap:10px;
-      margin-top:20px;
-      color: rgba(255,255,255,0.9);
-      font-size: 14px;
-      opacity: .95;
+      padding: 12px 18px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,0.55);
+      background: rgba(255,255,255,0.10);
+      color: rgba(255,255,255,0.96);
+      transition: transform .18s ease, background .18s ease, border-color .18s ease;
+      user-select:none;
     }
+    .btn:hover{transform: translateY(-2px); background: rgba(255,255,255,0.14); border-color: rgba(255,255,255,0.75)}
+    .btn.sand{
+      background: rgba(242,224,196,0.92);
+      border-color: rgba(242,224,196,0.55);
+      color: var(--ink);
+    }
+    .btn.sand:hover{background: rgba(242,224,196,1)}
+
+    .hero-scroll{
+      margin-top: 34px;
+      display:flex;
+      justify-content:center;
+      opacity:0.92;
+    }
+    .scroll-pill{
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      padding:10px 14px;
+      border-radius:999px;
+      border:1px solid rgba(255,255,255,0.35);
+      background: rgba(0,0,0,0.16);
+      transition: transform .18s ease, background .18s ease;
+    }
+    .scroll-pill:hover{transform: translateY(1px); background: rgba(0,0,0,0.22)}
     .arrow{
-      width:34px; height:34px; border-radius:999px;
+      width:34px; height:34px;
+      border-radius:999px;
       border:1px solid rgba(255,255,255,0.30);
       display:grid; place-items:center;
       background: rgba(255,255,255,0.08);
-      transition: transform .18s ease, background .18s ease;
     }
-    .arrow-down:hover .arrow{transform: translateY(2px); background: rgba(255,255,255,0.12)}
     .arrow svg{width:16px; height:16px; fill:none; stroke:white; stroke-width:2.2}
 
-    /* About */
-    .split{
-      display:grid;
-      grid-template-columns: 1.2fr .8fr;
-      gap: 26px;
-      align-items: center;
+    /* --- SECTIONS --- */
+    section{padding: 92px 0}
+    .kicker{
+      font-size:12px;
+      letter-spacing:.16em;
+      text-transform:uppercase;
+      color: rgba(17,17,17,0.55);
+      margin-bottom: 10px;
     }
-    .card{
+    h2{
+      margin: 0 0 14px;
+      font-size: clamp(34px, 4.4vw, 52px);
+      font-weight: 400;
+      letter-spacing: -0.03em;
+      line-height: 1.06;
+    }
+    h2 .accent{
+      font-family: "Playfair Display", serif;
+      font-style: italic;
+      font-weight: 400;
+    }
+    p{margin:0; color: var(--muted)}
+
+    /* About (matches the big-left title + right text feel) */
+    .about{
+      background: linear-gradient(180deg, rgba(242,224,196,0.28), rgba(255,255,255,0.92));
+      position:relative;
+      overflow:hidden;
+    }
+    .about::before{
+      content:"";
+      position:absolute;
+      inset:-120px -120px auto auto;
+      width: 520px;
+      height: 520px;
+      background:
+        radial-gradient(circle at 30% 30%, rgba(68,83,102,0.18), transparent 60%),
+        radial-gradient(circle at 70% 70%, rgba(242,224,196,0.45), transparent 58%);
+      filter: blur(6px);
+      opacity: 0.85;
+      pointer-events:none;
+    }
+    .about-grid{
+      display:grid;
+      grid-template-columns: 1.15fr 1fr;
+      gap: 34px;
+      align-items: start;
+    }
+    .about-copy{
+      display:flex;
+      flex-direction:column;
+      gap: 14px;
+      padding-top: 6px;
+    }
+    .about-card{
       border-radius: var(--radius);
-      border: 1px solid var(--border);
-      background: var(--card);
+      border:1px solid var(--border);
+      background: rgba(255,255,255,0.78);
       box-shadow: var(--shadow);
       overflow:hidden;
     }
-    .card.pad{padding:20px}
-    .about-img{
-      aspect-ratio: 4/3;
+    .about-card img{
       width:100%;
+      height: 360px;
       object-fit:cover;
       display:block;
       transform: scale(1.02);
       transition: transform .35s ease;
     }
-    .card:hover .about-img{transform: scale(1.06)}
-    .tag-row{display:flex; gap:10px; flex-wrap:wrap; margin-top:14px}
+    .about-card:hover img{transform: scale(1.06)}
+    .pill-row{display:flex; gap:10px; flex-wrap:wrap; margin-top: 6px}
     .tag{
       font-size: 13px;
-      color: var(--text);
       padding: 8px 12px;
       border-radius: 999px;
-      border:1px solid rgba(11,18,32,0.12);
       background: rgba(255,255,255,0.75);
+      border:1px solid rgba(17,17,17,0.12);
+      color: rgba(17,17,17,0.86);
     }
 
-    /* Services */
+    /* Services (like screenshot: intro tile + numbered tiles) */
+    .services{
+      background: #fff;
+    }
     .services-grid{
       display:grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 16px;
-      margin-top: 22px;
+      grid-template-columns: 1.1fr 1fr 1fr 1fr;
+      gap: 18px;
+      align-items: stretch;
+      margin-top: 24px;
     }
-    .service{
-      position:relative;
-      cursor:pointer;
+
+    .tile{
       border-radius: var(--radius);
-      border: 1px solid var(--border);
-      background: var(--card);
+      border:1px solid var(--border);
+      background: rgba(255,255,255,0.92);
       box-shadow: var(--shadow);
-      padding: 18px;
-      min-height: 220px;
-      transition: transform .2s ease, background .2s ease, border-color .2s ease, box-shadow .2s ease;
+      padding: 22px;
+      min-height: 280px;
+      position:relative;
+      overflow:hidden;
+    }
+
+    .tile.intro{
+      background: rgba(242,224,196,0.55);
       display:flex;
       flex-direction:column;
+      justify-content:space-between;
+      gap: 18px;
+    }
+    .tile.intro h3{
+      margin:0;
+      font-family: "Playfair Display", serif;
+      font-weight: 500;
+      letter-spacing: -0.02em;
+      font-size: 46px;
+      line-height: 1.0;
+      color: rgba(17,17,17,0.92);
+    }
+    .readmore{
+      display:inline-flex;
+      align-items:center;
       gap:10px;
-      overflow:hidden;
+      padding: 10px 14px;
+      border-radius: 999px;
+      border:1px solid rgba(17,17,17,0.20);
+      background: rgba(255,255,255,0.35);
+      width: fit-content;
+      transition: transform .18s ease, background .18s ease;
+    }
+    .readmore:hover{transform: translateY(-1px); background: rgba(255,255,255,0.55)}
+
+    .service{
+      cursor:pointer;
+      transition: transform .18s ease, background .18s ease, border-color .18s ease, box-shadow .18s ease;
     }
     .service:hover{
       transform: translateY(-3px);
-      background: var(--card-strong);
-      border-color: rgba(10,102,255,0.22);
-      box-shadow: 0 22px 55px rgba(11,18,32,0.14);
+      border-color: rgba(68,83,102,0.35);
+      box-shadow: 0 28px 70px rgba(17,17,17,0.12);
     }
-    .service .icon{
-      width:46px; height:46px; border-radius:16px;
-      background: linear-gradient(135deg, rgba(10,102,255,0.14), rgba(31,182,255,0.14));
-      border: 1px solid rgba(10,102,255,0.18);
-      display:grid; place-items:center;
+
+    .service[data-tone="sand"]{background: rgba(242,224,196,0.42)}
+    .service[data-tone="blue"]{background: rgba(68,83,102,0.10)}
+    .service[data-tone="white"]{background: rgba(255,255,255,0.92)}
+
+    .num{
+      font-size: 13px;
+      letter-spacing: .12em;
+      color: rgba(17,17,17,0.55);
     }
-    .service h3{margin:0; font-size:18px; color: var(--text)}
-    .service .summary{margin:0; color: var(--muted); font-size:14px}
-    .service .meta{
-      margin-top:auto;
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      font-size:13px;
-      color: var(--muted);
-      gap:10px;
+    .service h4{
+      margin: 10px 0 8px;
+      font-weight: 400;
+      letter-spacing: -0.02em;
+      font-size: 26px;
+      line-height: 1.06;
     }
-    .service .chev{
-      width:34px; height:34px; border-radius:999px;
-      border:1px solid rgba(11,18,32,0.12);
-      display:grid; place-items:center;
-      transition: transform .2s ease, background .2s ease;
-      background: rgba(255,255,255,0.65);
+    .service .brief{
+      font-size: 14px;
+      color: rgba(17,17,17,0.68);
+      margin-bottom: 10px;
+      max-width: 36ch;
     }
-    .service:hover .chev{background: rgba(10,102,255,0.08)}
-    .service.expanded .chev{transform: rotate(180deg)}
 
     .service .details{
       max-height: 0;
@@ -330,72 +418,107 @@
       opacity: 0;
       transform: translateY(6px);
       transition: max-height .35s ease, opacity .28s ease, transform .28s ease;
-      border-top: 1px solid rgba(11,18,32,0.10);
+      border-top: 1px solid rgba(17,17,17,0.12);
       padding-top: 0;
       margin-top: 0;
     }
     .service.expanded .details{
-      max-height: 420px;
+      max-height: 360px;
       opacity: 1;
       transform: translateY(0);
       padding-top: 12px;
-      margin-top: 8px;
+      margin-top: 10px;
     }
-    .details ul{margin:10px 0 0; padding-left: 18px; color: var(--muted); font-size:14px}
-    .details li{margin:6px 0}
-    .service .badge{
+    .service ul{
+      margin: 8px 0 0;
+      padding-left: 18px;
+      color: rgba(17,17,17,0.65);
+      font-size: 14px;
+    }
+    .service li{margin: 6px 0}
+
+    .service .expand-row{
       position:absolute;
-      top:14px; right:14px;
-      font-size: 12px;
-      padding: 8px 10px;
-      border-radius: 999px;
-      background: rgba(10,102,255,0.10);
-      border: 1px solid rgba(10,102,255,0.18);
-      color: rgba(11,18,32,0.85);
+      left: 22px;
+      right: 22px;
+      bottom: 18px;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      gap: 12px;
+      font-size: 13px;
+      color: rgba(17,17,17,0.58);
     }
+    .chev{
+      width:34px; height:34px;
+      border-radius:999px;
+      border:1px solid rgba(17,17,17,0.16);
+      background: rgba(255,255,255,0.55);
+      display:grid;
+      place-items:center;
+      transition: transform .18s ease, background .18s ease;
+    }
+    .service:hover .chev{background: rgba(255,255,255,0.75)}
+    .service.expanded .chev{transform: rotate(180deg)}
 
     /* Team */
-    .team-wrap{
+    .team{
+      background: linear-gradient(180deg, rgba(68,83,102,0.06), rgba(255,255,255,1));
+    }
+    .team-grid{
+      margin-top: 22px;
       display:grid;
-      grid-template-columns: .9fr 1.1fr;
+      grid-template-columns: 1fr 1.1fr;
       gap: 18px;
       align-items: stretch;
-      margin-top: 22px;
+    }
+    .card{
+      border-radius: var(--radius);
+      border:1px solid var(--border);
+      background: rgba(255,255,255,0.92);
+      box-shadow: var(--shadow);
+      overflow:hidden;
     }
     .team-photo{
       width:100%;
-      height:100%;
-      min-height: 320px;
+      height: 100%;
+      min-height: 360px;
       object-fit:cover;
       display:block;
+      transform: scale(1.02);
       transition: transform .35s ease;
     }
-    .card:hover .team-photo{transform: scale(1.05)}
+    .card:hover .team-photo{transform: scale(1.06)}
+    .pad{padding: 22px}
     .quote{
       margin-top: 14px;
       padding: 14px 14px;
       border-radius: 18px;
-      background: rgba(10,102,255,0.06);
-      border: 1px solid rgba(10,102,255,0.14);
-      color: rgba(11,18,32,0.85);
+      background: rgba(242,224,196,0.40);
+      border: 1px solid rgba(17,17,17,0.14);
+      color: rgba(17,17,17,0.82);
       font-size: 14px;
     }
 
     /* FAQ */
     .faq{
-      margin-top: 20px;
+      background: #fff;
+      padding-top: 70px;
+    }
+    .faq-list{
+      margin-top: 18px;
       display:grid;
       gap: 12px;
     }
     details{
       border-radius: var(--radius);
       border: 1px solid var(--border);
-      background: var(--card);
+      background: rgba(255,255,255,0.94);
       box-shadow: var(--shadow);
       padding: 16px 16px;
       transition: transform .18s ease, background .18s ease;
     }
-    details:hover{transform: translateY(-2px); background: var(--card-strong)}
+    details:hover{transform: translateY(-2px); background: #fff}
     summary{
       list-style:none;
       cursor:pointer;
@@ -403,27 +526,28 @@
       align-items:center;
       justify-content:space-between;
       gap:14px;
-      font-weight: 650;
-      color: var(--text);
+      font-weight: 500;
+      color: rgba(17,17,17,0.92);
     }
     summary::-webkit-details-marker{display:none}
     .faq-arrow{
-      width:34px; height:34px; border-radius:999px;
+      width:34px; height:34px;
+      border-radius:999px;
       display:grid; place-items:center;
-      border:1px solid rgba(11,18,32,0.12);
-      background: rgba(255,255,255,0.70);
+      border:1px solid rgba(17,17,17,0.16);
+      background: rgba(242,224,196,0.35);
       transition: transform .18s ease;
       flex: 0 0 auto;
     }
     details[open] .faq-arrow{transform: rotate(180deg)}
     details p{margin:10px 0 0; color: var(--muted)}
 
-    /* Footer */
     footer{
-      padding: 34px 0 44px;
-      border-top: 1px solid rgba(11,18,32,0.08);
-      color: var(--muted);
+      padding: 38px 0 46px;
+      border-top: 1px solid rgba(17,17,17,0.10);
+      color: rgba(17,17,17,0.62);
       font-size: 14px;
+      background: #fff;
     }
     .footer-row{
       display:flex;
@@ -432,47 +556,54 @@
       gap:14px;
       flex-wrap:wrap;
     }
-    .tiny-links{display:flex; gap:12px; flex-wrap:wrap}
+    .tiny-links{display:flex; gap:14px; flex-wrap:wrap}
     .tiny-links a{opacity:.9}
-    .tiny-links a:hover{opacity:1; color: var(--blue)}
+    .tiny-links a:hover{opacity:1; color: var(--navy)}
 
-    /* Responsive */
-    @media (max-width: 920px){
-      .split{grid-template-columns: 1fr}
-      .services-grid{grid-template-columns: 1fr}
-      .team-wrap{grid-template-columns: 1fr}
+    /* Mobile */
+    @media (max-width: 980px){
       .nav-links{display:none}
-      .hamburger{
-        display:inline-flex;
-        width:42px; height:42px;
-        border-radius:999px;
-        border:1px solid rgba(11,18,32,0.12);
-        background: rgba(255,255,255,0.85);
-        align-items:center;
-        justify-content:center;
-        cursor:pointer;
-        transition: transform .18s ease;
-      }
-      .hamburger:hover{transform: translateY(-1px)}
-      .mobile-menu{
-        display:none;
-        margin-top:10px;
-        padding:10px;
-        border-radius: 18px;
-        border:1px solid rgba(11,18,32,0.10);
-        background: rgba(255,255,255,0.86);
-        backdrop-filter: blur(12px);
-        -webkit-backdrop-filter: blur(12px);
-        box-shadow: 0 18px 45px rgba(11,18,32,0.14);
-      }
-      .mobile-menu a{
-        display:block;
-        padding:10px 10px;
-        border-radius: 14px;
-      }
-      .mobile-menu a:hover{background: rgba(10,102,255,0.08)}
-      .mobile-menu.show{display:block}
+      .hamburger{display:inline-flex}
+      .services-grid{grid-template-columns: 1fr; }
+      .about-grid{grid-template-columns: 1fr}
+      .team-grid{grid-template-columns: 1fr}
+      .tile{min-height: 240px}
+      .tile.intro h3{font-size: 40px}
     }
+
+    /* Mobile menu */
+    .hamburger{
+      display:none;
+      width:42px; height:42px;
+      border-radius:999px;
+      border:1px solid rgba(255,255,255,0.38);
+      background: rgba(0,0,0,0.14);
+      align-items:center;
+      justify-content:center;
+      cursor:pointer;
+      color:white;
+      transition: transform .18s ease;
+    }
+    .hamburger:hover{transform: translateY(-1px)}
+    .mobile-menu{
+      display:none;
+      margin-top:10px;
+      padding:10px;
+      border-radius: 18px;
+      border:1px solid rgba(255,255,255,0.20);
+      background: rgba(0,0,0,0.18);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      box-shadow: 0 18px 45px rgba(0,0,0,0.22);
+    }
+    .mobile-menu a{
+      display:block;
+      padding:10px 10px;
+      border-radius: 14px;
+      color: rgba(255,255,255,0.94);
+    }
+    .mobile-menu a:hover{background: rgba(255,255,255,0.10)}
+    .mobile-menu.show{display:block}
   </style>
 </head>
 
@@ -482,7 +613,11 @@
     <div class="container">
       <div class="nav-inner">
         <a class="brand" href="#top" aria-label="Peninsula Surf School home">
-          <span class="logo" aria-hidden="true"></span>
+          <span class="brand-mark" aria-hidden="true">
+            <svg viewBox="0 0 24 24">
+              <path d="M12 2l2.2 6.2L21 10l-6.8 1.8L12 18l-2.2-6.2L3 10l6.8-1.8L12 2z"/>
+            </svg>
+          </span>
           <span>Peninsula Surf School</span>
         </a>
 
@@ -493,14 +628,18 @@
           <a href="#faq">FAQ</a>
         </nav>
 
-        <div class="nav-cta">
-          <a class="btn primary" href="#services" aria-label="Explore services">
-            Start Surfing
-            <span aria-hidden="true">→</span>
-          </a>
-          <button class="hamburger" id="menuBtn" aria-label="Open menu" aria-expanded="false">
-            ☰
-          </button>
+        <div style="display:flex; align-items:center; gap:12px;">
+          <div class="nav-social" aria-label="Social">
+            <!-- Put real links later -->
+            <a class="icon-btn" href="#" aria-label="Instagram">
+              <svg class="icon" viewBox="0 0 24 24"><path d="M7 7h10v10H7z"/><path d="M16 3H8a5 5 0 0 0-5 5v8a5 5 0 0 0 5 5h8a5 5 0 0 0 5-5V8a5 5 0 0 0-5-5z"/><path d="M15.5 8.5h.01"/></svg>
+            </a>
+            <a class="icon-btn" href="#" aria-label="TikTok">
+              <svg class="icon" viewBox="0 0 24 24"><path d="M14 3v10.5a4.5 4.5 0 1 1-4-4.47V7a7.5 7.5 0 1 0 8 7.47V8.5c1.1.88 2.5 1.5 4 1.7V7.5c-2.4-.4-4.2-2.1-4-4.5H14z"/></svg>
+            </a>
+          </div>
+
+          <button class="hamburger" id="menuBtn" aria-label="Open menu" aria-expanded="false">☰</button>
         </div>
       </div>
 
@@ -521,7 +660,6 @@
       <iframe
         src="https://www.youtube.com/embed/NQyanL1QEPw?autoplay=1&mute=1&controls=0&playsinline=1&loop=1&playlist=NQyanL1QEPw&rel=0&modestbranding=1"
         title="Peninsula Surf School background video"
-        frameborder="0"
         allow="autoplay; encrypted-media; picture-in-picture"
         referrerpolicy="strict-origin-when-cross-origin"
         allowfullscreen
@@ -531,142 +669,149 @@
     <div class="hero-overlay" aria-hidden="true"></div>
 
     <div class="container">
-      <div class="hero-card">
-        <div class="pill"><span class="dot"></span> Samaná Peninsula • Dominican Republic</div>
-        <h1>Surf lessons that feel like vacation.</h1>
-        <p>
-          Clean coaching, calm vibes, and real progression — from your first pop-up to
-          confident green-waves. Small groups, local knowledge, and the best sessions we can find.
+      <div class="hero-inner">
+        <h1 class="hero-title">
+          Surf the Samaná Peninsula and get<br>
+          <span class="accent">waves that feel like magic.</span>
+        </h1>
+        <p class="hero-sub">
+          Clean coaching, calm vibes, and real progression — from your first pop-up to confident green waves.
+          Small groups. Local knowledge. Tropical water.
         </p>
 
-        <div class="hero-actions">
-          <a class="btn primary" href="#services">See Lessons</a>
-          <a class="btn" href="#about">About the School</a>
+        <div class="hero-cta">
+          <a class="btn sand" href="#services">Explore Lessons →</a>
+          <a class="btn" href="#faq">Quick FAQ</a>
+          <a class="btn" href="mailto:hello@peninsulasurfschool.com">Contact</a>
         </div>
 
-        <a class="arrow-down" href="#about" aria-label="Scroll to about section">
-          <span class="arrow" aria-hidden="true">
-            <svg viewBox="0 0 24 24">
-              <path d="M12 5v14"></path>
-              <path d="M19 12l-7 7-7-7"></path>
-            </svg>
-          </span>
-          <span>Scroll for details</span>
-        </a>
-
-        <div class="hero-note">
-          Background video is embedded from YouTube (autoplay muted). On some phones, playback may require a tap.
+        <div class="hero-scroll">
+          <a class="scroll-pill" href="#about" aria-label="Scroll to about section">
+            <span class="arrow" aria-hidden="true">
+              <svg viewBox="0 0 24 24">
+                <path d="M12 5v14"></path>
+                <path d="M19 12l-7 7-7-7"></path>
+              </svg>
+            </span>
+            <span>Scroll</span>
+          </a>
         </div>
       </div>
     </div>
   </header>
 
   <!-- ABOUT -->
-  <section id="about" class="section">
+  <section id="about" class="about">
     <div class="container">
-      <div class="split">
+      <div class="kicker">Who we are</div>
+      <div class="about-grid">
         <div>
-          <div class="kicker">About</div>
-          <h2>Simple, safe, and seriously fun.</h2>
-          <p>
-            Peninsula Surf School is a small surf school based on the Samaná Peninsula.
-            We teach with patience, clear technique cues, and the kind of local ocean awareness that
-            helps you relax and progress fast.
-          </p>
-          <p>
-            Expect warm water, uncrowded moments, and coaching tailored to your level —
-            whether you’re here for your first wave or to sharpen turns.
-          </p>
-
-          <div class="tag-row" aria-label="Highlights">
-            <span class="tag">Beginner-friendly</span>
-            <span class="tag">Small groups</span>
-            <span class="tag">Local surf spots</span>
-            <span class="tag">Board included</span>
+          <h2>Warm water. Clear coaching.<br><span class="accent">No stress.</span></h2>
+          <div class="about-copy">
+            <p>
+              Peninsula Surf School is based in Samaná, Dominican Republic. We teach surfing in a simple, supportive way:
+              you’ll understand what to do, why it works, and how to improve fast.
+            </p>
+            <p>
+              Whether you’re starting from zero or sharpening turns, we match you with the right beach, the right board,
+              and the right coaching style.
+            </p>
+            <div class="pill-row" aria-label="Highlights">
+              <span class="tag">Beginner-friendly</span>
+              <span class="tag">Small groups</span>
+              <span class="tag">Local surf spots</span>
+              <span class="tag">Boards included</span>
+            </div>
           </div>
         </div>
 
-        <div class="card">
-          <img class="about-img" src="about.jpg" alt="Surf lesson in Samaná, Dominican Republic">
+        <div class="about-card">
+          <!-- Replace with a tropical photo like: beach, lineup, lesson moment -->
+          <img src="about.jpg" alt="Surf lesson in Samaná, Dominican Republic">
         </div>
       </div>
     </div>
   </section>
 
   <!-- SERVICES -->
-  <section id="services" class="section" style="padding-top: 30px;">
+  <section id="services" class="services">
     <div class="container">
-      <div class="kicker">Services</div>
-      <h2>Pick your session. Click to expand.</h2>
-      <p>Tap a card to see what’s included. Only one stays open at a time (clean + focused).</p>
+      <div class="kicker">What we do</div>
+      <h2>Three ways to get <span class="accent">better fast.</span></h2>
+      <p style="max-width:70ch">
+        Click a service card to expand details. Only one stays open at a time (clean + focused).
+      </p>
 
-      <div class="services-grid" role="list">
-        <article class="service" role="listitem" tabindex="0" data-service>
-          <div class="badge">Most Popular</div>
-          <div class="icon" aria-hidden="true">🏄‍♂️</div>
-          <h3>Beginner Surf Lesson</h3>
-          <p class="summary">Your first waves — pop-up, stance, safety, and smooth takeoffs.</p>
+      <div class="services-grid">
+        <div class="tile intro">
+          <h3>Surf lessons<br>in Samaná.</h3>
+          <a class="readmore" href="#faq">Read more →</a>
+        </div>
 
-          <div class="details" aria-label="Beginner lesson details">
-            <p class="summary" style="margin-top:0;">
+        <article class="tile service" tabindex="0" data-service data-tone="sand">
+          <div class="num">01</div>
+          <h4>Beginner Lesson</h4>
+          <p class="brief">Your first waves — pop-up, stance, safety, and smooth takeoffs.</p>
+
+          <div class="details">
+            <p class="brief" style="margin:0">
               Perfect if you’ve never surfed (or tried once and want it to click).
-              We keep it simple and confidence-building.
             </p>
             <ul>
               <li>Beach warm-up + pop-up practice</li>
-              <li>Water safety + reading the lineup</li>
+              <li>Ocean safety + wave timing</li>
               <li>Hands-on coaching in the water</li>
               <li>Board + leash included</li>
             </ul>
           </div>
 
-          <div class="meta">
+          <div class="expand-row">
             <span>~90 minutes</span>
             <span class="chev" aria-hidden="true">⌄</span>
           </div>
         </article>
 
-        <article class="service" role="listitem" tabindex="0" data-service>
-          <div class="icon" aria-hidden="true">🎯</div>
-          <h3>Private Coaching</h3>
-          <p class="summary">1-on-1 (or 2-on-1) to fast-track technique and confidence.</p>
+        <article class="tile service" tabindex="0" data-service data-tone="white">
+          <div class="num">02</div>
+          <h4>Private Coaching</h4>
+          <p class="brief">1-on-1 (or 2-on-1) for technique, confidence, and faster progression.</p>
 
-          <div class="details" aria-label="Private coaching details">
-            <p class="summary" style="margin-top:0;">
-              Get targeted feedback, wave selection help, and drills built around your goals.
+          <div class="details">
+            <p class="brief" style="margin:0">
+              Targeted feedback and drills built around your goals.
             </p>
             <ul>
-              <li>Technique tune-ups (stance, trim, turns)</li>
-              <li>Wave timing + positioning coaching</li>
+              <li>Stance, trim, turns, and positioning</li>
+              <li>Wave selection and timing</li>
               <li>Optional video feedback (if you bring a phone/tripod)</li>
-              <li>Great for intermediate surfers</li>
+              <li>Ideal for intermediate surfers</li>
             </ul>
           </div>
 
-          <div class="meta">
+          <div class="expand-row">
             <span>~90–120 minutes</span>
             <span class="chev" aria-hidden="true">⌄</span>
           </div>
         </article>
 
-        <article class="service" role="listitem" tabindex="0" data-service>
-          <div class="icon" aria-hidden="true">🧭</div>
-          <h3>Guided Surf Session</h3>
-          <p class="summary">We find the best conditions and guide you to the right spot.</p>
+        <article class="tile service" tabindex="0" data-service data-tone="blue">
+          <div class="num">03</div>
+          <h4>Guided Session</h4>
+          <p class="brief">We pick the right spot for the day and guide you through a clean session.</p>
 
-          <div class="details" aria-label="Guided session details">
-            <p class="summary" style="margin-top:0;">
-              Ideal if you can paddle and catch waves but want local knowledge and a smoother session.
+          <div class="details">
+            <p class="brief" style="margin:0">
+              Great if you can paddle and catch waves but want local knowledge.
             </p>
             <ul>
               <li>Spot selection based on swell + wind</li>
               <li>Safety briefing + lineup strategy</li>
-              <li>Local guidance throughout the session</li>
+              <li>Local guidance throughout</li>
               <li>Bring your board or rent locally</li>
             </ul>
           </div>
 
-          <div class="meta">
+          <div class="expand-row">
             <span>~2 hours</span>
             <span class="chev" aria-hidden="true">⌄</span>
           </div>
@@ -676,37 +821,36 @@
   </section>
 
   <!-- TEAM -->
-  <section id="team" class="section">
+  <section id="team" class="team">
     <div class="container">
       <div class="kicker">Team</div>
-      <h2>Local guides. Clear coaching.</h2>
-      <p>We’re small on purpose — more attention, better waves, better sessions.</p>
+      <h2>Local guides, <span class="accent">good energy.</span></h2>
+      <p style="max-width:70ch">Small on purpose — more attention, better waves, better sessions.</p>
 
-      <div class="team-wrap">
+      <div class="team-grid">
         <div class="card">
+          <!-- Replace with instructor/team photo -->
           <img class="team-photo" src="team.jpg" alt="Peninsula Surf School instructor">
         </div>
 
         <div class="card pad">
-          <h3 style="margin:0 0 6px; font-size:20px;">Meet your coach</h3>
+          <h3 style="margin:0 0 6px; font-size:22px; font-weight:500; letter-spacing:-0.02em;">Meet your coach</h3>
           <p style="margin-top:0;">
             Founded by a Samaná-based surfer who loves teaching as much as surfing.
-            Our focus is simple: safe sessions, real progression, and good vibes —
-            the kind you remember long after you leave the beach.
+            We keep lessons fun, calm, and technique-focused — so you walk away knowing exactly what to improve next.
           </p>
 
           <div class="quote">
-            <strong>Our promise:</strong> You’ll leave the water knowing exactly what to improve next —
-            and feeling proud of what you did today.
+            <strong>Our promise:</strong> you’ll leave the water with a win — and a clear plan for your next session.
           </div>
 
           <div style="display:flex; gap:12px; flex-wrap:wrap; margin-top:16px;">
-            <a class="btn primary" href="#services">Choose a Lesson</a>
-            <a class="btn" href="#faq">Read FAQ</a>
+            <a class="btn sand" href="#services">Choose a Lesson →</a>
+            <a class="btn" href="mailto:hello@peninsulasurfschool.com">Email us</a>
           </div>
 
           <p style="font-size:13px; margin-top:14px;">
-            Want to add contact buttons? You can swap these links for WhatsApp / Instagram later.
+            Want WhatsApp + Instagram buttons? Swap the links and you’re done.
           </p>
         </div>
       </div>
@@ -714,13 +858,13 @@
   </section>
 
   <!-- FAQ -->
-  <section id="faq" class="section" style="padding-top: 40px;">
+  <section id="faq" class="faq">
     <div class="container">
       <div class="kicker">FAQ</div>
-      <h2>Quick answers, easy planning.</h2>
+      <h2>Quick answers, <span class="accent">easy planning.</span></h2>
       <p>Click a question to expand.</p>
 
-      <div class="faq" aria-label="Frequently asked questions">
+      <div class="faq-list" aria-label="Frequently asked questions">
         <details>
           <summary>
             Do I need experience to take a lesson?
@@ -734,7 +878,7 @@
             What’s included?
             <span class="faq-arrow" aria-hidden="true">⌄</span>
           </summary>
-          <p>Typically: board + leash, safety briefing, technique instruction, and in-water coaching. If you want a rash guard or sunscreen, bring your own.</p>
+          <p>Typically: board + leash, safety briefing, technique instruction, and in-water coaching. Bring water, sunscreen, and a towel.</p>
         </details>
 
         <details>
@@ -750,7 +894,7 @@
             What should I bring?
             <span class="faq-arrow" aria-hidden="true">⌄</span>
           </summary>
-          <p>Swimsuit, towel, water, reef-safe sunscreen, and good vibes. If you have your own surf booties or rash guard, feel free to bring them.</p>
+          <p>Swimsuit, towel, reef-safe sunscreen, water, and good vibes. If you have a rash guard, bring it.</p>
         </details>
 
         <details>
@@ -768,7 +912,7 @@
     <div class="container">
       <div class="footer-row">
         <div>
-          <strong style="color:var(--text);">Peninsula Surf School</strong>
+          <strong style="color:rgba(17,17,17,0.92); font-weight:500;">Peninsula Surf School</strong>
           <div>Samaná Peninsula, Dominican Republic</div>
         </div>
         <div class="tiny-links">
@@ -779,7 +923,7 @@
         </div>
       </div>
       <div style="margin-top:14px; font-size:12px; opacity:.9;">
-        © <span id="year"></span> Peninsula Surf School. Built as a single-page static site.
+        © <span id="year"></span> Peninsula Surf School.
       </div>
     </div>
   </footer>
@@ -796,7 +940,6 @@
         const isOpen = mobileMenu.classList.toggle('show');
         menuBtn.setAttribute('aria-expanded', String(isOpen));
       });
-      // Close menu when clicking a link
       mobileMenu.querySelectorAll('a').forEach(a => {
         a.addEventListener('click', () => {
           mobileMenu.classList.remove('show');
@@ -812,14 +955,12 @@
         if (card !== except) card.classList.remove('expanded');
       });
     }
-
     serviceCards.forEach(card => {
       card.addEventListener('click', () => {
         const willExpand = !card.classList.contains('expanded');
         collapseAll(card);
         card.classList.toggle('expanded', willExpand);
       });
-      // Keyboard accessibility (Enter/Space)
       card.addEventListener('keydown', (e) => {
         if (e.key === 'Enter' || e.key === ' ') {
           e.preventDefault();
