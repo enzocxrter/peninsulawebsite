@@ -6,20 +6,20 @@
   <title>Peninsula Surf School — Samaná, Dominican Republic</title>
   <meta name="description" content="Peninsula Surf School in Samaná, Dominican Republic. Surf lessons, coaching, and guided surf sessions for all levels." />
 
-  <!-- Optional: clean modern fonts (no extra files, just a CDN) -->
+  <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,500;1,400;1,500&display=swap" rel="stylesheet">
 
   <style>
     :root{
-      /* Your palette */
+      /* palette */
       --ink: #111111;
       --navy: #445366;
       --sand: #f2e0c4;
       --white: #ffffff;
 
-      /* UI */
+      /* ui */
       --muted: rgba(17,17,17,0.62);
       --border: rgba(17,17,17,0.14);
       --shadow: 0 20px 55px rgba(17,17,17,0.10);
@@ -36,20 +36,20 @@
       background: var(--white);
       line-height:1.55;
 
-      /* Fun surfboard cursor (SVG data URI) */
-      cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='36' height='36' viewBox='0 0 36 36'%3E%3Cg transform='translate(18 18) rotate(-25) translate(-18 -18)'%3E%3Cpath d='M18 3 C14 6, 10 13, 10 18 C10 23, 14 30, 18 33 C22 30, 26 23, 26 18 C26 13, 22 6, 18 3 Z' fill='%23445366'/%3E%3Cpath d='M18 6 C15 9, 12 14, 12 18 C12 22, 15 27, 18 30 C21 27, 24 22, 24 18 C24 14, 21 9, 18 6 Z' fill='%23f2e0c4' opacity='0.95'/%3E%3Cpath d='M18 8 L18 28' stroke='%23111111' stroke-width='1.2' opacity='0.7'/%3E%3C/g%3E%3C/svg%3E") 12 12, auto;
+      /* Improved surfboard cursor (black/white outline, closer to your image) */
+      cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='44' height='44' viewBox='0 0 44 44'%3E%3Cg transform='translate(22 22) rotate(-25) translate(-22 -22)'%3E%3Cpath d='M22 4 C16 8, 11 16, 11 22 C11 28, 16 36, 22 40 C28 36, 33 28, 33 22 C33 16, 28 8, 22 4 Z' fill='white' stroke='black' stroke-width='2.2'/%3E%3Cpath d='M21.3 8.2 C16.5 12.3, 13.6 17.3, 13.6 22 C13.6 26.7, 16.5 31.7, 21.3 35.8' fill='none' stroke='black' stroke-width='1.6' stroke-linecap='round' opacity='0.85'/%3E%3Cpath d='M29.2 29.5 C28.2 32.6, 26.4 35.4, 24.2 37.5' fill='none' stroke='black' stroke-width='1.6' stroke-linecap='round' opacity='0.75'/%3E%3Cpath d='M27.6 30.6 C29.6 31.2, 30.8 33.0, 30.0 35.2 C28.6 34.0, 27.6 32.4, 27.6 30.6 Z' fill='white' stroke='black' stroke-width='1.6'/%3E%3C/g%3E%3C/svg%3E") 14 14, auto;
     }
 
     a{color:inherit; text-decoration:none}
     .container{max-width:var(--max); margin:0 auto; padding:0 22px}
 
-    /* --- NAV (matches screenshot vibe) --- */
+    /* NAV */
     .nav{
       position:fixed;
       top:0; left:0; right:0;
       z-index:50;
       padding:18px 0;
-      pointer-events:none; /* allow hero click-through except nav elements */
+      pointer-events:none;
     }
     .nav-inner{
       pointer-events:auto;
@@ -58,21 +58,19 @@
       justify-content:space-between;
       gap:14px;
       color: rgba(255,255,255,0.95);
-      mix-blend-mode: normal;
     }
     .brand{
       display:flex; align-items:center; gap:12px;
       font-weight:500;
       letter-spacing:0.02em;
     }
-    .brand-mark{
-      width:34px; height:34px;
-      border-radius:999px;
-      border:1px solid rgba(255,255,255,0.55);
-      display:grid;
-      place-items:center;
+    .brand-logo{
+      width:34px;
+      height:34px;
+      object-fit:contain;
+      display:block;
+      filter: drop-shadow(0 10px 22px rgba(0,0,0,0.25));
     }
-    .brand-mark svg{width:18px; height:18px; fill:none; stroke:white; stroke-width:1.8}
     .nav-links{
       display:flex;
       gap:22px;
@@ -98,12 +96,13 @@
       transition: transform .22s ease;
     }
     .nav-links a:hover::after{transform: scaleX(1)}
-    .nav-social{
+
+    .nav-right{
       display:flex;
-      gap:14px;
       align-items:center;
-      opacity:0.92;
+      gap:10px;
     }
+
     .icon-btn{
       width:34px; height:34px;
       border-radius:999px;
@@ -122,9 +121,23 @@
       opacity:0.95;
     }
 
+    .lang-btn{
+      height:34px;
+      padding: 0 12px;
+      border-radius:999px;
+      border:1px solid rgba(255,255,255,0.40);
+      background: rgba(0,0,0,0.12);
+      color: rgba(255,255,255,0.94);
+      font-size: 13px;
+      letter-spacing: 0.01em;
+      cursor:pointer;
+      transition: transform .18s ease, background .18s ease;
+    }
+    .lang-btn:hover{transform: translateY(-1px); background: rgba(0,0,0,0.18)}
+
     .hamburger{display:none}
 
-    /* --- HERO --- */
+    /* HERO */
     header.hero{
       position:relative;
       min-height: 94vh;
@@ -142,12 +155,15 @@
         radial-gradient(900px 600px at 80% 30%, rgba(68,83,102,0.22), transparent 62%),
         linear-gradient(180deg, rgba(0,0,0,0.55), rgba(0,0,0,0.18), rgba(255,255,255,0.02));
     }
+
+    /* YouTube player container */
     .hero-youtube{
       position:absolute;
       inset:0;
       z-index:-3;
       overflow:hidden;
     }
+    /* YouTube iframe (created by API) */
     .hero-youtube iframe{
       position:absolute;
       top:50%;
@@ -156,46 +172,54 @@
       height:100vh;
       min-width:100vw;
       min-height:56.25vw;
-      transform:translate(-50%, -50%) scale(1.05);
+      transform:translate(-50%, -50%) scale(1.06);
       pointer-events:none;
       border:0;
       filter: saturate(1.08) contrast(1.05) brightness(0.90);
     }
+
     .hero-overlay{
       position:absolute; inset:0;
-      background: linear-gradient(180deg, rgba(0,0,0,0.48), rgba(0,0,0,0.18), rgba(255,255,255,0.02));
+      background: linear-gradient(180deg, rgba(0,0,0,0.42), rgba(0,0,0,0.20), rgba(255,255,255,0.02));
       z-index:-1;
     }
 
     .hero-inner{
       width:100%;
-      padding: 140px 0 90px;
-    }
-    .hero-title{
-      margin:0;
+      padding: 150px 0 90px;
       text-align:center;
-      font-size: clamp(44px, 6.6vw, 86px);
-      font-weight: 300;
-      letter-spacing: -0.03em;
-      line-height: 1.02;
-      text-shadow: 0 18px 60px rgba(0,0,0,0.35);
     }
-    .hero-title .accent{
-      font-family: "Playfair Display", serif;
-      font-style: italic;
-      font-weight: 400;
-      letter-spacing: -0.01em;
+
+    /* Big fading logo overlay */
+    .hero-logo-wrap{
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      margin: 0 auto 22px;
+      width: min(720px, 88vw);
     }
+    .hero-logo{
+      width:100%;
+      height:auto;
+      display:block;
+      opacity: 1;
+      transform: translateY(0) scale(1);
+      transition: opacity .12s linear, transform .12s linear;
+      /* black logo on video: give a subtle soft edge */
+      filter: drop-shadow(0 18px 60px rgba(255,255,255,0.14)) drop-shadow(0 18px 60px rgba(0,0,0,0.18));
+      user-select:none;
+    }
+
     .hero-sub{
-      margin: 18px auto 0;
-      max-width: 68ch;
-      text-align:center;
+      margin: 0 auto 0;
+      max-width: 74ch;
       font-size: 16px;
-      color: rgba(255,255,255,0.88);
+      color: rgba(255,255,255,0.90);
+      text-shadow: 0 18px 60px rgba(0,0,0,0.35);
     }
 
     .hero-cta{
-      margin-top: 28px;
+      margin-top: 22px;
       display:flex;
       justify-content:center;
       gap:12px;
@@ -221,33 +245,7 @@
     }
     .btn.sand:hover{background: rgba(242,224,196,1)}
 
-    .hero-scroll{
-      margin-top: 34px;
-      display:flex;
-      justify-content:center;
-      opacity:0.92;
-    }
-    .scroll-pill{
-      display:inline-flex;
-      align-items:center;
-      gap:10px;
-      padding:10px 14px;
-      border-radius:999px;
-      border:1px solid rgba(255,255,255,0.35);
-      background: rgba(0,0,0,0.16);
-      transition: transform .18s ease, background .18s ease;
-    }
-    .scroll-pill:hover{transform: translateY(1px); background: rgba(0,0,0,0.22)}
-    .arrow{
-      width:34px; height:34px;
-      border-radius:999px;
-      border:1px solid rgba(255,255,255,0.30);
-      display:grid; place-items:center;
-      background: rgba(255,255,255,0.08);
-    }
-    .arrow svg{width:16px; height:16px; fill:none; stroke:white; stroke-width:2.2}
-
-    /* --- SECTIONS --- */
+    /* SECTIONS */
     section{padding: 92px 0}
     .kicker{
       font-size:12px;
@@ -270,7 +268,7 @@
     }
     p{margin:0; color: var(--muted)}
 
-    /* About (matches the big-left title + right text feel) */
+    /* About */
     .about{
       background: linear-gradient(180deg, rgba(242,224,196,0.28), rgba(255,255,255,0.92));
       position:relative;
@@ -327,10 +325,8 @@
       color: rgba(17,17,17,0.86);
     }
 
-    /* Services (like screenshot: intro tile + numbered tiles) */
-    .services{
-      background: #fff;
-    }
+    /* Services */
+    .services{background:#fff;}
     .services-grid{
       display:grid;
       grid-template-columns: 1.1fr 1fr 1fr 1fr;
@@ -338,7 +334,6 @@
       align-items: stretch;
       margin-top: 24px;
     }
-
     .tile{
       border-radius: var(--radius);
       border:1px solid var(--border);
@@ -349,7 +344,6 @@
       position:relative;
       overflow:hidden;
     }
-
     .tile.intro{
       background: rgba(242,224,196,0.55);
       display:flex;
@@ -388,7 +382,6 @@
       border-color: rgba(68,83,102,0.35);
       box-shadow: 0 28px 70px rgba(17,17,17,0.12);
     }
-
     .service[data-tone="sand"]{background: rgba(242,224,196,0.42)}
     .service[data-tone="blue"]{background: rgba(68,83,102,0.10)}
     .service[data-tone="white"]{background: rgba(255,255,255,0.92)}
@@ -411,7 +404,6 @@
       margin-bottom: 10px;
       max-width: 36ch;
     }
-
     .service .details{
       max-height: 0;
       overflow:hidden;
@@ -501,15 +493,8 @@
     }
 
     /* FAQ */
-    .faq{
-      background: #fff;
-      padding-top: 70px;
-    }
-    .faq-list{
-      margin-top: 18px;
-      display:grid;
-      gap: 12px;
-    }
+    .faq{background:#fff; padding-top: 70px;}
+    .faq-list{margin-top: 18px; display:grid; gap: 12px;}
     details{
       border-radius: var(--radius);
       border: 1px solid var(--border);
@@ -564,11 +549,12 @@
     @media (max-width: 980px){
       .nav-links{display:none}
       .hamburger{display:inline-flex}
-      .services-grid{grid-template-columns: 1fr; }
+      .services-grid{grid-template-columns: 1fr;}
       .about-grid{grid-template-columns: 1fr}
       .team-grid{grid-template-columns: 1fr}
       .tile{min-height: 240px}
       .tile.intro h3{font-size: 40px}
+      .hero-inner{padding: 140px 0 84px;}
     }
 
     /* Mobile menu */
@@ -613,41 +599,46 @@
     <div class="container">
       <div class="nav-inner">
         <a class="brand" href="#top" aria-label="Peninsula Surf School home">
-          <span class="brand-mark" aria-hidden="true">
-            <svg viewBox="0 0 24 24">
-              <path d="M12 2l2.2 6.2L21 10l-6.8 1.8L12 18l-2.2-6.2L3 10l6.8-1.8L12 2z"/>
-            </svg>
-          </span>
-          <span>Peninsula Surf School</span>
+          <!-- 1) swapped header mark for your uploaded white logo -->
+          <img class="brand-logo" src="cristianlogowhite.png" alt="Peninsula Surf School logo">
+          <span data-i18n="brand">Peninsula Surf School</span>
         </a>
 
         <nav class="nav-links" aria-label="Primary">
-          <a href="#about">About</a>
-          <a href="#services">Services</a>
-          <a href="#team">Team</a>
-          <a href="#faq">FAQ</a>
+          <a href="#about" data-i18n="nav_about">About</a>
+          <a href="#services" data-i18n="nav_services">Services</a>
+          <a href="#team" data-i18n="nav_team">Team</a>
+          <a href="#faq" data-i18n="nav_faq">FAQ</a>
         </nav>
 
-        <div style="display:flex; align-items:center; gap:12px;">
-          <div class="nav-social" aria-label="Social">
-            <!-- Put real links later -->
-            <a class="icon-btn" href="#" aria-label="Instagram">
-              <svg class="icon" viewBox="0 0 24 24"><path d="M7 7h10v10H7z"/><path d="M16 3H8a5 5 0 0 0-5 5v8a5 5 0 0 0 5 5h8a5 5 0 0 0 5-5V8a5 5 0 0 0-5-5z"/><path d="M15.5 8.5h.01"/></svg>
-            </a>
-            <a class="icon-btn" href="#" aria-label="TikTok">
-              <svg class="icon" viewBox="0 0 24 24"><path d="M14 3v10.5a4.5 4.5 0 1 1-4-4.47V7a7.5 7.5 0 1 0 8 7.47V8.5c1.1.88 2.5 1.5 4 1.7V7.5c-2.4-.4-4.2-2.1-4-4.5H14z"/></svg>
-            </a>
-          </div>
+        <div class="nav-right">
+          <!-- Instagram -->
+          <a class="icon-btn" href="#" aria-label="Instagram">
+            <svg class="icon" viewBox="0 0 24 24">
+              <path d="M7 7h10v10H7z"/><path d="M16 3H8a5 5 0 0 0-5 5v8a5 5 0 0 0 5 5h8a5 5 0 0 0 5-5V8a5 5 0 0 0-5-5z"/><path d="M15.5 8.5h.01"/>
+            </svg>
+          </a>
+
+          <!-- 4) WhatsApp placeholder (update href later) -->
+          <a class="icon-btn" id="whatsappBtn" href="#" aria-label="WhatsApp">
+            <svg class="icon" viewBox="0 0 24 24">
+              <path d="M20 11.5a8 8 0 0 1-12.7 6.4L4 19l1.2-3.1A8 8 0 1 1 20 11.5z"/>
+              <path d="M9.2 9.3c.2-.4.4-.4.6-.4h.5c.1 0 .3.1.4.3l.6 1.4c.1.2.1.4 0 .6l-.4.6c-.1.2-.1.4.1.6.4.7 1.2 1.4 2 1.8.2.1.4.1.6 0l.7-.4c.2-.1.4-.1.6 0l1.3.6c.2.1.3.3.3.5 0 .6-.3 1.2-.9 1.5-.8.4-1.7.4-2.5.1-1.4-.5-2.9-1.7-3.9-3.1-.7-1-1.1-2-.8-2.8z" />
+            </svg>
+          </a>
+
+          <!-- 5) Language toggle -->
+          <button class="lang-btn" id="langToggle" aria-label="Switch language">Español</button>
 
           <button class="hamburger" id="menuBtn" aria-label="Open menu" aria-expanded="false">☰</button>
         </div>
       </div>
 
       <div class="mobile-menu" id="mobileMenu" aria-label="Mobile menu">
-        <a href="#about">About</a>
-        <a href="#services">Services</a>
-        <a href="#team">Team</a>
-        <a href="#faq">FAQ</a>
+        <a href="#about" data-i18n="nav_about">About</a>
+        <a href="#services" data-i18n="nav_services">Services</a>
+        <a href="#team" data-i18n="nav_team">Team</a>
+        <a href="#faq" data-i18n="nav_faq">FAQ</a>
       </div>
     </div>
   </div>
@@ -656,45 +647,30 @@
   <header id="top" class="hero">
     <div class="hero-media" aria-hidden="true"></div>
 
+    <!-- YouTube background (IFrame API will inject an iframe into this div) -->
     <div class="hero-youtube" aria-hidden="true">
-      <iframe
-        src="https://www.youtube.com/embed/NQyanL1QEPw?autoplay=1&mute=1&controls=0&playsinline=1&loop=1&playlist=NQyanL1QEPw&rel=0&modestbranding=1"
-        title="Peninsula Surf School background video"
-        allow="autoplay; encrypted-media; picture-in-picture"
-        referrerpolicy="strict-origin-when-cross-origin"
-        allowfullscreen
-      ></iframe>
+      <div id="ytPlayer"></div>
     </div>
 
     <div class="hero-overlay" aria-hidden="true"></div>
 
     <div class="container">
       <div class="hero-inner">
-        <h1 class="hero-title">
-          Surf the Samaná Peninsula and get<br>
-          <span class="accent">waves that feel like magic.</span>
-        </h1>
-        <p class="hero-sub">
+        <!-- 2) Large black logo overlay that fades out on scroll -->
+        <div class="hero-logo-wrap" aria-hidden="true">
+          <img id="heroLogo" class="hero-logo" src="cristianlogoblack.png" alt="">
+        </div>
+
+        <!-- Only keep this text + buttons -->
+        <p class="hero-sub" data-i18n="hero_sub">
           Clean coaching, calm vibes, and real progression — from your first pop-up to confident green waves.
           Small groups. Local knowledge. Tropical water.
         </p>
 
         <div class="hero-cta">
-          <a class="btn sand" href="#services">Explore Lessons →</a>
-          <a class="btn" href="#faq">Quick FAQ</a>
-          <a class="btn" href="mailto:hello@peninsulasurfschool.com">Contact</a>
-        </div>
-
-        <div class="hero-scroll">
-          <a class="scroll-pill" href="#about" aria-label="Scroll to about section">
-            <span class="arrow" aria-hidden="true">
-              <svg viewBox="0 0 24 24">
-                <path d="M12 5v14"></path>
-                <path d="M19 12l-7 7-7-7"></path>
-              </svg>
-            </span>
-            <span>Scroll</span>
-          </a>
+          <a class="btn sand" href="#services" data-i18n="hero_btn_services">Explore Lessons →</a>
+          <a class="btn" href="#faq" data-i18n="hero_btn_faq">Quick FAQ</a>
+          <a class="btn" href="mailto:hello@peninsulasurfschool.com" data-i18n="hero_btn_contact">Contact</a>
         </div>
       </div>
     </div>
@@ -703,30 +679,29 @@
   <!-- ABOUT -->
   <section id="about" class="about">
     <div class="container">
-      <div class="kicker">Who we are</div>
+      <div class="kicker" data-i18n="about_kicker">Who we are</div>
       <div class="about-grid">
         <div>
-          <h2>Warm water. Clear coaching.<br><span class="accent">No stress.</span></h2>
+          <h2 data-i18n="about_title">Warm water. Clear coaching.<br><span class="accent">No stress.</span></h2>
           <div class="about-copy">
-            <p>
+            <p data-i18n="about_p1">
               Peninsula Surf School is based in Samaná, Dominican Republic. We teach surfing in a simple, supportive way:
               you’ll understand what to do, why it works, and how to improve fast.
             </p>
-            <p>
+            <p data-i18n="about_p2">
               Whether you’re starting from zero or sharpening turns, we match you with the right beach, the right board,
               and the right coaching style.
             </p>
             <div class="pill-row" aria-label="Highlights">
-              <span class="tag">Beginner-friendly</span>
-              <span class="tag">Small groups</span>
-              <span class="tag">Local surf spots</span>
-              <span class="tag">Boards included</span>
+              <span class="tag" data-i18n="tag_1">Beginner-friendly</span>
+              <span class="tag" data-i18n="tag_2">Small groups</span>
+              <span class="tag" data-i18n="tag_3">Local surf spots</span>
+              <span class="tag" data-i18n="tag_4">Boards included</span>
             </div>
           </div>
         </div>
 
         <div class="about-card">
-          <!-- Replace with a tropical photo like: beach, lineup, lesson moment -->
           <img src="about.jpg" alt="Surf lesson in Samaná, Dominican Republic">
         </div>
       </div>
@@ -736,24 +711,24 @@
   <!-- SERVICES -->
   <section id="services" class="services">
     <div class="container">
-      <div class="kicker">What we do</div>
-      <h2>Three ways to get <span class="accent">better fast.</span></h2>
-      <p style="max-width:70ch">
+      <div class="kicker" data-i18n="services_kicker">What we do</div>
+      <h2 data-i18n="services_title">Three ways to get <span class="accent">better fast.</span></h2>
+      <p style="max-width:70ch" data-i18n="services_sub">
         Click a service card to expand details. Only one stays open at a time (clean + focused).
       </p>
 
       <div class="services-grid">
         <div class="tile intro">
-          <h3>Surf lessons<br>in Samaná.</h3>
-          <a class="readmore" href="#faq">Read more →</a>
+          <h3 data-i18n="services_intro">Surf lessons<br>in Samaná.</h3>
+          <a class="readmore" href="#faq" data-i18n="services_readmore">Read more →</a>
         </div>
 
         <article class="tile service" tabindex="0" data-service data-tone="sand">
-          <div class="num">01</div>
-          <h4>Beginner Lesson</h4>
-          <p class="brief">Your first waves — pop-up, stance, safety, and smooth takeoffs.</p>
+          <div class="num" data-i18n="s1_num">01</div>
+          <h4 data-i18n="s1_title">Beginner Lesson</h4>
+          <p class="brief" data-i18n="s1_brief">Your first waves — pop-up, stance, safety, and smooth takeoffs.</p>
 
-          <div class="details">
+          <div class="details" data-i18n="s1_details">
             <p class="brief" style="margin:0">
               Perfect if you’ve never surfed (or tried once and want it to click).
             </p>
@@ -766,17 +741,17 @@
           </div>
 
           <div class="expand-row">
-            <span>~90 minutes</span>
+            <span data-i18n="s1_time">~90 minutes</span>
             <span class="chev" aria-hidden="true">⌄</span>
           </div>
         </article>
 
         <article class="tile service" tabindex="0" data-service data-tone="white">
-          <div class="num">02</div>
-          <h4>Private Coaching</h4>
-          <p class="brief">1-on-1 (or 2-on-1) for technique, confidence, and faster progression.</p>
+          <div class="num" data-i18n="s2_num">02</div>
+          <h4 data-i18n="s2_title">Private Coaching</h4>
+          <p class="brief" data-i18n="s2_brief">1-on-1 (or 2-on-1) for technique, confidence, and faster progression.</p>
 
-          <div class="details">
+          <div class="details" data-i18n="s2_details">
             <p class="brief" style="margin:0">
               Targeted feedback and drills built around your goals.
             </p>
@@ -789,17 +764,17 @@
           </div>
 
           <div class="expand-row">
-            <span>~90–120 minutes</span>
+            <span data-i18n="s2_time">~90–120 minutes</span>
             <span class="chev" aria-hidden="true">⌄</span>
           </div>
         </article>
 
         <article class="tile service" tabindex="0" data-service data-tone="blue">
-          <div class="num">03</div>
-          <h4>Guided Session</h4>
-          <p class="brief">We pick the right spot for the day and guide you through a clean session.</p>
+          <div class="num" data-i18n="s3_num">03</div>
+          <h4 data-i18n="s3_title">Guided Session</h4>
+          <p class="brief" data-i18n="s3_brief">We pick the right spot for the day and guide you through a clean session.</p>
 
-          <div class="details">
+          <div class="details" data-i18n="s3_details">
             <p class="brief" style="margin:0">
               Great if you can paddle and catch waves but want local knowledge.
             </p>
@@ -812,7 +787,7 @@
           </div>
 
           <div class="expand-row">
-            <span>~2 hours</span>
+            <span data-i18n="s3_time">~2 hours</span>
             <span class="chev" aria-hidden="true">⌄</span>
           </div>
         </article>
@@ -823,33 +798,32 @@
   <!-- TEAM -->
   <section id="team" class="team">
     <div class="container">
-      <div class="kicker">Team</div>
-      <h2>Local guides, <span class="accent">good energy.</span></h2>
-      <p style="max-width:70ch">Small on purpose — more attention, better waves, better sessions.</p>
+      <div class="kicker" data-i18n="team_kicker">Team</div>
+      <h2 data-i18n="team_title">Local guides, <span class="accent">good energy.</span></h2>
+      <p style="max-width:70ch" data-i18n="team_sub">Small on purpose — more attention, better waves, better sessions.</p>
 
       <div class="team-grid">
         <div class="card">
-          <!-- Replace with instructor/team photo -->
           <img class="team-photo" src="team.jpg" alt="Peninsula Surf School instructor">
         </div>
 
         <div class="card pad">
-          <h3 style="margin:0 0 6px; font-size:22px; font-weight:500; letter-spacing:-0.02em;">Meet your coach</h3>
-          <p style="margin-top:0;">
+          <h3 style="margin:0 0 6px; font-size:22px; font-weight:500; letter-spacing:-0.02em;" data-i18n="team_name">Meet your coach</h3>
+          <p style="margin-top:0;" data-i18n="team_p1">
             Founded by a Samaná-based surfer who loves teaching as much as surfing.
             We keep lessons fun, calm, and technique-focused — so you walk away knowing exactly what to improve next.
           </p>
 
-          <div class="quote">
+          <div class="quote" data-i18n="team_quote">
             <strong>Our promise:</strong> you’ll leave the water with a win — and a clear plan for your next session.
           </div>
 
           <div style="display:flex; gap:12px; flex-wrap:wrap; margin-top:16px;">
-            <a class="btn sand" href="#services">Choose a Lesson →</a>
-            <a class="btn" href="mailto:hello@peninsulasurfschool.com">Email us</a>
+            <a class="btn sand" href="#services" data-i18n="team_btn">Choose a Lesson →</a>
+            <a class="btn" href="mailto:hello@peninsulasurfschool.com" data-i18n="team_btn2">Email us</a>
           </div>
 
-          <p style="font-size:13px; margin-top:14px;">
+          <p style="font-size:13px; margin-top:14px;" data-i18n="team_note">
             Want WhatsApp + Instagram buttons? Swap the links and you’re done.
           </p>
         </div>
@@ -860,49 +834,49 @@
   <!-- FAQ -->
   <section id="faq" class="faq">
     <div class="container">
-      <div class="kicker">FAQ</div>
-      <h2>Quick answers, <span class="accent">easy planning.</span></h2>
-      <p>Click a question to expand.</p>
+      <div class="kicker" data-i18n="faq_kicker">FAQ</div>
+      <h2 data-i18n="faq_title">Quick answers, <span class="accent">easy planning.</span></h2>
+      <p data-i18n="faq_sub">Click a question to expand.</p>
 
       <div class="faq-list" aria-label="Frequently asked questions">
         <details>
           <summary>
-            Do I need experience to take a lesson?
+            <span data-i18n="q1">Do I need experience to take a lesson?</span>
             <span class="faq-arrow" aria-hidden="true">⌄</span>
           </summary>
-          <p>Nope. Beginner lessons are designed for first-timers. We start on the sand, then head into gentle water with coaching the whole time.</p>
+          <p data-i18n="a1">Nope. Beginner lessons are designed for first-timers. We start on the sand, then head into gentle water with coaching the whole time.</p>
         </details>
 
         <details>
           <summary>
-            What’s included?
+            <span data-i18n="q2">What’s included?</span>
             <span class="faq-arrow" aria-hidden="true">⌄</span>
           </summary>
-          <p>Typically: board + leash, safety briefing, technique instruction, and in-water coaching. Bring water, sunscreen, and a towel.</p>
+          <p data-i18n="a2">Typically: board + leash, safety briefing, technique instruction, and in-water coaching. Bring water, sunscreen, and a towel.</p>
         </details>
 
         <details>
           <summary>
-            How long are sessions?
+            <span data-i18n="q3">How long are sessions?</span>
             <span class="faq-arrow" aria-hidden="true">⌄</span>
           </summary>
-          <p>Most lessons are ~90 minutes. Guided sessions are usually ~2 hours depending on conditions and the group.</p>
+          <p data-i18n="a3">Most lessons are ~90 minutes. Guided sessions are usually ~2 hours depending on conditions and the group.</p>
         </details>
 
         <details>
           <summary>
-            What should I bring?
+            <span data-i18n="q4">What should I bring?</span>
             <span class="faq-arrow" aria-hidden="true">⌄</span>
           </summary>
-          <p>Swimsuit, towel, reef-safe sunscreen, water, and good vibes. If you have a rash guard, bring it.</p>
+          <p data-i18n="a4">Swimsuit, towel, reef-safe sunscreen, water, and good vibes. If you have a rash guard, bring it.</p>
         </details>
 
         <details>
           <summary>
-            Can you choose the best time for waves?
+            <span data-i18n="q5">Can you choose the best time for waves?</span>
             <span class="faq-arrow" aria-hidden="true">⌄</span>
           </summary>
-          <p>Yes. We’ll recommend a time based on wind and swell, and pick a spot that matches your level.</p>
+          <p data-i18n="a5">Yes. We’ll recommend a time based on wind and swell, and pick a spot that matches your level.</p>
         </details>
       </div>
     </div>
@@ -912,21 +886,24 @@
     <div class="container">
       <div class="footer-row">
         <div>
-          <strong style="color:rgba(17,17,17,0.92); font-weight:500;">Peninsula Surf School</strong>
-          <div>Samaná Peninsula, Dominican Republic</div>
+          <strong style="color:rgba(17,17,17,0.92); font-weight:500;" data-i18n="footer_brand">Peninsula Surf School</strong>
+          <div data-i18n="footer_loc">Samaná Peninsula, Dominican Republic</div>
         </div>
         <div class="tiny-links">
-          <a href="#about">About</a>
-          <a href="#services">Services</a>
-          <a href="#team">Team</a>
-          <a href="#faq">FAQ</a>
+          <a href="#about" data-i18n="nav_about">About</a>
+          <a href="#services" data-i18n="nav_services">Services</a>
+          <a href="#team" data-i18n="nav_team">Team</a>
+          <a href="#faq" data-i18n="nav_faq">FAQ</a>
         </div>
       </div>
       <div style="margin-top:14px; font-size:12px; opacity:.9;">
-        © <span id="year"></span> Peninsula Surf School.
+        © <span id="year"></span> <span data-i18n="footer_rights">Peninsula Surf School.</span>
       </div>
     </div>
   </footer>
+
+  <!-- YouTube IFrame API (helps autoplay/mute reliably) -->
+  <script src="https://www.youtube.com/iframe_api"></script>
 
   <script>
     // Footer year
@@ -968,6 +945,276 @@
         }
       });
     });
+
+    // 2) Fade out large hero logo on scroll
+    const heroLogo = document.getElementById('heroLogo');
+    function clamp(n, min, max){ return Math.max(min, Math.min(max, n)); }
+    function onScrollFade(){
+      if(!heroLogo) return;
+      const y = window.scrollY || 0;
+      const fadeDistance = 320; // tweak
+      const t = clamp(1 - (y / fadeDistance), 0, 1);
+      heroLogo.style.opacity = String(t);
+      heroLogo.style.transform = `translateY(${(1 - t) * -10}px) scale(${1 + (1 - t) * 0.03})`;
+    }
+    window.addEventListener('scroll', onScrollFade, { passive:true });
+    onScrollFade();
+
+    // 5) Language toggle (English <-> Español)
+    const dict = {
+      en: {
+        brand: "Peninsula Surf School",
+        nav_about: "About",
+        nav_services: "Services",
+        nav_team: "Team",
+        nav_faq: "FAQ",
+
+        hero_sub: "Clean coaching, calm vibes, and real progression — from your first pop-up to confident green waves. Small groups. Local knowledge. Tropical water.",
+        hero_btn_services: "Explore Lessons →",
+        hero_btn_faq: "Quick FAQ",
+        hero_btn_contact: "Contact",
+
+        about_kicker: "Who we are",
+        about_title: "Warm water. Clear coaching.<br><span class=\"accent\">No stress.</span>",
+        about_p1: "Peninsula Surf School is based in Samaná, Dominican Republic. We teach surfing in a simple, supportive way: you’ll understand what to do, why it works, and how to improve fast.",
+        about_p2: "Whether you’re starting from zero or sharpening turns, we match you with the right beach, the right board, and the right coaching style.",
+        tag_1: "Beginner-friendly",
+        tag_2: "Small groups",
+        tag_3: "Local surf spots",
+        tag_4: "Boards included",
+
+        services_kicker: "What we do",
+        services_title: "Three ways to get <span class=\"accent\">better fast.</span>",
+        services_sub: "Click a service card to expand details. Only one stays open at a time (clean + focused).",
+        services_intro: "Surf lessons<br>in Samaná.",
+        services_readmore: "Read more →",
+
+        s1_num: "01",
+        s1_title: "Beginner Lesson",
+        s1_brief: "Your first waves — pop-up, stance, safety, and smooth takeoffs.",
+        s1_details: `<p class="brief" style="margin:0">Perfect if you’ve never surfed (or tried once and want it to click).</p>
+                    <ul>
+                      <li>Beach warm-up + pop-up practice</li>
+                      <li>Ocean safety + wave timing</li>
+                      <li>Hands-on coaching in the water</li>
+                      <li>Board + leash included</li>
+                    </ul>`,
+        s1_time: "~90 minutes",
+
+        s2_num: "02",
+        s2_title: "Private Coaching",
+        s2_brief: "1-on-1 (or 2-on-1) for technique, confidence, and faster progression.",
+        s2_details: `<p class="brief" style="margin:0">Targeted feedback and drills built around your goals.</p>
+                    <ul>
+                      <li>Stance, trim, turns, and positioning</li>
+                      <li>Wave selection and timing</li>
+                      <li>Optional video feedback (if you bring a phone/tripod)</li>
+                      <li>Ideal for intermediate surfers</li>
+                    </ul>`,
+        s2_time: "~90–120 minutes",
+
+        s3_num: "03",
+        s3_title: "Guided Session",
+        s3_brief: "We pick the right spot for the day and guide you through a clean session.",
+        s3_details: `<p class="brief" style="margin:0">Great if you can paddle and catch waves but want local knowledge.</p>
+                    <ul>
+                      <li>Spot selection based on swell + wind</li>
+                      <li>Safety briefing + lineup strategy</li>
+                      <li>Local guidance throughout</li>
+                      <li>Bring your board or rent locally</li>
+                    </ul>`,
+        s3_time: "~2 hours",
+
+        team_kicker: "Team",
+        team_title: "Local guides, <span class=\"accent\">good energy.</span>",
+        team_sub: "Small on purpose — more attention, better waves, better sessions.",
+        team_name: "Meet your coach",
+        team_p1: "Founded by a Samaná-based surfer who loves teaching as much as surfing. We keep lessons fun, calm, and technique-focused — so you walk away knowing exactly what to improve next.",
+        team_quote: "<strong>Our promise:</strong> you’ll leave the water with a win — and a clear plan for your next session.",
+        team_btn: "Choose a Lesson →",
+        team_btn2: "Email us",
+        team_note: "Want WhatsApp + Instagram buttons? Swap the links and you’re done.",
+
+        faq_kicker: "FAQ",
+        faq_title: "Quick answers, <span class=\"accent\">easy planning.</span>",
+        faq_sub: "Click a question to expand.",
+        q1: "Do I need experience to take a lesson?",
+        a1: "Nope. Beginner lessons are designed for first-timers. We start on the sand, then head into gentle water with coaching the whole time.",
+        q2: "What’s included?",
+        a2: "Typically: board + leash, safety briefing, technique instruction, and in-water coaching. Bring water, sunscreen, and a towel.",
+        q3: "How long are sessions?",
+        a3: "Most lessons are ~90 minutes. Guided sessions are usually ~2 hours depending on conditions and the group.",
+        q4: "What should I bring?",
+        a4: "Swimsuit, towel, reef-safe sunscreen, water, and good vibes. If you have a rash guard, bring it.",
+        q5: "Can you choose the best time for waves?",
+        a5: "Yes. We’ll recommend a time based on wind and swell, and pick a spot that matches your level.",
+
+        footer_brand: "Peninsula Surf School",
+        footer_loc: "Samaná Peninsula, Dominican Republic",
+        footer_rights: "Peninsula Surf School."
+      },
+
+      es: {
+        brand: "Peninsula Surf School",
+        nav_about: "Nosotros",
+        nav_services: "Servicios",
+        nav_team: "Equipo",
+        nav_faq: "Preguntas",
+
+        hero_sub: "Entrenamiento claro, buenas vibras y progreso real — desde tu primer pop-up hasta olas verdes con confianza. Grupos pequeños. Conocimiento local. Agua tropical.",
+        hero_btn_services: "Ver clases →",
+        hero_btn_faq: "FAQ rápido",
+        hero_btn_contact: "Contacto",
+
+        about_kicker: "Quiénes somos",
+        about_title: "Agua cálida. Coaching claro.<br><span class=\"accent\">Cero estrés.</span>",
+        about_p1: "Peninsula Surf School está en Samaná, República Dominicana. Enseñamos surf de forma simple y con apoyo: entenderás qué hacer, por qué funciona y cómo mejorar rápido.",
+        about_p2: "Ya sea que empieces desde cero o quieras pulir giros, te llevamos a la playa correcta, con la tabla correcta y el estilo de coaching ideal para ti.",
+        tag_1: "Ideal para principiantes",
+        tag_2: "Grupos pequeños",
+        tag_3: "Spots locales",
+        tag_4: "Tablas incluidas",
+
+        services_kicker: "Qué hacemos",
+        services_title: "Tres formas de mejorar <span class=\"accent\">rápido.</span>",
+        services_sub: "Haz clic en un servicio para ver más detalles. Solo uno queda abierto a la vez (limpio y enfocado).",
+        services_intro: "Clases de surf<br>en Samaná.",
+        services_readmore: "Leer más →",
+
+        s1_num: "01",
+        s1_title: "Clase para principiantes",
+        s1_brief: "Tus primeras olas — pop-up, postura, seguridad y despegues suaves.",
+        s1_details: `<p class="brief" style="margin:0">Perfecto si nunca has surfeado (o lo intentaste y quieres que por fin haga clic).</p>
+                    <ul>
+                      <li>Calentamiento en la arena + práctica de pop-up</li>
+                      <li>Seguridad en el mar + timing de olas</li>
+                      <li>Coaching contigo en el agua</li>
+                      <li>Tabla + leash incluidos</li>
+                    </ul>`,
+        s1_time: "~90 minutos",
+
+        s2_num: "02",
+        s2_title: "Coaching privado",
+        s2_brief: "1 a 1 (o 2 a 1) para técnica, confianza y progreso más rápido.",
+        s2_details: `<p class="brief" style="margin:0">Feedback directo y ejercicios según tus objetivos.</p>
+                    <ul>
+                      <li>Postura, trim, giros y posicionamiento</li>
+                      <li>Selección de olas y timing</li>
+                      <li>Video feedback opcional (si traes teléfono/trípode)</li>
+                      <li>Ideal para nivel intermedio</li>
+                    </ul>`,
+        s2_time: "~90–120 minutos",
+
+        s3_num: "03",
+        s3_title: "Sesión guiada",
+        s3_brief: "Elegimos el mejor spot del día y te guiamos en una sesión limpia y segura.",
+        s3_details: `<p class="brief" style="margin:0">Perfecto si ya remas y atrapas olas, pero quieres conocimiento local.</p>
+                    <ul>
+                      <li>Elección del spot según swell + viento</li>
+                      <li>Briefing de seguridad + estrategia en el line-up</li>
+                      <li>Guía local durante la sesión</li>
+                      <li>Trae tu tabla o alquila localmente</li>
+                    </ul>`,
+        s3_time: "~2 horas",
+
+        team_kicker: "Equipo",
+        team_title: "Guías locales, <span class=\"accent\">buena energía.</span>",
+        team_sub: "Pequeño a propósito — más atención, mejores olas, mejores sesiones.",
+        team_name: "Conoce a tu coach",
+        team_p1: "Fundado por un surfista de Samaná que ama enseñar tanto como surfear. Mantenemos las clases divertidas, calmadas y enfocadas en técnica — para que salgas sabiendo exactamente qué mejorar.",
+        team_quote: "<strong>Nuestra promesa:</strong> sales del agua con una victoria — y un plan claro para tu próxima sesión.",
+        team_btn: "Elegir clase →",
+        team_btn2: "Escríbenos por email",
+        team_note: "¿Quieres botones de WhatsApp e Instagram? Solo cambia los links y listo.",
+
+        faq_kicker: "Preguntas",
+        faq_title: "Respuestas rápidas, <span class=\"accent\">plan fácil.</span>",
+        faq_sub: "Haz clic para ver la respuesta.",
+        q1: "¿Necesito experiencia para tomar una clase?",
+        a1: "No. Las clases para principiantes son para primera vez. Empezamos en la arena y luego entramos al agua con coaching todo el tiempo.",
+        q2: "¿Qué incluye?",
+        a2: "Normalmente: tabla + leash, briefing de seguridad, técnica y coaching en el agua. Trae agua, protector solar y toalla.",
+        q3: "¿Cuánto duran las sesiones?",
+        a3: "La mayoría duran ~90 minutos. Las sesiones guiadas suelen ser ~2 horas según condiciones y grupo.",
+        q4: "¿Qué debo llevar?",
+        a4: "Traje de baño, toalla, protector solar reef-safe, agua y buenas vibras. Si tienes lycra, tráela.",
+        q5: "¿Pueden elegir el mejor horario para olas?",
+        a5: "Sí. Recomendamos hora según viento y swell, y elegimos un spot que encaje con tu nivel.",
+
+        footer_brand: "Peninsula Surf School",
+        footer_loc: "Península de Samaná, República Dominicana",
+        footer_rights: "Peninsula Surf School."
+      }
+    };
+
+    let currentLang = "en";
+    const langToggle = document.getElementById("langToggle");
+
+    function applyLang(lang){
+      currentLang = lang;
+      const map = dict[lang];
+      document.querySelectorAll("[data-i18n]").forEach(el => {
+        const key = el.getAttribute("data-i18n");
+        if (!map[key]) return;
+
+        // For blocks containing HTML (like headings with <span>, details lists)
+        if (el.tagName === "H2" || el.classList.contains("details") || el.tagName === "DIV" && el.classList.contains("quote")) {
+          el.innerHTML = map[key];
+        } else {
+          el.textContent = map[key];
+        }
+      });
+
+      // Toggle button label
+      langToggle.textContent = (lang === "en") ? "Español" : "English";
+      document.documentElement.lang = (lang === "en") ? "en" : "es";
+    }
+
+    langToggle.addEventListener("click", () => {
+      applyLang(currentLang === "en" ? "es" : "en");
+    });
+
+    // Initialize
+    applyLang("en");
+
+    // ---- YouTube IFrame API setup (reliable autoplay/mute) ----
+    // Video ID
+    const VIDEO_ID = "NQyanL1QEPw";
+    let player;
+
+    function onYouTubeIframeAPIReady() {
+      player = new YT.Player('ytPlayer', {
+        videoId: VIDEO_ID,
+        playerVars: {
+          autoplay: 1,
+          controls: 0,
+          mute: 1,
+          playsinline: 1,
+          rel: 0,
+          modestbranding: 1,
+          loop: 1,
+          playlist: VIDEO_ID,
+          iv_load_policy: 3,
+          disablekb: 1
+        },
+        events: {
+          onReady: (event) => {
+            try {
+              event.target.mute();
+              event.target.playVideo();
+            } catch (e) {}
+          },
+          onStateChange: (event) => {
+            // If it pauses/buffers, try to resume (light touch)
+            if (event.data === YT.PlayerState.PAUSED) {
+              try { event.target.playVideo(); } catch (e) {}
+            }
+          }
+        }
+      });
+    }
+    // Expose for API callback
+    window.onYouTubeIframeAPIReady = onYouTubeIframeAPIReady;
   </script>
 </body>
 </html>
