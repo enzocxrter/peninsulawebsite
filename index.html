@@ -34,8 +34,8 @@
       background: var(--white);
       line-height:1.55;
 
-      /* Slim surfboard cursor (black/white, longer + skinnier) */
-      cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='54' height='54' viewBox='0 0 54 54'%3E%3Cg transform='translate(27 27) rotate(-25) translate(-27 -27)'%3E%3Cpath d='M27 4 C20 9, 15 18, 15 27 C15 36, 20 45, 27 50 C34 45, 39 36, 39 27 C39 18, 34 9, 27 4 Z' fill='white' stroke='black' stroke-width='1.6'/%3E%3Cpath d='M26.3 7.6 C20.6 12.7, 17.8 20.0, 17.8 27 C17.8 34.0, 20.6 41.3, 26.3 46.4' fill='none' stroke='black' stroke-width='1.2' stroke-linecap='round' opacity='0.8'/%3E%3Cpath d='M34.2 36.2 C33.1 39.5, 31.0 42.8, 28.6 45.2' fill='none' stroke='black' stroke-width='1.2' stroke-linecap='round' opacity='0.75'/%3E%3C/g%3E%3C/svg%3E") 16 16, auto;
+      /* skinnier / longer surfboard cursor (black/white) */
+      cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='64' height='64' viewBox='0 0 64 64'%3E%3Cg transform='translate(32 32) rotate(-25) translate(-32 -32)'%3E%3Cpath d='M32 6 C24 12, 20 22, 20 32 C20 42, 24 52, 32 58 C40 52, 44 42, 44 32 C44 22, 40 12, 32 6 Z' fill='white' stroke='black' stroke-width='1.4'/%3E%3Cpath d='M31.2 10 C24.8 15.7, 22.6 24, 22.6 32 C22.6 40, 24.8 48.3, 31.2 54' fill='none' stroke='black' stroke-width='1.0' stroke-linecap='round' opacity='0.85'/%3E%3Cpath d='M40.6 40.4 C39.6 44.2, 37.6 48.3, 34.8 51.6' fill='none' stroke='black' stroke-width='1.0' stroke-linecap='round' opacity='0.8'/%3E%3C/g%3E%3C/svg%3E") 18 18, auto;
     }
 
     a{color:inherit; text-decoration:none}
@@ -145,6 +145,29 @@
       color:white;
       background: #0b0f14;
     }
+
+    /* Background layer */
+    .hero-youtube{
+      position:absolute;
+      inset:0;
+      z-index:-3;
+      overflow:hidden;
+    }
+    /* Full-bleed background iframe sizing */
+    .hero-youtube iframe{
+      position:absolute;
+      top:50%;
+      left:50%;
+      width:177.78vh;     /* 16:9 = 1.7778 */
+      height:100vh;
+      min-width:100vw;
+      min-height:56.25vw; /* 9/16 = 0.5625 */
+      transform:translate(-50%, -50%) scale(1.06);
+      pointer-events:none;
+      border:0;
+      filter: saturate(1.08) contrast(1.05) brightness(0.90);
+    }
+
     .hero-media{
       position:absolute; inset:0;
       z-index:-2;
@@ -152,34 +175,6 @@
         radial-gradient(1200px 700px at 20% 20%, rgba(242,224,196,0.12), transparent 60%),
         radial-gradient(900px 600px at 80% 30%, rgba(68,83,102,0.22), transparent 62%),
         linear-gradient(180deg, rgba(0,0,0,0.55), rgba(0,0,0,0.18), rgba(255,255,255,0.02));
-    }
-
-    .hero-youtube{
-      position:absolute;
-      inset:0;
-      z-index:-3;
-      overflow:hidden;
-    }
-
-    /* IMPORTANT: let the API container fill the hero */
-    #ytPlayer{
-      position:absolute;
-      inset:0;
-    }
-
-    /* iframe created by API */
-    .hero-youtube iframe{
-      position:absolute;
-      top:50%;
-      left:50%;
-      width:177.78vh;
-      height:100vh;
-      min-width:100vw;
-      min-height:56.25vw;
-      transform:translate(-50%, -50%) scale(1.06);
-      pointer-events:none;
-      border:0;
-      filter: saturate(1.08) contrast(1.05) brightness(0.90);
     }
 
     .hero-overlay{
@@ -210,6 +205,7 @@
       transition: opacity .12s linear, transform .12s linear;
       filter: drop-shadow(0 18px 60px rgba(255,255,255,0.14)) drop-shadow(0 18px 60px rgba(0,0,0,0.18));
       user-select:none;
+      -webkit-user-drag:none;
     }
 
     .hero-sub{
@@ -613,7 +609,7 @@
         </nav>
 
         <div class="nav-right">
-          <!-- Instagram -->
+          <!-- Instagram (placeholder link) -->
           <a class="icon-btn" href="#" aria-label="Instagram">
             <svg class="icon" viewBox="0 0 24 24">
               <path d="M7 7h10v10H7z"/><path d="M16 3H8a5 5 0 0 0-5 5v8a5 5 0 0 0 5 5h8a5 5 0 0 0 5-5V8a5 5 0 0 0-5-5z"/><path d="M15.5 8.5h.01"/>
@@ -646,13 +642,18 @@
 
   <!-- HERO -->
   <header id="top" class="hero">
-    <div class="hero-media" aria-hidden="true"></div>
-
-    <!-- YouTube background -->
+    <!-- YouTube background (direct embed, most reliable) -->
     <div class="hero-youtube" aria-hidden="true">
-      <div id="ytPlayer"></div>
+      <iframe
+        title="Peninsula Surf School background video"
+        src="https://www.youtube-nocookie.com/embed/NQyanL1QEPw?autoplay=1&mute=1&controls=0&playsinline=1&loop=1&playlist=NQyanL1QEPw&rel=0&modestbranding=1&iv_load_policy=3&disablekb=1&fs=0"
+        allow="autoplay; encrypted-media; picture-in-picture"
+        referrerpolicy="strict-origin-when-cross-origin"
+        allowfullscreen
+      ></iframe>
     </div>
 
+    <div class="hero-media" aria-hidden="true"></div>
     <div class="hero-overlay" aria-hidden="true"></div>
 
     <div class="container">
@@ -895,9 +896,6 @@
     </div>
   </footer>
 
-  <!-- YouTube IFrame API -->
-  <script src="https://www.youtube.com/iframe_api"></script>
-
   <script>
     // Footer year
     document.getElementById('year').textContent = new Date().getFullYear();
@@ -953,7 +951,7 @@
     window.addEventListener('scroll', onScrollFade, { passive:true });
     onScrollFade();
 
-    // Language toggle
+    // Language toggle (EN default)
     const dict = {
       en: {
         brand: "Peninsula Surf School",
@@ -1147,52 +1145,6 @@
     });
 
     applyLang("en");
-
-    // ---- YouTube IFrame API: improved autoplay reliability ----
-    const VIDEO_ID = "NQyanL1QEPw";
-    let player;
-
-    function onYouTubeIframeAPIReady() {
-      player = new YT.Player("ytPlayer", {
-        host: "https://www.youtube-nocookie.com",
-        videoId: VIDEO_ID,
-        playerVars: {
-          autoplay: 1,
-          controls: 0,
-          mute: 1,
-          playsinline: 1,
-          rel: 0,
-          modestbranding: 1,
-          loop: 1,
-          playlist: VIDEO_ID,
-          iv_load_policy: 3,
-          disablekb: 1,
-          fs: 0,
-          origin: window.location.origin
-        },
-        events: {
-          onReady: (event) => {
-            try {
-              const iframe = event.target.getIframe();
-              iframe.setAttribute("allow", "autoplay; encrypted-media; picture-in-picture");
-              iframe.setAttribute("referrerpolicy", "strict-origin-when-cross-origin");
-
-              event.target.mute();
-              event.target.setVolume(0);
-
-              event.target.playVideo();
-              setTimeout(() => { try { event.target.playVideo(); } catch(e){} }, 400);
-            } catch (e) {}
-          },
-          onStateChange: (event) => {
-            if (event.data === YT.PlayerState.PAUSED) {
-              try { event.target.playVideo(); } catch (e) {}
-            }
-          }
-        }
-      });
-    }
-    window.onYouTubeIframeAPIReady = onYouTubeIframeAPIReady;
   </script>
 </body>
 </html>
