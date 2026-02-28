@@ -6,7 +6,6 @@
   <title>Peninsula Surf School — Samaná, Dominican Republic</title>
   <meta name="description" content="Peninsula Surf School in Samaná, Dominican Republic. Surf lessons, coaching, and guided surf sessions for all levels." />
 
-  <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,500;1,400;1,500&display=swap" rel="stylesheet">
@@ -35,7 +34,7 @@
       line-height:1.55;
 
       /* slimmer / longer surfboard cursor (black/white) */
-      cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='72' height='72' viewBox='0 0 72 72'%3E%3Cg transform='translate(36 36) rotate(-25) translate(-36 -36)'%3E%3Cpath d='M36 6 C26 13, 21 24, 21 36 C21 48, 26 59, 36 66 C46 59, 51 48, 51 36 C51 24, 46 13, 36 6 Z' fill='white' stroke='black' stroke-width='1.35'/%3E%3Cpath d='M35.2 10.5 C27.6 17.0, 24.8 26.0, 24.8 36 C24.8 46.0, 27.6 55.0, 35.2 61.5' fill='none' stroke='black' stroke-width='0.95' stroke-linecap='round' opacity='0.86'/%3E%3Cpath d='M46.0 44.0 C44.6 48.4, 42.3 53.0, 38.8 57.0' fill='none' stroke='black' stroke-width='0.95' stroke-linecap='round' opacity='0.82'/%3E%3C/g%3E%3C/svg%3E") 20 20, auto;
+      cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='76' height='76' viewBox='0 0 76 76'%3E%3Cg transform='translate(38 38) rotate(-25) translate(-38 -38)'%3E%3Cpath d='M38 6 C27 13, 22 25, 22 38 C22 51, 27 63, 38 70 C49 63, 54 51, 54 38 C54 25, 49 13, 38 6 Z' fill='white' stroke='black' stroke-width='1.2'/%3E%3Cpath d='M37.2 10.5 C28.8 17.5, 25.6 27.0, 25.6 38 C25.6 49.0, 28.8 58.5, 37.2 65.5' fill='none' stroke='black' stroke-width='0.9' stroke-linecap='round' opacity='0.86'/%3E%3Cpath d='M48.0 46.0 C46.2 51.0, 43.4 56.0, 39.4 60.5' fill='none' stroke='black' stroke-width='0.9' stroke-linecap='round' opacity='0.82'/%3E%3C/g%3E%3C/svg%3E") 22 22, auto;
     }
 
     a{color:inherit; text-decoration:none}
@@ -62,6 +61,7 @@
       font-weight:500;
       letter-spacing:0.02em;
     }
+    /* ✅ (1) Header logo swapped to peninsulalogoonly.png */
     .brand-logo{
       width:34px;
       height:34px;
@@ -69,6 +69,7 @@
       display:block;
       filter: drop-shadow(0 10px 22px rgba(0,0,0,0.25));
     }
+
     .nav-links{
       display:flex;
       gap:22px;
@@ -144,13 +145,13 @@
       background: #0b0f14;
     }
 
-    /* VIDEO LAYER (no negative z-index) */
+    /* VIDEO LAYER */
     .hero-youtube{
       position:absolute;
       inset:0;
       z-index:0;
       overflow:hidden;
-      background:#0b0f14; /* fallback behind iframe */
+      background:#0b0f14;
     }
     .hero-youtube iframe{
       position:absolute;
@@ -160,7 +161,7 @@
       height:100vh;
       min-width:100vw;
       min-height:56.25vw; /* 9/16 */
-      transform:translate(-50%, -50%) scale(1.08);
+      transform:translate(-50%, -50%) scale(1.10);
       pointer-events:none;
       border:0;
       filter: saturate(1.08) contrast(1.05) brightness(0.92);
@@ -177,8 +178,7 @@
     .hero-overlay{
       position:absolute; inset:0;
       z-index:2;
-      /* keep this lighter so video is visible */
-      background: linear-gradient(180deg, rgba(0,0,0,0.35), rgba(0,0,0,0.18), rgba(0,0,0,0.10));
+      background: linear-gradient(180deg, rgba(0,0,0,0.30), rgba(0,0,0,0.16), rgba(0,0,0,0.10));
     }
 
     /* content ABOVE everything */
@@ -189,12 +189,14 @@
       padding: 150px 0 90px;
       text-align:center;
     }
+
+    /* ✅ (2) Large peninsulalogo.png overlay that fades on scroll */
     .hero-logo-wrap{
       display:flex;
       justify-content:center;
       align-items:center;
-      margin: 0 auto 22px;
-      width: min(720px, 88vw);
+      margin: 0 auto 18px;
+      width: min(760px, 88vw);
     }
     .hero-logo{
       width:100%;
@@ -203,13 +205,15 @@
       opacity: 1;
       transform: translateY(0) scale(1);
       transition: opacity .12s linear, transform .12s linear;
-      filter: drop-shadow(0 18px 60px rgba(255,255,255,0.14)) drop-shadow(0 18px 60px rgba(0,0,0,0.18));
+      filter: drop-shadow(0 18px 60px rgba(255,255,255,0.12)) drop-shadow(0 18px 60px rgba(0,0,0,0.22));
       user-select:none;
       -webkit-user-drag:none;
     }
+
+    /* ✅ Keep ONLY this hero sentence + buttons */
     .hero-sub{
       margin: 0 auto 0;
-      max-width: 74ch;
+      max-width: 76ch;
       font-size: 16px;
       color: rgba(255,255,255,0.90);
       text-shadow: 0 18px 60px rgba(0,0,0,0.35);
@@ -528,7 +532,6 @@
     .tiny-links a{opacity:.9}
     .tiny-links a:hover{opacity:1; color: var(--navy)}
 
-    /* Mobile */
     @media (max-width: 980px){
       .nav-links{display:none}
       .hamburger{display:inline-flex}
@@ -540,7 +543,6 @@
       .hero-inner{padding: 140px 0 84px;}
     }
 
-    /* Mobile menu */
     .hamburger{
       display:none;
       width:42px; height:42px;
@@ -577,12 +579,11 @@
 </head>
 
 <body>
-  <!-- NAV -->
   <div class="nav">
     <div class="container">
       <div class="nav-inner">
         <a class="brand" href="#top" aria-label="Peninsula Surf School home">
-          <!-- UPDATED: new logo filename -->
+          <!-- ✅ (1) new header logo -->
           <img class="brand-logo" src="peninsulalogoonly.png" alt="Peninsula Surf School logo">
           <span data-i18n="brand">Peninsula Surf School</span>
         </a>
@@ -595,14 +596,12 @@
         </nav>
 
         <div class="nav-right">
-          <!-- Instagram placeholder -->
           <a class="icon-btn" href="#" aria-label="Instagram">
             <svg class="icon" viewBox="0 0 24 24">
               <path d="M7 7h10v10H7z"/><path d="M16 3H8a5 5 0 0 0-5 5v8a5 5 0 0 0 5 5h8a5 5 0 0 0 5-5V8a5 5 0 0 0-5-5z"/><path d="M15.5 8.5h.01"/>
             </svg>
           </a>
 
-          <!-- WhatsApp placeholder (you'll give number later) -->
           <a class="icon-btn" id="whatsappBtn" href="#" aria-label="WhatsApp">
             <svg class="icon" viewBox="0 0 24 24">
               <path d="M20 11.5a8 8 0 0 1-12.7 6.4L4 19l1.2-3.1A8 8 0 1 1 20 11.5z"/>
@@ -624,9 +623,7 @@
     </div>
   </div>
 
-  <!-- HERO -->
   <header id="top" class="hero">
-    <!-- YouTube background -->
     <div class="hero-youtube" aria-hidden="true">
       <iframe
         id="bgYt"
@@ -643,7 +640,7 @@
     <div class="container">
       <div class="hero-inner">
         <div class="hero-logo-wrap" aria-hidden="true">
-          <!-- UPDATED: new big logo filename -->
+          <!-- ✅ (2) new big logo -->
           <img id="heroLogo" class="hero-logo" src="peninsulalogo.png" alt="">
         </div>
 
@@ -922,13 +919,13 @@
       });
     });
 
-    // Fade out big hero logo on scroll
+    // ✅ Fade out big hero logo on scroll
     const heroLogo = document.getElementById('heroLogo');
     function clamp(n, min, max){ return Math.max(min, Math.min(max, n)); }
     function onScrollFade(){
       if(!heroLogo) return;
       const y = window.scrollY || 0;
-      const fadeDistance = 320;
+      const fadeDistance = 340;
       const t = clamp(1 - (y / fadeDistance), 0, 1);
       heroLogo.style.opacity = String(t);
       heroLogo.style.transform = `translateY(${(1 - t) * -10}px) scale(${1 + (1 - t) * 0.03})`;
@@ -965,34 +962,34 @@
         s1_title: "Beginner Lesson",
         s1_brief: "Your first waves — pop-up, stance, safety, and smooth takeoffs.",
         s1_details: `<p class="brief" style="margin:0">Perfect if you’ve never surfed (or tried once and want it to click).</p>
-                    <ul>
-                      <li>Beach warm-up + pop-up practice</li>
-                      <li>Ocean safety + wave timing</li>
-                      <li>Hands-on coaching in the water</li>
-                      <li>Board + leash included</li>
-                    </ul>`,
+          <ul>
+            <li>Beach warm-up + pop-up practice</li>
+            <li>Ocean safety + wave timing</li>
+            <li>Hands-on coaching in the water</li>
+            <li>Board + leash included</li>
+          </ul>`,
         s1_time: "~90 minutes",
         s2_num: "02",
         s2_title: "Private Coaching",
         s2_brief: "1-on-1 (or 2-on-1) for technique, confidence, and faster progression.",
         s2_details: `<p class="brief" style="margin:0">Targeted feedback and drills built around your goals.</p>
-                    <ul>
-                      <li>Stance, trim, turns, and positioning</li>
-                      <li>Wave selection and timing</li>
-                      <li>Optional video feedback (if you bring a phone/tripod)</li>
-                      <li>Ideal for intermediate surfers</li>
-                    </ul>`,
+          <ul>
+            <li>Stance, trim, turns, and positioning</li>
+            <li>Wave selection and timing</li>
+            <li>Optional video feedback (if you bring a phone/tripod)</li>
+            <li>Ideal for intermediate surfers</li>
+          </ul>`,
         s2_time: "~90–120 minutes",
         s3_num: "03",
         s3_title: "Guided Session",
         s3_brief: "We pick the right spot for the day and guide you through a clean session.",
         s3_details: `<p class="brief" style="margin:0">Great if you can paddle and catch waves but want local knowledge.</p>
-                    <ul>
-                      <li>Spot selection based on swell + wind</li>
-                      <li>Safety briefing + lineup strategy</li>
-                      <li>Local guidance throughout</li>
-                      <li>Bring your board or rent locally</li>
-                    </ul>`,
+          <ul>
+            <li>Spot selection based on swell + wind</li>
+            <li>Safety briefing + lineup strategy</li>
+            <li>Local guidance throughout</li>
+            <li>Bring your board or rent locally</li>
+          </ul>`,
         s3_time: "~2 hours",
         team_kicker: "Team",
         team_title: "Local guides, <span class=\"accent\">good energy.</span>",
@@ -1047,34 +1044,34 @@
         s1_title: "Clase para principiantes",
         s1_brief: "Tus primeras olas — pop-up, postura, seguridad y despegues suaves.",
         s1_details: `<p class="brief" style="margin:0">Perfecto si nunca has surfeado (o lo intentaste y quieres que por fin haga clic).</p>
-                    <ul>
-                      <li>Calentamiento en la arena + práctica de pop-up</li>
-                      <li>Seguridad en el mar + timing de olas</li>
-                      <li>Coaching contigo en el agua</li>
-                      <li>Tabla + leash incluidos</li>
-                    </ul>`,
+          <ul>
+            <li>Calentamiento en la arena + práctica de pop-up</li>
+            <li>Seguridad en el mar + timing de olas</li>
+            <li>Coaching contigo en el agua</li>
+            <li>Tabla + leash incluidos</li>
+          </ul>`,
         s1_time: "~90 minutos",
         s2_num: "02",
         s2_title: "Coaching privado",
         s2_brief: "1 a 1 (o 2 a 1) para técnica, confianza y progreso más rápido.",
         s2_details: `<p class="brief" style="margin:0">Feedback directo y ejercicios según tus objetivos.</p>
-                    <ul>
-                      <li>Postura, trim, giros y posicionamiento</li>
-                      <li>Selección de olas y timing</li>
-                      <li>Video feedback opcional (si traes teléfono/trípode)</li>
-                      <li>Ideal para nivel intermedio</li>
-                    </ul>`,
+          <ul>
+            <li>Postura, trim, giros y posicionamiento</li>
+            <li>Selección de olas y timing</li>
+            <li>Video feedback opcional (si traes teléfono/trípode)</li>
+            <li>Ideal para nivel intermedio</li>
+          </ul>`,
         s2_time: "~90–120 minutos",
         s3_num: "03",
         s3_title: "Sesión guiada",
         s3_brief: "Elegimos el mejor spot del día y te guiamos en una sesión limpia y segura.",
         s3_details: `<p class="brief" style="margin:0">Perfecto si ya remas y atrapas olas, pero quieres conocimiento local.</p>
-                    <ul>
-                      <li>Elección del spot según swell + viento</li>
-                      <li>Briefing de seguridad + estrategia en el line-up</li>
-                      <li>Guía local durante la sesión</li>
-                      <li>Trae tu tabla o alquila localmente</li>
-                    </ul>`,
+          <ul>
+            <li>Elección del spot según swell + viento</li>
+            <li>Briefing de seguridad + estrategia en el line-up</li>
+            <li>Guía local durante la sesión</li>
+            <li>Trae tu tabla o alquila localmente</li>
+          </ul>`,
         s3_time: "~2 horas",
         team_kicker: "Equipo",
         team_title: "Guías locales, <span class=\"accent\">buena energía.</span>",
@@ -1124,17 +1121,12 @@
       langToggle.textContent = (lang === "en") ? "Español" : "English";
       document.documentElement.lang = (lang === "en") ? "en" : "es";
     }
-
-    langToggle.addEventListener("click", () => {
-      applyLang(currentLang === "en" ? "es" : "en");
-    });
+    langToggle.addEventListener("click", () => applyLang(currentLang === "en" ? "es" : "en"));
     applyLang("en");
 
-    // ---- AUTOPLAY "KICK" (Chrome sometimes refuses autoplay even muted) ----
-    // If the video didn't start, the first user interaction (scroll/click) will reload the iframe with a cache buster.
+    // Autoplay kick
     const yt = document.getElementById("bgYt");
     let kicked = false;
-
     function kickVideoOnce(){
       if (!yt || kicked) return;
       kicked = true;
@@ -1152,16 +1144,11 @@
         iv_load_policy: "3",
         disablekb: "1",
         fs: "0",
-        t: String(Date.now()) // cache buster
+        t: String(Date.now())
       });
-
       yt.src = `${base}?${params.toString()}`;
     }
-
-    // Try immediately too (sometimes works on load)
     setTimeout(kickVideoOnce, 700);
-
-    // Then on first interaction
     ["click","scroll","mousemove","touchstart","keydown"].forEach(evt => {
       window.addEventListener(evt, kickVideoOnce, { passive:true, once:true });
     });
