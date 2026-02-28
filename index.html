@@ -34,8 +34,8 @@
       background: var(--white);
       line-height:1.55;
 
-      /* skinnier / longer surfboard cursor (black/white) */
-      cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='64' height='64' viewBox='0 0 64 64'%3E%3Cg transform='translate(32 32) rotate(-25) translate(-32 -32)'%3E%3Cpath d='M32 6 C24 12, 20 22, 20 32 C20 42, 24 52, 32 58 C40 52, 44 42, 44 32 C44 22, 40 12, 32 6 Z' fill='white' stroke='black' stroke-width='1.4'/%3E%3Cpath d='M31.2 10 C24.8 15.7, 22.6 24, 22.6 32 C22.6 40, 24.8 48.3, 31.2 54' fill='none' stroke='black' stroke-width='1.0' stroke-linecap='round' opacity='0.85'/%3E%3Cpath d='M40.6 40.4 C39.6 44.2, 37.6 48.3, 34.8 51.6' fill='none' stroke='black' stroke-width='1.0' stroke-linecap='round' opacity='0.8'/%3E%3C/g%3E%3C/svg%3E") 18 18, auto;
+      /* slimmer / longer surfboard cursor (black/white) */
+      cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='72' height='72' viewBox='0 0 72 72'%3E%3Cg transform='translate(36 36) rotate(-25) translate(-36 -36)'%3E%3Cpath d='M36 6 C26 13, 21 24, 21 36 C21 48, 26 59, 36 66 C46 59, 51 48, 51 36 C51 24, 46 13, 36 6 Z' fill='white' stroke='black' stroke-width='1.35'/%3E%3Cpath d='M35.2 10.5 C27.6 17.0, 24.8 26.0, 24.8 36 C24.8 46.0, 27.6 55.0, 35.2 61.5' fill='none' stroke='black' stroke-width='0.95' stroke-linecap='round' opacity='0.86'/%3E%3Cpath d='M46.0 44.0 C44.6 48.4, 42.3 53.0, 38.8 57.0' fill='none' stroke='black' stroke-width='0.95' stroke-linecap='round' opacity='0.82'/%3E%3C/g%3E%3C/svg%3E") 20 20, auto;
     }
 
     a{color:inherit; text-decoration:none}
@@ -100,7 +100,6 @@
       align-items:center;
       gap:10px;
     }
-
     .icon-btn{
       width:34px; height:34px;
       border-radius:999px;
@@ -118,7 +117,6 @@
       stroke-width:2;
       opacity:0.95;
     }
-
     .lang-btn{
       height:34px;
       padding: 0 12px;
@@ -146,49 +144,51 @@
       background: #0b0f14;
     }
 
-    /* Background layer */
+    /* VIDEO LAYER (no negative z-index) */
     .hero-youtube{
       position:absolute;
       inset:0;
-      z-index:-3;
+      z-index:0;
       overflow:hidden;
+      background:#0b0f14; /* fallback behind iframe */
     }
-    /* Full-bleed background iframe sizing */
     .hero-youtube iframe{
       position:absolute;
       top:50%;
       left:50%;
-      width:177.78vh;     /* 16:9 = 1.7778 */
+      width:177.78vh;     /* 16:9 */
       height:100vh;
       min-width:100vw;
-      min-height:56.25vw; /* 9/16 = 0.5625 */
-      transform:translate(-50%, -50%) scale(1.06);
+      min-height:56.25vw; /* 9/16 */
+      transform:translate(-50%, -50%) scale(1.08);
       pointer-events:none;
       border:0;
-      filter: saturate(1.08) contrast(1.05) brightness(0.90);
+      filter: saturate(1.08) contrast(1.05) brightness(0.92);
     }
 
+    /* overlays ABOVE video */
     .hero-media{
       position:absolute; inset:0;
-      z-index:-2;
+      z-index:1;
       background:
-        radial-gradient(1200px 700px at 20% 20%, rgba(242,224,196,0.12), transparent 60%),
-        radial-gradient(900px 600px at 80% 30%, rgba(68,83,102,0.22), transparent 62%),
-        linear-gradient(180deg, rgba(0,0,0,0.55), rgba(0,0,0,0.18), rgba(255,255,255,0.02));
+        radial-gradient(1200px 700px at 20% 20%, rgba(242,224,196,0.10), transparent 60%),
+        radial-gradient(900px 600px at 80% 30%, rgba(68,83,102,0.18), transparent 62%);
     }
-
     .hero-overlay{
       position:absolute; inset:0;
-      background: linear-gradient(180deg, rgba(0,0,0,0.42), rgba(0,0,0,0.20), rgba(255,255,255,0.02));
-      z-index:-1;
+      z-index:2;
+      /* keep this lighter so video is visible */
+      background: linear-gradient(180deg, rgba(0,0,0,0.35), rgba(0,0,0,0.18), rgba(0,0,0,0.10));
     }
+
+    /* content ABOVE everything */
+    .hero .container{ position:relative; z-index:3; }
 
     .hero-inner{
       width:100%;
       padding: 150px 0 90px;
       text-align:center;
     }
-
     .hero-logo-wrap{
       display:flex;
       justify-content:center;
@@ -207,7 +207,6 @@
       user-select:none;
       -webkit-user-drag:none;
     }
-
     .hero-sub{
       margin: 0 auto 0;
       max-width: 74ch;
@@ -215,7 +214,6 @@
       color: rgba(255,255,255,0.90);
       text-shadow: 0 18px 60px rgba(0,0,0,0.35);
     }
-
     .hero-cta{
       margin-top: 22px;
       display:flex;
@@ -271,19 +269,6 @@
       background: linear-gradient(180deg, rgba(242,224,196,0.28), rgba(255,255,255,0.92));
       position:relative;
       overflow:hidden;
-    }
-    .about::before{
-      content:"";
-      position:absolute;
-      inset:-120px -120px auto auto;
-      width: 520px;
-      height: 520px;
-      background:
-        radial-gradient(circle at 30% 30%, rgba(68,83,102,0.18), transparent 60%),
-        radial-gradient(circle at 70% 70%, rgba(242,224,196,0.45), transparent 58%);
-      filter: blur(6px);
-      opacity: 0.85;
-      pointer-events:none;
     }
     .about-grid{
       display:grid;
@@ -597,7 +582,8 @@
     <div class="container">
       <div class="nav-inner">
         <a class="brand" href="#top" aria-label="Peninsula Surf School home">
-          <img class="brand-logo" src="cristianlogowhite.png" alt="Peninsula Surf School logo">
+          <!-- UPDATED: new logo filename -->
+          <img class="brand-logo" src="peninsulalogoonly.png" alt="Peninsula Surf School logo">
           <span data-i18n="brand">Peninsula Surf School</span>
         </a>
 
@@ -609,14 +595,14 @@
         </nav>
 
         <div class="nav-right">
-          <!-- Instagram (placeholder link) -->
+          <!-- Instagram placeholder -->
           <a class="icon-btn" href="#" aria-label="Instagram">
             <svg class="icon" viewBox="0 0 24 24">
               <path d="M7 7h10v10H7z"/><path d="M16 3H8a5 5 0 0 0-5 5v8a5 5 0 0 0 5 5h8a5 5 0 0 0 5-5V8a5 5 0 0 0-5-5z"/><path d="M15.5 8.5h.01"/>
             </svg>
           </a>
 
-          <!-- WhatsApp placeholder -->
+          <!-- WhatsApp placeholder (you'll give number later) -->
           <a class="icon-btn" id="whatsappBtn" href="#" aria-label="WhatsApp">
             <svg class="icon" viewBox="0 0 24 24">
               <path d="M20 11.5a8 8 0 0 1-12.7 6.4L4 19l1.2-3.1A8 8 0 1 1 20 11.5z"/>
@@ -624,9 +610,7 @@
             </svg>
           </a>
 
-          <!-- Language toggle -->
           <button class="lang-btn" id="langToggle" aria-label="Switch language">Español</button>
-
           <button class="hamburger" id="menuBtn" aria-label="Open menu" aria-expanded="false">☰</button>
         </div>
       </div>
@@ -642,14 +626,14 @@
 
   <!-- HERO -->
   <header id="top" class="hero">
-    <!-- YouTube background (direct embed, most reliable) -->
+    <!-- YouTube background -->
     <div class="hero-youtube" aria-hidden="true">
       <iframe
+        id="bgYt"
         title="Peninsula Surf School background video"
         src="https://www.youtube-nocookie.com/embed/NQyanL1QEPw?autoplay=1&mute=1&controls=0&playsinline=1&loop=1&playlist=NQyanL1QEPw&rel=0&modestbranding=1&iv_load_policy=3&disablekb=1&fs=0"
         allow="autoplay; encrypted-media; picture-in-picture"
         referrerpolicy="strict-origin-when-cross-origin"
-        allowfullscreen
       ></iframe>
     </div>
 
@@ -659,7 +643,8 @@
     <div class="container">
       <div class="hero-inner">
         <div class="hero-logo-wrap" aria-hidden="true">
-          <img id="heroLogo" class="hero-logo" src="cristianlogoblack.png" alt="">
+          <!-- UPDATED: new big logo filename -->
+          <img id="heroLogo" class="hero-logo" src="peninsulalogo.png" alt="">
         </div>
 
         <p class="hero-sub" data-i18n="hero_sub">
@@ -1143,8 +1128,43 @@
     langToggle.addEventListener("click", () => {
       applyLang(currentLang === "en" ? "es" : "en");
     });
-
     applyLang("en");
+
+    // ---- AUTOPLAY "KICK" (Chrome sometimes refuses autoplay even muted) ----
+    // If the video didn't start, the first user interaction (scroll/click) will reload the iframe with a cache buster.
+    const yt = document.getElementById("bgYt");
+    let kicked = false;
+
+    function kickVideoOnce(){
+      if (!yt || kicked) return;
+      kicked = true;
+
+      const base = "https://www.youtube-nocookie.com/embed/NQyanL1QEPw";
+      const params = new URLSearchParams({
+        autoplay: "1",
+        mute: "1",
+        controls: "0",
+        playsinline: "1",
+        loop: "1",
+        playlist: "NQyanL1QEPw",
+        rel: "0",
+        modestbranding: "1",
+        iv_load_policy: "3",
+        disablekb: "1",
+        fs: "0",
+        t: String(Date.now()) // cache buster
+      });
+
+      yt.src = `${base}?${params.toString()}`;
+    }
+
+    // Try immediately too (sometimes works on load)
+    setTimeout(kickVideoOnce, 700);
+
+    // Then on first interaction
+    ["click","scroll","mousemove","touchstart","keydown"].forEach(evt => {
+      window.addEventListener(evt, kickVideoOnce, { passive:true, once:true });
+    });
   </script>
 </body>
 </html>
