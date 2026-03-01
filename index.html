@@ -88,7 +88,7 @@
       white-space:nowrap;
     }
 
-    /* header logo (keep visible but fits shorter header) */
+    /* header logo */
     .brand-logo{
       width:46px;
       height:46px;
@@ -111,7 +111,7 @@
     .nav-links a:hover{background: rgba(68,83,102,0.10); transform: translateY(-1px)}
     .nav-cta{display:flex; gap:10px; align-items:center}
 
-    /* icon buttons (restore icons instead of IG/WA text) */
+    /* icon buttons */
     .icon-btn{
       width:40px; height:40px;
       border-radius:999px;
@@ -174,10 +174,10 @@
       position:absolute;
       top:50%;
       left:50%;
-      width:177.78vh;     /* 16:9 */
+      width:177.78vh;
       height:100vh;
       min-width:100vw;
-      min-height:56.25vw; /* 9/16 */
+      min-height:56.25vw;
       transform:translate(-50%,-50%) scale(1.10);
       border:0;
       pointer-events:none;
@@ -198,45 +198,50 @@
       z-index:-1;
     }
 
+    /* ✅ FIX: reduce the "giant grey slab" look */
     .hero-card{
-      width:min(820px, 100%);
-      padding:22px 20px;
+      width:min(880px, 100%);
+      padding:18px 18px;
       border-radius: var(--radius);
-      border: 1px solid rgba(255,255,255,0.22);
-      background: rgba(255,255,255,0.10);
-      backdrop-filter: blur(14px);
-      -webkit-backdrop-filter: blur(14px);
-      box-shadow: 0 22px 60px rgba(0,0,0,0.25);
+      border: 1px solid rgba(255,255,255,0.18);
+      background: rgba(0,0,0,0.14);              /* was white-ish glass; now subtle dark so it doesn't look grey */
+      backdrop-filter: blur(8px);                 /* less blur = less muddy grey */
+      -webkit-backdrop-filter: blur(8px);
+      box-shadow: 0 22px 60px rgba(0,0,0,0.22);
       color:white;
       text-align:center;
       margin: 0 auto;
     }
 
-    /* BIG HERO LOGO (make it large like original) */
+    /* ✅ FIX: Keep logo BIG but stop it forcing huge card height */
     .hero-logo-wrap{
       display:flex;
       justify-content:center;
       align-items:center;
-      margin: 0 auto 12px;
-      width: min(980px, 94vw); /* bigger than previous */
+      margin: 0 auto 10px;
+      width: min(980px, 94vw);
     }
     .hero-logo{
       width:100%;
       height:auto;
+      max-width: 920px;
+      max-height: 260px;          /* KEY: prevents the massive tall panel */
+      object-fit: contain;
       display:block;
       opacity:1;
       transform: translateY(0) scale(1);
       transition: opacity .12s linear, transform .12s linear;
-      filter: drop-shadow(0 18px 60px rgba(255,255,255,0.10)) drop-shadow(0 18px 60px rgba(0,0,0,0.26));
+      filter: drop-shadow(0 18px 60px rgba(0,0,0,0.28));
       user-select:none;
       -webkit-user-drag:none;
     }
 
     .hero p{
-      color: rgba(255,255,255,0.90);
-      margin: 0 auto 18px;
+      color: rgba(255,255,255,0.92);
+      margin: 0 auto 16px;
       font-size: 16px;
       max-width: 70ch;
+      text-shadow: 0 8px 28px rgba(0,0,0,0.35);
     }
     .hero-actions{display:flex; gap:12px; flex-wrap:wrap; align-items:center; justify-content:center}
 
@@ -478,6 +483,11 @@
       }
       .mobile-menu a:hover{background: rgba(68,83,102,0.08)}
       .mobile-menu.show{display:block}
+
+      /* keep logo from being too tall on mobile too */
+      .hero-logo{
+        max-height: 200px;
+      }
     }
   </style>
 </head>
@@ -999,8 +1009,6 @@
       document.querySelectorAll("[data-i18n]").forEach(el => {
         const key = el.getAttribute("data-i18n");
         if (!map[key]) return;
-
-        // allow HTML in quote
         if (key === "team_quote") el.innerHTML = map[key];
         else el.textContent = map[key];
       });
@@ -1034,6 +1042,20 @@
     ["click","scroll","touchstart","keydown"].forEach(evt => {
       window.addEventListener(evt, kickVideoOnce, { passive:true, once:true });
     });
+
+    // Fade big hero logo on scroll
+    const heroLogo = document.getElementById('heroLogo');
+    function clamp(n, min, max){ return Math.max(min, Math.min(max, n)); }
+    function onScrollFade(){
+      if(!heroLogo) return;
+      const y = window.scrollY || 0;
+      const fadeDistance = 380;
+      const t = clamp(1 - (y / fadeDistance), 0, 1);
+      heroLogo.style.opacity = String(t);
+      heroLogo.style.transform = `translateY(${(1 - t) * -8}px) scale(${1 + (1 - t) * 0.02})`;
+    }
+    window.addEventListener('scroll', onScrollFade, { passive:true });
+    onScrollFade();
   </script>
 </body>
 </html>
