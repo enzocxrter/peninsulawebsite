@@ -59,7 +59,7 @@
     }
     .btn.primary:hover{transform: translateY(-2px) scale(1.01)}
 
-    /* ---------- NAV (35% SHORTER) ---------- */
+    /* ---------- NAV ---------- */
     .nav{
       position:fixed;
       top:10px; left:0; right:0;
@@ -70,10 +70,7 @@
       align-items:center;
       justify-content:space-between;
       gap:12px;
-
-      /* shorter pill (reduced padding) */
       padding:8px 12px;
-
       border-radius:999px;
       background: rgba(255,255,255,0.72);
       border:1px solid rgba(11,18,32,0.10);
@@ -87,8 +84,6 @@
       letter-spacing:.01em;
       white-space:nowrap;
     }
-
-    /* header logo */
     .brand-logo{
       width:46px;
       height:46px;
@@ -111,7 +106,6 @@
     .nav-links a:hover{background: rgba(68,83,102,0.10); transform: translateY(-1px)}
     .nav-cta{display:flex; gap:10px; align-items:center}
 
-    /* icon buttons */
     .icon-btn{
       width:40px; height:40px;
       border-radius:999px;
@@ -162,7 +156,6 @@
       overflow:hidden;
     }
 
-    /* youtube layer */
     .hero-youtube{
       position:absolute;
       inset:0;
@@ -198,14 +191,13 @@
       z-index:-1;
     }
 
-    /* ✅ FIX: reduce the "giant grey slab" look */
     .hero-card{
       width:min(880px, 100%);
       padding:18px 18px;
       border-radius: var(--radius);
       border: 1px solid rgba(255,255,255,0.18);
-      background: rgba(0,0,0,0.14);              /* was white-ish glass; now subtle dark so it doesn't look grey */
-      backdrop-filter: blur(8px);                 /* less blur = less muddy grey */
+      background: rgba(0,0,0,0.14);
+      backdrop-filter: blur(8px);
       -webkit-backdrop-filter: blur(8px);
       box-shadow: 0 22px 60px rgba(0,0,0,0.22);
       color:white;
@@ -213,19 +205,19 @@
       margin: 0 auto;
     }
 
-    /* ✅ FIX: Keep logo BIG but stop it forcing huge card height */
+    /* HERO LOGO OVERLAY - enlarged 200% */
     .hero-logo-wrap{
       display:flex;
       justify-content:center;
       align-items:center;
       margin: 0 auto 10px;
-      width: min(980px, 94vw);
+      width: min(100%, 1000px);
     }
     .hero-logo{
       width:100%;
       height:auto;
-      max-width: 920px;
-      max-height: 260px;          /* KEY: prevents the massive tall panel */
+      max-width: 1840px;   /* 200% of 920px */
+      max-height: 520px;   /* 200% of 260px */
       object-fit: contain;
       display:block;
       opacity:1;
@@ -484,9 +476,8 @@
       .mobile-menu a:hover{background: rgba(68,83,102,0.08)}
       .mobile-menu.show{display:block}
 
-      /* keep logo from being too tall on mobile too */
       .hero-logo{
-        max-height: 200px;
+        max-height: 400px;
       }
     }
   </style>
@@ -510,7 +501,6 @@
         </nav>
 
         <div class="nav-cta">
-          <!-- Instagram icon button -->
           <a class="icon-btn" href="#" aria-label="Instagram">
             <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
               <rect x="7" y="7" width="10" height="10" rx="3"></rect>
@@ -519,7 +509,6 @@
             </svg>
           </a>
 
-          <!-- WhatsApp icon button (placeholder link for now) -->
           <a class="icon-btn" id="whatsappBtn" href="#" aria-label="WhatsApp">
             <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
               <path d="M20 11.5a8 8 0 0 1-12.7 6.4L4 19l1.2-3.1A8 8 0 1 1 20 11.5z"></path>
@@ -799,10 +788,8 @@
   </footer>
 
   <script>
-    // Footer year
     document.getElementById('year').textContent = new Date().getFullYear();
 
-    // Mobile menu toggle
     const menuBtn = document.getElementById('menuBtn');
     const mobileMenu = document.getElementById('mobileMenu');
     if (menuBtn && mobileMenu) {
@@ -818,7 +805,6 @@
       });
     }
 
-    // Services: click-to-expand (only one open at a time)
     const serviceCards = Array.from(document.querySelectorAll('[data-service]'));
     function collapseAll(except) {
       serviceCards.forEach(card => {
@@ -839,7 +825,6 @@
       });
     });
 
-    // Fade big hero logo on scroll
     const heroLogo = document.getElementById('heroLogo');
     function clamp(n, min, max){ return Math.max(min, Math.min(max, n)); }
     function onScrollFade(){
@@ -853,7 +838,6 @@
     window.addEventListener('scroll', onScrollFade, { passive:true });
     onScrollFade();
 
-    // Language toggle (EN default)
     const dict = {
       en: {
         brand: "Peninsula Surf School",
@@ -1023,7 +1007,6 @@
 
     applyLang("en");
 
-    // Autoplay "kick" for stubborn Chrome cases
     const yt = document.getElementById("bgYt");
     let kicked = false;
     function kickVideoOnce(){
@@ -1042,20 +1025,6 @@
     ["click","scroll","touchstart","keydown"].forEach(evt => {
       window.addEventListener(evt, kickVideoOnce, { passive:true, once:true });
     });
-
-    // Fade big hero logo on scroll
-    const heroLogo = document.getElementById('heroLogo');
-    function clamp(n, min, max){ return Math.max(min, Math.min(max, n)); }
-    function onScrollFade(){
-      if(!heroLogo) return;
-      const y = window.scrollY || 0;
-      const fadeDistance = 380;
-      const t = clamp(1 - (y / fadeDistance), 0, 1);
-      heroLogo.style.opacity = String(t);
-      heroLogo.style.transform = `translateY(${(1 - t) * -8}px) scale(${1 + (1 - t) * 0.02})`;
-    }
-    window.addEventListener('scroll', onScrollFade, { passive:true });
-    onScrollFade();
   </script>
 </body>
 </html>
