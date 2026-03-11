@@ -185,7 +185,6 @@ body{
   justify-content:center;
   flex-wrap:wrap;
 }
-
 .hero-buttons a{
   min-width:220px;
   padding:14px 30px;
@@ -202,19 +201,16 @@ body{
   box-shadow:0 8px 24px rgba(0,0,0,.18);
   transition:all .25s ease;
 }
-
 .hero-buttons a:hover{
   transform:translateY(-2px);
   background:rgba(255,255,255,.16);
   box-shadow:0 14px 30px rgba(0,0,0,.24);
   color:white;
 }
-
 .hero-buttons .primary-btn{
   background:rgba(255,255,255,.14);
   border:1px solid rgba(255,255,255,.9);
 }
-
 .hero-buttons .primary-btn:hover{
   background:rgba(255,255,255,.22);
   border-color:white;
@@ -275,6 +271,7 @@ p{
   grid-template-columns:repeat(3,1fr);
   gap:30px;
   margin-top:40px;
+  align-items:stretch;
 }
 .service-card{
   background:white;
@@ -284,19 +281,11 @@ p{
   text-align:left;
   transition:.25s ease;
   box-shadow:0 6px 20px rgba(0,0,0,.10);
-
   display:flex;
   flex-direction:column;
 }
-  .service-card .whatsapp-btn{
+.service-card .whatsapp-btn{
   margin-top:auto;
-}
-  .services-grid{
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:30px;
-  margin-top:40px;
-  align-items:stretch;
 }
 .service-card:hover{
   transform:translateY(-6px);
@@ -353,24 +342,32 @@ p{
   opacity:.85;
 }
 .team-buttons{
-  margin-top:28px;
   display:flex;
-  gap:14px;
+  gap:16px;
   flex-wrap:wrap;
-  margin-top:10px;
+  margin-top:28px;
 }
-.outline-btn{
-  display:inline-block;
-  padding:12px 22px;
-  border-radius:30px;
-  border:1px solid white;
-  color:white;
+.team-btn{
+  min-width:220px;
+  padding:14px 30px;
+  border-radius:999px;
+  border:1px solid rgba(255,255,255,.75);
   text-decoration:none;
-  transition:.25s ease;
+  color:white;
+  font-size:17px;
+  font-weight:500;
+  text-align:center;
+  background:rgba(255,255,255,.08);
+  backdrop-filter:blur(10px);
+  -webkit-backdrop-filter:blur(10px);
+  box-shadow:0 8px 24px rgba(0,0,0,.18);
+  transition:all .25s ease;
 }
-.outline-btn:hover{
-  background:white;
-  color:var(--brand);
+.team-btn:hover{
+  transform:translateY(-2px);
+  background:rgba(255,255,255,.16);
+  box-shadow:0 14px 30px rgba(0,0,0,.24);
+  color:white;
 }
 
 /* FAQ */
@@ -480,6 +477,12 @@ footer{
     font-size:26px;
   }
 
+  .team-btn,
+  .hero-buttons a{
+    min-width:unset;
+    width:100%;
+  }
+
   .floating-whatsapp{
     right:14px;
     bottom:14px;
@@ -548,10 +551,10 @@ footer{
       Learn to surf with the best in Las Terrenas!
     </p>
 
-<div class="hero-buttons">
-  <a href="#services" class="primary-btn" data-en="Start Surfing" data-es="Comenzar">Start Surfing</a>
-  <a href="https://wa.me/18295865262?text=Hi%20I%E2%80%99m%20visiting%20Las%20Terrenas%20and%20would%20like%20to%20book%20a%20surf%20lesson" class="primary-btn" data-en="Book on WhatsApp" data-es="Reservar por WhatsApp">Book on WhatsApp</a>
-</div>
+    <div class="hero-buttons">
+      <a href="#services" class="primary-btn" data-en="Start Surfing" data-es="Comenzar">Start Surfing</a>
+      <a href="https://wa.me/18295865262?text=Hi%20I%E2%80%99m%20visiting%20Las%20Terrenas%20and%20would%20like%20to%20book%20a%20surf%20lesson" class="primary-btn" data-en="Book on WhatsApp" data-es="Reservar por WhatsApp">Book on WhatsApp</a>
+    </div>
   </div>
 </header>
 
@@ -687,13 +690,13 @@ footer{
         </p>
         
         <div class="team-buttons">
-  <a class="team-btn" href="https://www.instagram.com/cristianppadilla/?hl=en" target="_blank" rel="noopener" data-en="Follow on Instagram" data-es="Seguir en Instagram">
-    Follow on Instagram
-  </a>
-  <a class="team-btn" href="https://wa.me/18295865262?text=Hi!%20I%20would%20like%20to%20book%20a%20surf%20lesson" data-en="Book a Lesson" data-es="Reservar una Clase">
-    Book a Lesson
-  </a>
-</div>
+          <a class="team-btn" href="https://www.instagram.com/cristianppadilla/?hl=en" target="_blank" rel="noopener" data-en="Follow on Instagram" data-es="Seguir en Instagram">
+            Follow on Instagram
+          </a>
+          <a class="team-btn" href="https://wa.me/18295865262?text=Hi!%20I%20would%20like%20to%20book%20a%20surf%20lesson" data-en="Book a Lesson" data-es="Reservar una Clase">
+            Book a Lesson
+          </a>
+        </div>
       </div>
     </div>
   </div>
@@ -766,7 +769,6 @@ footer{
 </a>
 
 <script>
-/* LANGUAGE TOGGLE */
 let currentLang = "en";
 const toggleBtn = document.getElementById("langToggle");
 
@@ -781,7 +783,6 @@ toggleBtn.addEventListener("click", () => {
   });
 });
 
-/* HERO LOGO FADE ON SCROLL */
 const heroLogo = document.getElementById("heroLogo");
 window.addEventListener("scroll", () => {
   const fade = Math.max(0, 1 - window.scrollY / 400);
