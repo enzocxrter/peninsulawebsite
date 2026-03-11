@@ -7,24 +7,27 @@
 
 <style>
 :root{
-  --dark:#445366;
+  --brand:#434933;
+  --brand-light:#596040;
   --sand:#f2e0c4;
+  --dark:#1f1f1f;
 }
 
-/* SURFBOARD CURSOR (longer + slimmer) */
+/* SURFBOARD CURSOR */
 body{
   margin:0;
-  font-family:system-ui,-apple-system,Segoe UI,Roboto;
+  font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif;
   color:white;
   background:black;
-
   cursor:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='96' height='96' viewBox='0 0 96 96'%3E%3Cg transform='translate(48 48) rotate(-25) translate(-48 -48)'%3E%3Cpath d='M48 6 C34 15, 28 30, 28 48 C28 66, 34 81, 48 90 C62 81, 68 66, 68 48 C68 30, 62 15, 48 6 Z' fill='white' stroke='black' stroke-width='1.1'/%3E%3Cpath d='M46.8 11.5 C36.2 20.4, 32.5 32.0, 32.5 48 C32.5 64.0, 36.2 75.6, 46.8 84.5' fill='none' stroke='black' stroke-width='0.85'/%3E%3C/g%3E%3C/svg%3E") 26 26, auto;
 }
 
 /* NAV */
 .nav{
   position:fixed;
-  top:0; left:0; right:0;
+  top:0;
+  left:0;
+  right:0;
   z-index:100;
   padding:14px 0;
   background:linear-gradient(180deg,rgba(0,0,0,.6),rgba(0,0,0,.25),transparent);
@@ -61,8 +64,9 @@ body{
   text-decoration:none;
   opacity:.85;
 }
-.nav-links a:hover{opacity:1}
-
+.nav-links a:hover{
+  opacity:1;
+}
 .nav-actions{
   display:flex;
   gap:14px;
@@ -96,7 +100,8 @@ body{
 }
 .hero-video{
   position:absolute;
-  top:0; left:0;
+  top:0;
+  left:0;
   width:100%;
   height:100%;
   z-index:0;
@@ -123,18 +128,19 @@ body{
   position:relative;
   z-index:2;
   text-align:center;
-  padding-top:220px;
+  padding:220px 20px 100px;
   max-width:900px;
   margin:auto;
 }
 .hero-main-logo{
-  width:600px;          /* was 300px */
-  max-width:90vw;       /* keeps it responsive */
+  width:600px;
+  max-width:90vw;
   margin-bottom:30px;
   transition:opacity .5s ease, transform .5s ease;
 }
 .hero-text{
   font-size:18px;
+  line-height:1.6;
   max-width:700px;
   margin:0 auto 30px;
 }
@@ -142,6 +148,7 @@ body{
   display:flex;
   gap:16px;
   justify-content:center;
+  flex-wrap:wrap;
 }
 .hero-buttons a{
   padding:12px 26px;
@@ -149,13 +156,23 @@ body{
   border:1px solid white;
   text-decoration:none;
   color:white;
+  transition:.25s ease;
 }
 .hero-buttons a:hover{
   background:white;
   color:black;
 }
+.hero-buttons .primary-btn{
+  background:var(--brand);
+  border-color:var(--brand);
+}
+.hero-buttons .primary-btn:hover{
+  background:var(--brand-light);
+  border-color:var(--brand-light);
+  color:white;
+}
 
-/* SECTIONS */
+/* GENERAL SECTIONS */
 section{
   padding:90px 20px;
   background:white;
@@ -167,13 +184,228 @@ section{
 }
 h2{
   font-size:36px;
-  margin-bottom:20px;
+  margin:0 0 20px;
+  color:var(--brand);
 }
+p{
+  line-height:1.7;
+  font-size:17px;
+}
+
+/* BUTTONS */
+.whatsapp-btn{
+  display:inline-block;
+  padding:12px 22px;
+  border-radius:30px;
+  background:var(--brand);
+  color:white;
+  text-decoration:none;
+  margin-top:14px;
+  font-size:14px;
+  transition:.25s ease;
+}
+.whatsapp-btn:hover{
+  background:var(--brand-light);
+}
+
+/* ABOUT */
+.about-copy{
+  max-width:850px;
+}
+.about-copy p{
+  margin-bottom:18px;
+}
+
+/* SERVICES */
+.services-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:30px;
+  margin-top:40px;
+}
+.service-card{
+  background:#f7f7f7;
+  padding:28px;
+  border-radius:18px;
+  text-align:left;
+  transition:.25s ease;
+  box-shadow:0 6px 20px rgba(0,0,0,.06);
+}
+.service-card:hover{
+  transform:translateY(-6px);
+  box-shadow:0 14px 30px rgba(0,0,0,.12);
+}
+.service-card h3{
+  margin-top:0;
+  margin-bottom:14px;
+  color:var(--brand);
+  font-size:24px;
+}
+.service-card p{
+  font-size:16px;
+  margin-bottom:14px;
+}
+.service-points{
+  margin:0 0 18px;
+  padding-left:18px;
+}
+.service-points li{
+  margin-bottom:10px;
+  line-height:1.6;
+}
+
+/* TEAM */
+.team-profile{
+  display:flex;
+  gap:40px;
+  align-items:center;
+  margin-top:40px;
+  flex-wrap:wrap;
+}
+.team-profile img{
+  width:320px;
+  max-width:100%;
+  border-radius:18px;
+  object-fit:cover;
+  box-shadow:0 10px 30px rgba(0,0,0,.12);
+}
+.team-text{
+  flex:1;
+  min-width:280px;
+  max-width:620px;
+}
+.team-text h3{
+  margin:0 0 8px;
+  color:var(--brand);
+  font-size:30px;
+}
+.team-role{
+  font-weight:600;
+  margin-bottom:18px;
+}
+.team-buttons{
+  display:flex;
+  gap:14px;
+  flex-wrap:wrap;
+  margin-top:10px;
+}
+.outline-btn{
+  display:inline-block;
+  padding:12px 22px;
+  border-radius:30px;
+  border:1px solid var(--brand);
+  color:var(--brand);
+  text-decoration:none;
+  transition:.25s ease;
+}
+.outline-btn:hover{
+  background:var(--brand);
+  color:white;
+}
+
+/* FAQ */
+.faq-list{
+  max-width:850px;
+  margin-top:30px;
+}
+.faq-item{
+  border-bottom:1px solid #ddd;
+  padding:20px 0;
+}
+.faq-item h3{
+  margin:0 0 10px;
+  color:var(--brand);
+  font-size:22px;
+}
+.faq-item p{
+  margin:0;
+}
+
+/* FOOTER */
 footer{
   background:black;
   color:white;
   padding:40px 20px;
   text-align:center;
+}
+
+/* FLOATING WHATSAPP */
+.floating-whatsapp{
+  position:fixed;
+  right:20px;
+  bottom:20px;
+  z-index:200;
+  background:#25D366;
+  color:white;
+  text-decoration:none;
+  padding:14px 18px;
+  border-radius:999px;
+  box-shadow:0 10px 25px rgba(0,0,0,.25);
+  font-weight:600;
+  font-size:15px;
+  transition:.25s ease;
+}
+.floating-whatsapp:hover{
+  transform:translateY(-3px);
+}
+
+/* MOBILE */
+@media (max-width: 900px){
+  .nav-inner{
+    border-radius:24px;
+    padding:12px 14px;
+    flex-wrap:wrap;
+    gap:14px;
+  }
+
+  .nav-links{
+    width:100%;
+    justify-content:center;
+    flex-wrap:wrap;
+    gap:16px;
+  }
+
+  .hero-content{
+    padding-top:190px;
+  }
+
+  .hero-text{
+    font-size:17px;
+  }
+
+  .services-grid{
+    grid-template-columns:1fr;
+  }
+}
+
+@media (max-width: 640px){
+  .brand strong{
+    font-size:14px;
+  }
+
+  .brand-logo{
+    width:54px;
+    height:54px;
+  }
+
+  .hero-main-logo{
+    width:92vw;
+  }
+
+  h2{
+    font-size:30px;
+  }
+
+  .team-text h3{
+    font-size:26px;
+  }
+
+  .floating-whatsapp{
+    right:14px;
+    bottom:14px;
+    padding:12px 16px;
+    font-size:14px;
+  }
 }
 </style>
 </head>
@@ -184,7 +416,7 @@ footer{
 <div class="nav">
   <div class="nav-inner">
     <div class="brand">
-      <img src="peninsulalogoonly.png" class="brand-logo">
+      <img src="peninsulalogoonly.png" class="brand-logo" alt="Peninsula Surf School logo">
       <strong>Peninsula Surf School</strong>
     </div>
 
@@ -197,7 +429,7 @@ footer{
 
     <div class="nav-actions">
       <a href="#" class="circle-btn">IG</a>
-      <a href="#" class="circle-btn">WA</a>
+      <a href="https://wa.me/18295865262?text=Hi%20I%20would%20like%20to%20book%20a%20surf%20lesson" class="circle-btn">WA</a>
       <button class="lang-btn" id="langToggle">Español</button>
     </div>
   </div>
@@ -205,7 +437,6 @@ footer{
 
 <!-- HERO -->
 <header class="hero">
-
   <div class="hero-video">
     <iframe
       src="https://www.youtube.com/embed/NQyanL1QEPw?autoplay=1&mute=1&controls=0&loop=1&playlist=NQyanL1QEPw&playsinline=1&rel=0&modestbranding=1"
@@ -217,7 +448,7 @@ footer{
   <div class="hero-overlay"></div>
 
   <div class="hero-content">
-    <img src="peninsulalogo.png" class="hero-main-logo" id="heroLogo">
+    <img src="peninsulalogo.png" class="hero-main-logo" id="heroLogo" alt="Peninsula Surf School">
 
     <p class="hero-text"
        data-en="Clean coaching, calm vibes, and real progression — from your first pop-up to confident green waves. Small groups. Local knowledge. Tropical water."
@@ -226,8 +457,8 @@ footer{
     </p>
 
     <div class="hero-buttons">
-      <a href="#services" data-en="Start Surfing" data-es="Comenzar">Start Surfing</a>
-      <a href="#about" data-en="Learn More" data-es="Más Información">Learn More</a>
+      <a href="#services" class="primary-btn" data-en="Start Surfing" data-es="Comenzar">Start Surfing</a>
+      <a href="https://wa.me/18295865262?text=Hi%20I%E2%80%99m%20visiting%20Las%20Terrenas%20and%20would%20like%20to%20book%20a%20surf%20lesson" data-en="Book on WhatsApp" data-es="Reservar por WhatsApp">Book on WhatsApp</a>
     </div>
   </div>
 </header>
@@ -235,33 +466,144 @@ footer{
 <!-- ABOUT -->
 <section id="about">
   <div class="container">
-    <h2 data-en="About Us" data-es="Sobre Nosotros">About Us</h2>
-    <p data-en="Peninsula Surf School is based in Samaná offering high quality surf lessons."
-       data-es="Peninsula Surf School está en Samaná ofreciendo clases de surf de alta calidad.">
-       Peninsula Surf School is based in Samaná offering high quality surf lessons.
-    </p>
+    <div class="about-copy">
+      <h2 data-en="About Peninsula Surf School" data-es="Sobre Peninsula Surf School">
+        About Peninsula Surf School
+      </h2>
+
+      <p data-en="Peninsula Surf School is based at beautiful Playa Bonita in Las Terrenas on the Samaná Peninsula."
+         data-es="Peninsula Surf School está en la hermosa Playa Bonita, en Las Terrenas, en la península de Samaná.">
+        Peninsula Surf School is based at beautiful Playa Bonita in Las Terrenas on the Samaná Peninsula.
+      </p>
+
+      <p data-en="Surfing here isn’t just a lesson — it’s one of the most fun experiences you can have while visiting the area. Whether you’re travelling solo, with friends, or as a family, catching your first wave together is something you’ll never forget."
+         data-es="Surfear aquí no es solo una clase, es una de las experiencias más divertidas que puedes vivir durante tu visita. Ya sea que viajes solo, con amigos o en familia, atrapar tu primera ola juntos es algo que nunca olvidarás.">
+        Surfing here isn’t just a lesson — it’s one of the most fun experiences you can have while visiting the area. Whether you’re travelling solo, with friends, or as a family, catching your first wave together is something you’ll never forget.
+      </p>
+
+      <p data-en="Our sessions focus on clear coaching, safety, and helping you progress quickly while keeping the relaxed Caribbean vibe that makes Las Terrenas so special."
+         data-es="Nuestras sesiones se enfocan en una enseñanza clara, seguridad y ayudarte a progresar rápido, manteniendo la vibra relajada del Caribe que hace tan especial a Las Terrenas.">
+        Our sessions focus on clear coaching, safety, and helping you progress quickly while keeping the relaxed Caribbean vibe that makes Las Terrenas so special.
+      </p>
+
+      <p data-en="With warm water, beautiful beaches, and beginner-friendly waves, Playa Bonita is the perfect place to learn to surf."
+         data-es="Con agua cálida, playas hermosas y olas ideales para principiantes, Playa Bonita es el lugar perfecto para aprender a surfear.">
+        With warm water, beautiful beaches, and beginner-friendly waves, Playa Bonita is the perfect place to learn to surf.
+      </p>
+    </div>
   </div>
 </section>
 
 <!-- SERVICES -->
 <section id="services">
   <div class="container">
-    <h2 data-en="Our Services" data-es="Nuestros Servicios">Our Services</h2>
-    <p data-en="Beginner lessons, private coaching and guided surf sessions."
-       data-es="Clases para principiantes, coaching privado y sesiones guiadas.">
-       Beginner lessons, private coaching and guided surf sessions.
-    </p>
+    <h2 data-en="Surf Lessons & Experiences" data-es="Clases y Experiencias de Surf">
+      Surf Lessons & Experiences
+    </h2>
+
+    <div class="services-grid">
+      <div class="service-card">
+        <h3 data-en="Beginner Surf Lesson" data-es="Clase de Surf para Principiantes">Beginner Surf Lesson</h3>
+
+        <p data-en="Perfect for first-time surfers."
+           data-es="Perfecta para quienes surfearán por primera vez.">
+          Perfect for first-time surfers.
+        </p>
+
+        <ul class="service-points">
+          <li data-en="Around 45 minutes of beach instruction" data-es="Aproximadamente 45 minutos de instrucción en la playa">Around 45 minutes of beach instruction</li>
+          <li data-en="Ocean safety and wave awareness" data-es="Seguridad en el mar y lectura de olas">Ocean safety and wave awareness</li>
+          <li data-en="Pop-up technique training" data-es="Técnica para ponerse de pie en la tabla">Pop-up technique training</li>
+          <li data-en="The rest of the lesson in the water catching waves" data-es="El resto de la clase en el agua atrapando olas">The rest of the lesson in the water catching waves</li>
+        </ul>
+
+        <a class="whatsapp-btn" href="https://wa.me/18295865262?text=Hi!%20I%20would%20like%20to%20book%20a%20beginner%20surf%20lesson" data-en="Book on WhatsApp" data-es="Reservar por WhatsApp">
+          Book on WhatsApp
+        </a>
+      </div>
+
+      <div class="service-card">
+        <h3 data-en="Private Surf Coaching" data-es="Coaching Privado de Surf">Private Surf Coaching</h3>
+
+        <p data-en="One-on-one coaching for faster progression."
+           data-es="Coaching individual para progresar más rápido.">
+          One-on-one coaching for faster progression.
+        </p>
+
+        <ul class="service-points">
+          <li data-en="Personal instruction tailored to your level" data-es="Instrucción personalizada según tu nivel">Personal instruction tailored to your level</li>
+          <li data-en="Technique improvement" data-es="Mejora de técnica">Technique improvement</li>
+          <li data-en="Wave selection guidance" data-es="Guía para elegir mejores olas">Wave selection guidance</li>
+          <li data-en="Ideal for beginner or intermediate surfers" data-es="Ideal para surfistas principiantes o intermedios">Ideal for beginner or intermediate surfers</li>
+        </ul>
+
+        <a class="whatsapp-btn" href="https://wa.me/18295865262?text=Hi!%20I%20would%20like%20to%20book%20a%20private%20surf%20lesson" data-en="Book on WhatsApp" data-es="Reservar por WhatsApp">
+          Book on WhatsApp
+        </a>
+      </div>
+
+      <div class="service-card">
+        <h3 data-en="Guided Surf Session" data-es="Sesión Guiada de Surf">Guided Surf Session</h3>
+
+        <p data-en="For surfers who want local knowledge of the best waves."
+           data-es="Para surfistas que quieren conocimiento local de las mejores olas.">
+          For surfers who want local knowledge of the best waves.
+        </p>
+
+        <ul class="service-points">
+          <li data-en="Local surf guidance" data-es="Guía local de surf">Local surf guidance</li>
+          <li data-en="Best conditions and spot choice" data-es="Mejores condiciones y elección del spot">Best conditions and spot choice</li>
+          <li data-en="Safer, more confident surf sessions" data-es="Sesiones más seguras y con mayor confianza">Safer, more confident surf sessions</li>
+          <li data-en="Usually at Playa Bonita, but available across the Samaná Peninsula on request" data-es="Normalmente en Playa Bonita, pero disponible en toda la península de Samaná bajo solicitud">Usually at Playa Bonita, but available across the Samaná Peninsula on request</li>
+        </ul>
+
+        <a class="whatsapp-btn" href="https://wa.me/18295865262?text=Hi!%20I%20would%20like%20to%20book%20a%20guided%20surf%20session" data-en="Book on WhatsApp" data-es="Reservar por WhatsApp">
+          Book on WhatsApp
+        </a>
+      </div>
+    </div>
   </div>
 </section>
 
 <!-- TEAM -->
 <section id="team">
   <div class="container">
-    <h2 data-en="Meet the Team" data-es="Conoce al Equipo">Meet the Team</h2>
-    <p data-en="Local instructors focused on safety and progression."
-       data-es="Instructores locales enfocados en seguridad y progresión.">
-       Local instructors focused on safety and progression.
-    </p>
+    <h2 data-en="Meet Your Instructor" data-es="Conoce a Tu Instructor">
+      Meet Your Instructor
+    </h2>
+
+    <div class="team-profile">
+      <img src="Cristian.png" alt="Cristian Padilla">
+
+      <div class="team-text">
+        <h3>Cristian Padilla</h3>
+        <div class="team-role" data-en="Head Surf Instructor" data-es="Instructor Principal de Surf">Head Surf Instructor</div>
+
+        <p data-en="Cristian has over 10 years of surfing experience and has spent much of that time riding the waves of the Samaná Peninsula."
+           data-es="Cristian tiene más de 10 años de experiencia en surf y ha pasado gran parte de ese tiempo surfeando las olas de la península de Samaná.">
+          Cristian has over 10 years of surfing experience and has spent much of that time riding the waves of the Samaná Peninsula.
+        </p>
+
+        <p data-en="He has proudly represented the Dominican Republic in surf competitions both locally and overseas, bringing a high level of skill and passion to every session."
+           data-es="Ha representado con orgullo a la República Dominicana en competiciones de surf tanto locales como internacionales, aportando un alto nivel de habilidad y pasión en cada sesión.">
+          He has proudly represented the Dominican Republic in surf competitions both locally and overseas, bringing a high level of skill and passion to every session.
+        </p>
+
+        <p data-en="His coaching style is calm, patient, and focused on helping students build confidence in the ocean while progressing quickly."
+           data-es="Su estilo de enseñanza es tranquilo, paciente y enfocado en ayudar a los alumnos a ganar confianza en el mar mientras progresan rápidamente.">
+          His coaching style is calm, patient, and focused on helping students build confidence in the ocean while progressing quickly.
+        </p>
+
+        <div class="team-buttons">
+          <a class="outline-btn" href="https://www.instagram.com/cristianppadilla/?hl=en" target="_blank" rel="noopener" data-en="Follow on Instagram" data-es="Seguir en Instagram">
+            Follow on Instagram
+          </a>
+          <a class="whatsapp-btn" href="https://wa.me/18295865262?text=Hi!%20I%20would%20like%20to%20book%20a%20surf%20lesson" data-en="Book a Lesson" data-es="Reservar una Clase">
+            Book a Lesson
+          </a>
+        </div>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -269,33 +611,89 @@ footer{
 <section id="faq">
   <div class="container">
     <h2>FAQ</h2>
+
+    <div class="faq-list">
+      <div class="faq-item">
+        <h3 data-en="Do I need experience?" data-es="¿Necesito experiencia?">Do I need experience?</h3>
+        <p data-en="Not at all. Most students are learning to surf for the first time."
+           data-es="Para nada. La mayoría de los alumnos están aprendiendo a surfear por primera vez.">
+          Not at all. Most students are learning to surf for the first time.
+        </p>
+      </div>
+
+      <div class="faq-item">
+        <h3 data-en="How long is a lesson?" data-es="¿Cuánto dura una clase?">How long is a lesson?</h3>
+        <p data-en="Lessons usually last around 1.5 to 2 hours. Beginner lessons include around 45 minutes of instruction on land before heading into the water."
+           data-es="Las clases suelen durar entre 1.5 y 2 horas. Las clases para principiantes incluyen unos 45 minutos de instrucción en tierra antes de entrar al agua.">
+          Lessons usually last around 1.5 to 2 hours. Beginner lessons include around 45 minutes of instruction on land before heading into the water.
+        </p>
+      </div>
+
+      <div class="faq-item">
+        <h3 data-en="Where are the lessons held?" data-es="¿Dónde se realizan las clases?">Where are the lessons held?</h3>
+        <p data-en="Most lessons take place at Playa Bonita in Las Terrenas. On request, sessions can also be arranged anywhere on the Samaná Peninsula depending on conditions."
+           data-es="La mayoría de las clases se realizan en Playa Bonita, en Las Terrenas. Bajo solicitud, también se pueden organizar sesiones en cualquier parte de la península de Samaná según las condiciones.">
+          Most lessons take place at Playa Bonita in Las Terrenas. On request, sessions can also be arranged anywhere on the Samaná Peninsula depending on conditions.
+        </p>
+      </div>
+
+      <div class="faq-item">
+        <h3 data-en="Do you provide surfboards?" data-es="¿Proporcionan tablas de surf?">Do you provide surfboards?</h3>
+        <p data-en="Yes, surfboards are provided for lessons."
+           data-es="Sí, las tablas de surf están incluidas en las clases.">
+          Yes, surfboards are provided for lessons.
+        </p>
+      </div>
+
+      <div class="faq-item">
+        <h3 data-en="What should I bring?" data-es="¿Qué debo llevar?">What should I bring?</h3>
+        <p data-en="Bring swimwear, a towel, sunscreen, and water."
+           data-es="Trae traje de baño, toalla, protector solar y agua.">
+          Bring swimwear, a towel, sunscreen, and water.
+        </p>
+      </div>
+
+      <div class="faq-item">
+        <h3 data-en="How do I book?" data-es="¿Cómo reservo?">How do I book?</h3>
+        <p data-en="Simply message us on WhatsApp and we’ll organise the best time for your surf session."
+           data-es="Simplemente escríbenos por WhatsApp y organizaremos el mejor horario para tu sesión de surf.">
+          Simply message us on WhatsApp and we’ll organise the best time for your surf session.
+        </p>
+      </div>
+    </div>
   </div>
 </section>
 
 <footer>
-© 2025 Peninsula Surf School
+  © 2025 Peninsula Surf School
 </footer>
+
+<a class="floating-whatsapp" href="https://wa.me/18295865262?text=Hi%20I%E2%80%99m%20visiting%20Las%20Terrenas%20and%20would%20like%20to%20book%20a%20surf%20lesson">
+  Chat on WhatsApp
+</a>
 
 <script>
 /* LANGUAGE TOGGLE */
 let currentLang = "en";
 const toggleBtn = document.getElementById("langToggle");
 
-toggleBtn.addEventListener("click",()=>{
+toggleBtn.addEventListener("click", () => {
   currentLang = currentLang === "en" ? "es" : "en";
   toggleBtn.textContent = currentLang === "en" ? "Español" : "English";
 
-  document.querySelectorAll("[data-en]").forEach(el=>{
-    el.textContent = el.dataset[currentLang];
+  document.querySelectorAll("[data-en]").forEach(el => {
+    if (el.dataset[currentLang]) {
+      el.textContent = el.dataset[currentLang];
+    }
   });
 });
 
 /* HERO LOGO FADE ON SCROLL */
 const heroLogo = document.getElementById("heroLogo");
-window.addEventListener("scroll",()=>{
-  const fade = Math.max(0,1 - window.scrollY / 400);
+window.addEventListener("scroll", () => {
+  const fade = Math.max(0, 1 - window.scrollY / 400);
   heroLogo.style.opacity = fade;
-  heroLogo.style.transform = `scale(${1 - window.scrollY/2000})`;
+  heroLogo.style.transform = `scale(${1 - window.scrollY / 2000})`;
 });
 </script>
 
