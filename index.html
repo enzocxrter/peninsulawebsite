@@ -177,7 +177,7 @@ body{
   letter-spacing:1px;
   line-height:1.2;
   text-shadow:0 4px 20px rgba(0,0,0,.6);
-  margin:0 auto 28px;
+  margin:0 auto 38px;
 }
 .hero-buttons{
   display:flex;
@@ -185,28 +185,39 @@ body{
   justify-content:center;
   flex-wrap:wrap;
 }
+
 .hero-buttons a{
-  padding:14px 28px;
-  border-radius:30px;
-  border:1px solid white;
+  min-width:220px;
+  padding:14px 30px;
+  border-radius:999px;
+  border:1px solid rgba(255,255,255,.75);
   text-decoration:none;
   color:white;
-  transition:.25s ease;
   font-size:17px;
-  min-width:200px;
+  font-weight:500;
   text-align:center;
+  background:rgba(255,255,255,.08);
+  backdrop-filter:blur(10px);
+  -webkit-backdrop-filter:blur(10px);
+  box-shadow:0 8px 24px rgba(0,0,0,.18);
+  transition:all .25s ease;
 }
+
 .hero-buttons a:hover{
-  background:white;
-  color:black;
+  transform:translateY(-2px);
+  background:rgba(255,255,255,.16);
+  box-shadow:0 14px 30px rgba(0,0,0,.24);
+  color:white;
 }
+
 .hero-buttons .primary-btn{
-  background:var(--brand);
-  border-color:var(--brand);
+  background:rgba(255,255,255,.14);
+  border:1px solid rgba(255,255,255,.9);
 }
+
 .hero-buttons .primary-btn:hover{
-  background:var(--brand-light);
-  border-color:var(--brand-light);
+  background:rgba(255,255,255,.22);
+  border-color:white;
   color:white;
 }
 
@@ -519,9 +530,9 @@ footer{
       Learn to surf with the best in Las Terrenas!
     </p>
 
-   <div class="hero-buttons">
-  <a href="#services" class="primary-btn">Start Surfing</a>
-  <a href="https://wa.me/18295865262?text=Hi..." class="primary-btn">Book on WhatsApp</a>
+<div class="hero-buttons">
+  <a href="#services" class="primary-btn" data-en="Start Surfing" data-es="Comenzar">Start Surfing</a>
+  <a href="https://wa.me/18295865262?text=Hi%20I%E2%80%99m%20visiting%20Las%20Terrenas%20and%20would%20like%20to%20book%20a%20surf%20lesson" class="primary-btn" data-en="Book on WhatsApp" data-es="Reservar por WhatsApp">Book on WhatsApp</a>
 </div>
   </div>
 </header>
