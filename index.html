@@ -45,11 +45,13 @@ body{
   background:rgba(0,0,0,.35);
   backdrop-filter:blur(10px);
   border:1px solid rgba(255,255,255,.15);
+  position:relative;
 }
 .brand{
   display:flex;
   align-items:center;
   gap:12px;
+  min-width:0;
 }
 .brand strong{
   font-family:'Poppins', sans-serif;
@@ -117,6 +119,37 @@ body{
 }
 .lang-btn:hover{
   background:rgba(255,255,255,.08);
+}
+
+/* HAMBURGER */
+.menu-toggle{
+  display:none;
+  width:48px;
+  height:48px;
+  border-radius:50%;
+  border:1px solid rgba(255,255,255,.4);
+  background:transparent;
+  color:white;
+  cursor:pointer;
+  align-items:center;
+  justify-content:center;
+  padding:0;
+  transition:.25s ease;
+}
+.menu-toggle:hover{
+  background:rgba(255,255,255,.08);
+}
+.menu-toggle span{
+  display:block;
+  width:20px;
+  height:2px;
+  background:white;
+  margin:4px 0;
+  border-radius:2px;
+  transition:.25s ease;
+}
+.mobile-menu{
+  display:none;
 }
 
 /* HERO */
@@ -522,17 +555,86 @@ footer{
 @media (max-width: 900px){
   .nav-inner{
     border-radius:24px;
-    padding:12px 14px;
-    flex-wrap:wrap;
-    gap:14px;
+    padding:14px 16px;
+    flex-wrap:nowrap;
+    gap:12px;
   }
 
-  .nav-links{
-    width:100%;
-    justify-content:center;
-    flex-wrap:wrap;
-    gap:16px;
+  .brand{
+    flex:1;
+    min-width:0;
+  }
+
+  .brand strong{
     font-size:16px;
+    white-space:nowrap;
+    overflow:hidden;
+    text-overflow:ellipsis;
+  }
+
+  .brand-logo{
+    width:54px;
+    height:54px;
+  }
+
+  .nav-links,
+  .nav-actions{
+    display:none;
+  }
+
+  .menu-toggle{
+    display:flex;
+    flex-shrink:0;
+  }
+
+  .nav.open .menu-toggle span:nth-child(1){
+    transform:translateY(6px) rotate(45deg);
+  }
+
+  .nav.open .menu-toggle span:nth-child(2){
+    opacity:0;
+  }
+
+  .nav.open .menu-toggle span:nth-child(3){
+    transform:translateY(-6px) rotate(-45deg);
+  }
+
+  .mobile-menu{
+    display:none;
+    width:100%;
+    margin-top:12px;
+    padding:16px;
+    border-radius:22px;
+    background:rgba(0,0,0,.35);
+    backdrop-filter:blur(10px);
+    border:1px solid rgba(255,255,255,.15);
+    box-sizing:border-box;
+  }
+
+  .nav.open .mobile-menu{
+    display:block;
+  }
+
+  .mobile-links{
+    display:flex;
+    flex-direction:column;
+    gap:14px;
+    margin-bottom:18px;
+  }
+
+  .mobile-links a{
+    color:white;
+    text-decoration:none;
+    font-size:18px;
+    font-weight:500;
+    opacity:.9;
+  }
+
+  .mobile-actions{
+    display:flex;
+    gap:12px;
+    align-items:center;
+    flex-wrap:wrap;
   }
 
   .hero-content{
@@ -584,15 +686,6 @@ footer{
 }
 
 @media (max-width: 640px){
-  .brand strong{
-    font-size:16px;
-  }
-
-  .brand-logo{
-    width:54px;
-    height:54px;
-  }
-
   .hero-main-logo{
     width:92vw;
   }
@@ -643,7 +736,7 @@ footer{
 <body>
 
 <!-- NAV -->
-<div class="nav">
+<div class="nav" id="siteNav">
   <div class="nav-inner">
     <div class="brand">
       <img src="peninsulalogoonly.png" class="brand-logo" alt="Peninsula Surf School logo">
@@ -659,14 +752,43 @@ footer{
 
     <div class="nav-actions">
       <a href="https://www.instagram.com/peninsulasurfschool/" target="_blank" class="circle-btn" rel="noopener">
-  <img src="Instagramlogowhite.png" alt="Instagram">
-</a>
+        <img src="Instagramlogowhite.png" alt="Instagram">
+      </a>
 
       <a href="https://wa.me/18295865262?text=Hi%20I%20would%20like%20to%20book%20a%20surf%20lesson" class="circle-btn">
         <img src="Whatsapplogowhite.png" alt="WhatsApp">
       </a>
 
       <button class="lang-btn" id="langToggle">Español</button>
+    </div>
+
+    <button class="menu-toggle" id="menuToggle" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu">
+      <div>
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </button>
+  </div>
+
+  <div class="mobile-menu" id="mobileMenu">
+    <div class="mobile-links">
+      <a href="#about" data-en="About" data-es="Nosotros">About</a>
+      <a href="#services" data-en="Services" data-es="Servicios">Services</a>
+      <a href="#team" data-en="Team" data-es="Equipo">Team</a>
+      <a href="#faq" data-en="FAQ" data-es="Preguntas">FAQ</a>
+    </div>
+
+    <div class="mobile-actions">
+      <a href="https://www.instagram.com/peninsulasurfschool/" target="_blank" class="circle-btn" rel="noopener">
+        <img src="Instagramlogowhite.png" alt="Instagram">
+      </a>
+
+      <a href="https://wa.me/18295865262?text=Hi%20I%20would%20like%20to%20book%20a%20surf%20lesson" class="circle-btn">
+        <img src="Whatsapplogowhite.png" alt="WhatsApp">
+      </a>
+
+      <button class="lang-btn" id="langToggleMobile">Español</button>
     </div>
   </div>
 </div>
@@ -972,10 +1094,15 @@ footer{
 /* LANGUAGE TOGGLE */
 let currentLang = "en";
 const toggleBtn = document.getElementById("langToggle");
+const toggleBtnMobile = document.getElementById("langToggleMobile");
 
-toggleBtn.addEventListener("click", () => {
-  currentLang = currentLang === "en" ? "es" : "en";
-  toggleBtn.textContent = currentLang === "en" ? "Español" : "English";
+function applyLanguage() {
+  if (toggleBtn) {
+    toggleBtn.textContent = currentLang === "en" ? "Español" : "English";
+  }
+  if (toggleBtnMobile) {
+    toggleBtnMobile.textContent = currentLang === "en" ? "Español" : "English";
+  }
 
   document.querySelectorAll("[data-en]").forEach(el => {
     if (el.dataset[currentLang]) {
@@ -985,6 +1112,39 @@ toggleBtn.addEventListener("click", () => {
         el.textContent = el.dataset[currentLang];
       }
     }
+  });
+}
+
+if (toggleBtn) {
+  toggleBtn.addEventListener("click", () => {
+    currentLang = currentLang === "en" ? "es" : "en";
+    applyLanguage();
+  });
+}
+
+if (toggleBtnMobile) {
+  toggleBtnMobile.addEventListener("click", () => {
+    currentLang = currentLang === "en" ? "es" : "en";
+    applyLanguage();
+  });
+}
+
+/* MOBILE MENU TOGGLE */
+const siteNav = document.getElementById("siteNav");
+const menuToggle = document.getElementById("menuToggle");
+const mobileMenuLinks = document.querySelectorAll(".mobile-links a");
+
+if (menuToggle && siteNav) {
+  menuToggle.addEventListener("click", () => {
+    const isOpen = siteNav.classList.toggle("open");
+    menuToggle.setAttribute("aria-expanded", isOpen ? "true" : "false");
+  });
+}
+
+mobileMenuLinks.forEach(link => {
+  link.addEventListener("click", () => {
+    siteNav.classList.remove("open");
+    menuToggle.setAttribute("aria-expanded", "false");
   });
 });
 
