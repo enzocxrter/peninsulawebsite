@@ -375,17 +375,52 @@ p{
   max-width:850px;
   margin-top:30px;
 }
+
 .faq-item{
   border-bottom:1px solid rgba(255,255,255,.25);
-  padding:20px 0;
 }
-.faq-item h3{
-  margin:0 0 10px;
+
+.faq-question{
+  width:100%;
+  background:transparent;
+  border:0;
   color:white;
+  padding:22px 0;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  text-align:left;
+  font-family:'Poppins', sans-serif;
   font-size:22px;
+  font-weight:600;
+  cursor:pointer;
 }
-.faq-item p{
-  margin:0;
+
+.faq-question span:first-child{
+  padding-right:20px;
+}
+
+.faq-arrow{
+  font-size:28px;
+  line-height:1;
+  transition:transform .25s ease;
+  opacity:.9;
+}
+
+.faq-item.active .faq-arrow{
+  transform:rotate(180deg);
+}
+
+.faq-answer{
+  max-height:0;
+  overflow:hidden;
+  transition:max-height .3s ease;
+}
+
+.faq-answer p{
+  margin:0 0 22px;
+  font-size:17px;
+  line-height:1.7;
 }
 
 /* FOOTER */
@@ -709,56 +744,86 @@ footer{
 
     <div class="faq-list">
       <div class="faq-item">
-        <h3 data-en="Do I need experience?" data-es="¿Necesito experiencia?">Do I need experience?</h3>
-        <p data-en="Not at all. Most students are learning to surf for the first time."
-           data-es="Para nada. La mayoría de los alumnos están aprendiendo a surfear por primera vez.">
-          Not at all. Most students are learning to surf for the first time.
-        </p>
+        <button class="faq-question" type="button">
+          <span data-en="Do I need experience?" data-es="¿Necesito experiencia?">Do I need experience?</span>
+          <span class="faq-arrow">⌄</span>
+        </button>
+        <div class="faq-answer">
+          <p data-en="Not at all. Most students are learning to surf for the first time."
+             data-es="Para nada. La mayoría de los alumnos están aprendiendo a surfear por primera vez.">
+            Not at all. Most students are learning to surf for the first time.
+          </p>
+        </div>
       </div>
 
       <div class="faq-item">
-        <h3 data-en="How long is a lesson?" data-es="¿Cuánto dura una clase?">How long is a lesson?</h3>
-        <p data-en="Lessons usually last around 1.5 to 2 hours. Beginner lessons include around 45 minutes of instruction on land before heading into the water."
-           data-es="Las clases suelen durar entre 1.5 y 2 horas. Las clases para principiantes incluyen unos 45 minutos de instrucción en tierra antes de entrar al agua.">
-          Lessons usually last around 1.5 to 2 hours. Beginner lessons include around 45 minutes of instruction on land before heading into the water.
-        </p>
+        <button class="faq-question" type="button">
+          <span data-en="How long is a lesson?" data-es="¿Cuánto dura una clase?">How long is a lesson?</span>
+          <span class="faq-arrow">⌄</span>
+        </button>
+        <div class="faq-answer">
+          <p data-en="Lessons usually last around 1.5 to 2 hours. Beginner lessons include around 45 minutes of instruction on land before heading into the water."
+             data-es="Las clases suelen durar entre 1.5 y 2 horas. Las clases para principiantes incluyen unos 45 minutos de instrucción en tierra antes de entrar al agua.">
+            Lessons usually last around 1.5 to 2 hours. Beginner lessons include around 45 minutes of instruction on land before heading into the water.
+          </p>
+        </div>
       </div>
 
       <div class="faq-item">
-        <h3 data-en="Where are the lessons held?" data-es="¿Dónde se realizan las clases?">Where are the lessons held?</h3>
-        <p data-en="Most lessons take place at Playa Bonita in Las Terrenas. On request, sessions can also be arranged anywhere on the Samaná Peninsula depending on conditions."
-           data-es="La mayoría de las clases se realizan en Playa Bonita, en Las Terrenas. Bajo solicitud, también se pueden organizar sesiones en cualquier parte de la península de Samaná según las condiciones.">
-          Most lessons take place at Playa Bonita in Las Terrenas. On request, sessions can also be arranged anywhere on the Samaná Peninsula depending on conditions.
-        </p>
+        <button class="faq-question" type="button">
+          <span data-en="Where are the lessons held?" data-es="¿Dónde se realizan las clases?">Where are the lessons held?</span>
+          <span class="faq-arrow">⌄</span>
+        </button>
+        <div class="faq-answer">
+          <p data-en="Most lessons take place at Playa Bonita in Las Terrenas. On request, sessions can also be arranged anywhere on the Samaná Peninsula depending on conditions."
+             data-es="La mayoría de las clases se realizan en Playa Bonita, en Las Terrenas. Bajo solicitud, también se pueden organizar sesiones en cualquier parte de la península de Samaná según las condiciones.">
+            Most lessons take place at Playa Bonita in Las Terrenas. On request, sessions can also be arranged anywhere on the Samaná Peninsula depending on conditions.
+          </p>
+        </div>
       </div>
 
       <div class="faq-item">
-        <h3 data-en="Do you provide surfboards?" data-es="¿Proporcionan tablas de surf?">Do you provide surfboards?</h3>
-        <p data-en="Yes, surfboards are provided for lessons."
-           data-es="Sí, las tablas de surf están incluidas en las clases.">
-          Yes, surfboards are provided for lessons.
-        </p>
+        <button class="faq-question" type="button">
+          <span data-en="Do you provide surfboards?" data-es="¿Proporcionan tablas de surf?">Do you provide surfboards?</span>
+          <span class="faq-arrow">⌄</span>
+        </button>
+        <div class="faq-answer">
+          <p data-en="Yes, surfboards are provided for lessons."
+             data-es="Sí, las tablas de surf están incluidas en las clases.">
+            Yes, surfboards are provided for lessons.
+          </p>
+        </div>
       </div>
 
       <div class="faq-item">
-        <h3 data-en="What should I bring?" data-es="¿Qué debo llevar?">What should I bring?</h3>
-        <p data-en="Bring swimwear, a towel, sunscreen, and water."
-           data-es="Trae traje de baño, toalla, protector solar y agua.">
-          Bring swimwear, a towel, sunscreen, and water.
-        </p>
+        <button class="faq-question" type="button">
+          <span data-en="What should I bring?" data-es="¿Qué debo llevar?">What should I bring?</span>
+          <span class="faq-arrow">⌄</span>
+        </button>
+        <div class="faq-answer">
+          <p data-en="Bring swimwear, a towel, sunscreen, and water."
+             data-es="Trae traje de baño, toalla, protector solar y agua.">
+            Bring swimwear, a towel, sunscreen, and water.
+          </p>
+        </div>
       </div>
 
       <div class="faq-item">
-        <h3 data-en="How do I book?" data-es="¿Cómo reservo?">How do I book?</h3>
-        <p data-en="Simply message us on WhatsApp and we’ll organise the best time for your surf session."
-           data-es="Simplemente escríbenos por WhatsApp y organizaremos el mejor horario para tu sesión de surf.">
-          Simply message us on WhatsApp and we’ll organise the best time for your surf session.
-        </p>
+        <button class="faq-question" type="button">
+          <span data-en="How do I book?" data-es="¿Cómo reservo?">How do I book?</span>
+          <span class="faq-arrow">⌄</span>
+        </button>
+        <div class="faq-answer">
+          <p data-en="Simply message us on WhatsApp and we’ll organise the best time for your surf session."
+             data-es="Simplemente escríbenos por WhatsApp y organizaremos el mejor horario para tu sesión de surf.">
+            Simply message us on WhatsApp and we’ll organise the best time for your surf session.
+          </p>
+        </div>
       </div>
     </div>
   </div>
 </section>
-
+  
 <footer>
   © 2025 Peninsula Surf School
 </footer>
@@ -769,6 +834,7 @@ footer{
 </a>
 
 <script>
+/* LANGUAGE TOGGLE */
 let currentLang = "en";
 const toggleBtn = document.getElementById("langToggle");
 
@@ -783,13 +849,33 @@ toggleBtn.addEventListener("click", () => {
   });
 });
 
+/* HERO LOGO FADE ON SCROLL */
 const heroLogo = document.getElementById("heroLogo");
 window.addEventListener("scroll", () => {
   const fade = Math.max(0, 1 - window.scrollY / 400);
   heroLogo.style.opacity = fade;
   heroLogo.style.transform = `scale(${1 - window.scrollY / 2000})`;
 });
-</script>
 
-</body>
-</html>
+/* FAQ ACCORDION */
+const faqItems = document.querySelectorAll(".faq-item");
+
+faqItems.forEach(item => {
+  const question = item.querySelector(".faq-question");
+  const answer = item.querySelector(".faq-answer");
+
+  question.addEventListener("click", () => {
+    const isOpen = item.classList.contains("active");
+
+    faqItems.forEach(otherItem => {
+      otherItem.classList.remove("active");
+      otherItem.querySelector(".faq-answer").style.maxHeight = null;
+    });
+
+    if (!isOpen) {
+      item.classList.add("active");
+      answer.style.maxHeight = answer.scrollHeight + "px";
+    }
+  });
+});
+</script>
