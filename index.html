@@ -131,7 +131,13 @@ body{
 .hero-overlay{
   position:absolute;
   inset:0;
-  background:rgba(0,0,0,.35);
+  background:linear-gradient(
+    to bottom,
+    rgba(0,0,0,.25) 0%,
+    rgba(0,0,0,.35) 40%,
+    rgba(67,73,51,.7) 75%,
+    #434933 100%
+  );
   z-index:1;
 }
 .hero-content{
@@ -237,7 +243,9 @@ p{
   margin-top:40px;
 }
 .service-card{
-  background:#f7f7f7;
+  .service-card{
+  background:white;
+  color:#1f1f1f;
   padding:28px;
   border-radius:18px;
   text-align:left;
