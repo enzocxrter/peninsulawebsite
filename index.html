@@ -83,6 +83,12 @@ body{
   color:white;
   text-decoration:none;
 }
+
+.circle-btn img{
+  width:22px;
+  height:22px;
+  object-fit:contain;
+}
 .lang-btn{
   padding:6px 14px;
   border-radius:20px;
@@ -335,18 +341,24 @@ footer{
   right:20px;
   bottom:20px;
   z-index:200;
-  background:#25D366;
-  color:white;
-  text-decoration:none;
-  padding:14px 18px;
-  border-radius:999px;
+  width:68px;
+  height:68px;
+  background:white;
+  border-radius:50%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
   box-shadow:0 10px 25px rgba(0,0,0,.25);
-  font-weight:600;
-  font-size:15px;
   transition:.25s ease;
 }
+
 .floating-whatsapp:hover{
-  transform:translateY(-3px);
+  transform:translateY(-3px) scale(1.05);
+}
+
+.floating-whatsapp img{
+  width:38px;
+  height:38px;
 }
 
 /* MOBILE */
@@ -427,11 +439,22 @@ footer{
       <a href="#faq" data-en="FAQ" data-es="Preguntas">FAQ</a>
     </div>
 
-    <div class="nav-actions">
-      <a href="#" class="circle-btn">IG</a>
-      <a href="https://wa.me/18295865262?text=Hi%20I%20would%20like%20to%20book%20a%20surf%20lesson" class="circle-btn">WA</a>
-      <button class="lang-btn" id="langToggle">Español</button>
-    </div>
+<div class="nav-actions">
+
+  <a href="https://www.instagram.com/cristianppadilla/"
+     target="_blank"
+     class="circle-btn">
+     <img src="Instagramlogowhite.png" alt="Instagram">
+  </a>
+
+  <a href="https://wa.me/18295865262?text=Hi%20I%20would%20like%20to%20book%20a%20surf%20lesson"
+     class="circle-btn">
+     <img src="Whatsapplogowhite.png" alt="WhatsApp">
+  </a>
+
+  <button class="lang-btn" id="langToggle">Español</button>
+
+</div>
   </div>
 </div>
 
@@ -450,11 +473,11 @@ footer{
   <div class="hero-content">
     <img src="peninsulalogo.png" class="hero-main-logo" id="heroLogo" alt="Peninsula Surf School">
 
-    <p class="hero-text"
-       data-en="Clean coaching, calm vibes, and real progression — from your first pop-up to confident green waves. Small groups. Local knowledge. Tropical water."
-       data-es="Entrenamiento claro, buena vibra y progresión real — desde tu primer take-off hasta olas verdes con confianza. Grupos pequeños. Conocimiento local. Agua tropical.">
-      Clean coaching, calm vibes, and real progression — from your first pop-up to confident green waves. Small groups. Local knowledge. Tropical water.
-    </p>
+<p class="hero-text"
+   data-en="Ready to catch your first wave? Learn to surf with the best in warm Caribbean water!"
+   data-es="¿Listo para atrapar tu primera ola? ¡Aprende a surfear con los mejores en cálidas aguas del Caribe!">
+  Ready to catch your first wave? Learn to surf with the best in warm Caribbean water!
+</p>
 
     <div class="hero-buttons">
       <a href="#services" class="primary-btn" data-en="Start Surfing" data-es="Comenzar">Start Surfing</a>
@@ -668,8 +691,9 @@ footer{
   © 2025 Peninsula Surf School
 </footer>
 
-<a class="floating-whatsapp" href="https://wa.me/18295865262?text=Hi%20I%E2%80%99m%20visiting%20Las%20Terrenas%20and%20would%20like%20to%20book%20a%20surf%20lesson">
-  Chat on WhatsApp
+<a class="floating-whatsapp"
+   href="https://wa.me/18295865262?text=Hi%20I%E2%80%99m%20visiting%20Las%20Terrenas%20and%20would%20like%20to%20book%20a%20surf%20lesson">
+   <img src="Whatsapplogo.png" alt="WhatsApp">
 </a>
 
 <script>
