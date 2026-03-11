@@ -219,11 +219,50 @@ body{
 
 /* GENERAL SECTIONS */
 section{
+  position:relative;
   padding:90px 20px;
   background:#434933;
   color:white;
+  overflow:hidden;
+}
+
+section::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background-repeat:no-repeat;
+  background-size:420px;
+  opacity:.05;
+  pointer-events:none;
+  transform:rotate(-12deg);
+}
+  #about::before{
+  background-image:url("tree.png");
+  background-position:top right;
+}
+
+#services::before{
+  background-image:url("board1.png");
+  background-position:center left;
+}
+
+#team::before{
+  background-image:url("wave.png");
+  background-position:bottom right;
+}
+
+#faq::before{
+  background-image:url("board2.png");
+  background-position:bottom left;
+}
+
+#gallery::before{
+  background-image:url("wave.png");
+  background-position:top left;
 }
 .container{
+  position:relative;
+  z-index:1;
   max-width:1100px;
   margin:auto;
 }
