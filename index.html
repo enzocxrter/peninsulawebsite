@@ -15,7 +15,6 @@
   --dark:#1f1f1f;
 }
 
-/* SURFBOARD CURSOR */
 body{
   margin:0;
   font-family:'Poppins', sans-serif;
@@ -45,16 +44,13 @@ body{
   background:rgba(0,0,0,.35);
   backdrop-filter:blur(10px);
   border:1px solid rgba(255,255,255,.15);
-  position:relative;
 }
 .brand{
   display:flex;
   align-items:center;
   gap:12px;
-  min-width:0;
 }
 .brand strong{
-  font-family:'Poppins', sans-serif;
   font-weight:600;
   font-size:18px;
   letter-spacing:.5px;
@@ -119,37 +115,6 @@ body{
 }
 .lang-btn:hover{
   background:rgba(255,255,255,.08);
-}
-
-/* HAMBURGER */
-.menu-toggle{
-  display:none;
-  width:48px;
-  height:48px;
-  border-radius:50%;
-  border:1px solid rgba(255,255,255,.4);
-  background:transparent;
-  color:white;
-  cursor:pointer;
-  align-items:center;
-  justify-content:center;
-  padding:0;
-  transition:.25s ease;
-}
-.menu-toggle:hover{
-  background:rgba(255,255,255,.08);
-}
-.menu-toggle span{
-  display:block;
-  width:20px;
-  height:2px;
-  background:white;
-  margin:4px 0;
-  border-radius:2px;
-  transition:.25s ease;
-}
-.mobile-menu{
-  display:none;
 }
 
 /* HERO */
@@ -238,16 +203,10 @@ body{
   transform:translateY(-2px);
   background:rgba(255,255,255,.16);
   box-shadow:0 14px 30px rgba(0,0,0,.24);
-  color:white;
 }
 .hero-buttons .primary-btn{
   background:rgba(255,255,255,.14);
   border:1px solid rgba(255,255,255,.9);
-}
-.hero-buttons .primary-btn:hover{
-  background:rgba(255,255,255,.22);
-  border-color:white;
-  color:white;
 }
 
 /* GENERAL SECTIONS */
@@ -258,7 +217,6 @@ section{
   color:white;
   --parallax-y:0px;
 }
-
 section::before{
   content:"";
   position:absolute;
@@ -272,37 +230,31 @@ section::before{
   transform:translateY(var(--parallax-y)) rotate(-8deg);
   transition:transform .08s linear;
 }
-
 #about::before{
   background-image:url("tree.png");
   top:-260px;
   right:-240px;
 }
-
 #services::before{
   background-image:url("board1.png");
   left:-430px;
   top:-40px;
 }
-
 #team::before{
   background-image:url("wave.png");
   right:-330px;
   bottom:-210px;
 }
-
 #faq::before{
   background-image:url("board2.png");
   left:-380px;
   bottom:-260px;
 }
-
 #gallery::before{
   background-image:url("wave.png");
   right:-360px;
   top:-220px;
 }
-
 .container{
   position:relative;
   z-index:1;
@@ -393,11 +345,16 @@ p{
 }
 
 /* TEAM */
+.team-grid{
+  display:grid;
+  grid-template-columns:1fr;
+  gap:50px;
+  margin-top:40px;
+}
 .team-profile{
   display:flex;
   gap:40px;
   align-items:flex-start;
-  margin-top:40px;
   flex-wrap:wrap;
 }
 .team-profile img{
@@ -407,21 +364,33 @@ p{
   object-fit:cover;
   box-shadow:0 20px 60px rgba(0,0,0,.25);
 }
+.team-placeholder{
+  width:380px;
+  max-width:100%;
+  aspect-ratio:4/5;
+  border-radius:22px;
+  background:rgba(255,255,255,.1);
+  border:1px solid rgba(255,255,255,.25);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  box-shadow:0 20px 60px rgba(0,0,0,.25);
+  font-family:'Bebas Neue', sans-serif;
+  font-size:42px;
+  letter-spacing:1px;
+  color:rgba(255,255,255,.85);
+}
 .team-text{
   flex:1;
   min-width:280px;
   max-width:640px;
 }
 .team-text h3{
-  margin:0 0 10px;
+  margin:0 0 18px;
   color:white;
   font-size:34px;
   letter-spacing:.3px;
-}
-.team-role{
-  font-weight:600;
-  margin-bottom:22px;
-  opacity:.85;
 }
 .team-buttons{
   display:flex;
@@ -449,7 +418,6 @@ p{
   transform:translateY(-2px);
   background:rgba(255,255,255,.16);
   box-shadow:0 14px 30px rgba(0,0,0,.24);
-  color:white;
 }
 
 /* FAQ */
@@ -555,176 +523,70 @@ footer{
 @media (max-width: 900px){
   .nav-inner{
     border-radius:24px;
-    padding:14px 16px;
-    flex-wrap:nowrap;
-    gap:12px;
-  }
-
-  .brand{
-    flex:1;
-    min-width:0;
-  }
-
-  .brand strong{
-    font-size:16px;
-    white-space:nowrap;
-    overflow:hidden;
-    text-overflow:ellipsis;
-  }
-
-  .brand-logo{
-    width:54px;
-    height:54px;
-  }
-
-  .nav-links,
-  .nav-actions{
-    display:none;
-  }
-
-  .menu-toggle{
-    display:flex;
-    flex-shrink:0;
-  }
-
-  .nav.open .menu-toggle span:nth-child(1){
-    transform:translateY(6px) rotate(45deg);
-  }
-
-  .nav.open .menu-toggle span:nth-child(2){
-    opacity:0;
-  }
-
-  .nav.open .menu-toggle span:nth-child(3){
-    transform:translateY(-6px) rotate(-45deg);
-  }
-
-  .mobile-menu{
-    display:none;
-    width:100%;
-    margin-top:12px;
-    padding:16px;
-    border-radius:22px;
-    background:rgba(0,0,0,.35);
-    backdrop-filter:blur(10px);
-    border:1px solid rgba(255,255,255,.15);
-    box-sizing:border-box;
-  }
-
-  .nav.open .mobile-menu{
-    display:block;
-  }
-
-  .mobile-links{
-    display:flex;
-    flex-direction:column;
-    gap:14px;
-    margin-bottom:18px;
-  }
-
-  .mobile-links a{
-    color:white;
-    text-decoration:none;
-    font-size:18px;
-    font-weight:500;
-    opacity:.9;
-  }
-
-  .mobile-actions{
-    display:flex;
-    gap:12px;
-    align-items:center;
+    padding:12px 14px;
     flex-wrap:wrap;
+    gap:14px;
   }
-
+  .nav-links{
+    width:100%;
+    justify-content:center;
+    flex-wrap:wrap;
+    gap:16px;
+    font-size:16px;
+  }
   .hero-content{
     padding-top:190px;
   }
-
   .hero-text{
     font-size:40px;
   }
-
   .services-grid{
     grid-template-columns:1fr;
   }
-
   .gallery-grid{
     grid-template-columns:repeat(2,1fr);
   }
-
   section::before{
     width:760px;
     height:760px;
     opacity:.04;
   }
-
-  #about::before{
-    top:-180px;
-    right:-220px;
-  }
-
-  #services::before{
-    left:-300px;
-    top:40px;
-  }
-
-  #team::before{
-    right:-240px;
-    bottom:-180px;
-  }
-
-  #faq::before{
-    left:-260px;
-    bottom:-200px;
-  }
-
-  #gallery::before{
-    right:-240px;
-    top:-160px;
-  }
 }
 
 @media (max-width: 640px){
+  .brand strong{
+    font-size:16px;
+  }
+  .brand-logo{
+    width:54px;
+    height:54px;
+  }
   .hero-main-logo{
     width:92vw;
   }
-
   .hero-text{
     font-size:32px;
   }
-
   h2{
     font-size:30px;
   }
-
   .team-text h3{
     font-size:26px;
   }
-
   .team-btn,
   .hero-buttons a{
     min-width:unset;
     width:100%;
   }
-
   .gallery-grid{
     grid-template-columns:1fr;
   }
-
-  section::before{
-    width:560px;
-    height:560px;
-    opacity:.035;
-  }
-
   .floating-whatsapp{
     right:14px;
     bottom:14px;
     width:60px;
     height:60px;
   }
-
   .floating-whatsapp img{
     width:54px;
     height:54px;
@@ -736,7 +598,7 @@ footer{
 <body>
 
 <!-- NAV -->
-<div class="nav" id="siteNav">
+<div class="nav">
   <div class="nav-inner">
     <div class="brand">
       <img src="peninsulalogoonly.png" class="brand-logo" alt="Peninsula Surf School logo">
@@ -745,7 +607,7 @@ footer{
 
     <div class="nav-links">
       <a href="#about" data-en="About" data-es="Nosotros">About</a>
-      <a href="#services" data-en="Services" data-es="Servicios">Services</a>
+      <a href="#services" data-en="Lessons" data-es="Clases">Lessons</a>
       <a href="#team" data-en="Team" data-es="Equipo">Team</a>
       <a href="#faq" data-en="FAQ" data-es="Preguntas">FAQ</a>
     </div>
@@ -760,35 +622,6 @@ footer{
       </a>
 
       <button class="lang-btn" id="langToggle">Español</button>
-    </div>
-
-    <button class="menu-toggle" id="menuToggle" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu">
-      <div>
-        <span></span>
-        <span></span>
-        <span></span>
-      </div>
-    </button>
-  </div>
-
-  <div class="mobile-menu" id="mobileMenu">
-    <div class="mobile-links">
-      <a href="#about" data-en="About" data-es="Nosotros">About</a>
-      <a href="#services" data-en="Services" data-es="Servicios">Services</a>
-      <a href="#team" data-en="Team" data-es="Equipo">Team</a>
-      <a href="#faq" data-en="FAQ" data-es="Preguntas">FAQ</a>
-    </div>
-
-    <div class="mobile-actions">
-      <a href="https://www.instagram.com/peninsulasurfschool/" target="_blank" class="circle-btn" rel="noopener">
-        <img src="Instagramlogowhite.png" alt="Instagram">
-      </a>
-
-      <a href="https://wa.me/18295865262?text=Hi%20I%20would%20like%20to%20book%20a%20surf%20lesson" class="circle-btn">
-        <img src="Whatsapplogowhite.png" alt="WhatsApp">
-      </a>
-
-      <button class="lang-btn" id="langToggleMobile">Español</button>
     </div>
   </div>
 </div>
@@ -809,14 +642,14 @@ footer{
     <img src="peninsulalogo.png" class="hero-main-logo" id="heroLogo" alt="Peninsula Surf School">
 
     <p class="hero-text"
-       data-en="Ready to catch your first wave?!<br>Learn to surf with the best in Las Terrenas!"
-       data-es="¿Listo para atrapar tu primera ola?<br>¡Aprende a surfear con los mejores de Las Terrenas!">
-      Ready to catch your first wave?!<br>
-      Learn to surf with the best in Las Terrenas!
+       data-en="Start your adventure.<br>Learn to surf with us."
+       data-es="Comienza tu aventura.<br>Aprende a surfear con nosotros.">
+      Start your adventure.<br>
+      Learn to surf with us.
     </p>
 
     <div class="hero-buttons">
-      <a href="#services" class="primary-btn" data-en="Start Surfing" data-es="Comenzar">Start Surfing</a>
+      <a href="#services" class="primary-btn" data-en="View Lessons" data-es="Ver Clases">View Lessons</a>
       <a href="https://wa.me/18295865262?text=Hi%20I%E2%80%99m%20visiting%20Las%20Terrenas%20and%20would%20like%20to%20book%20a%20surf%20lesson" class="primary-btn" data-en="Book on WhatsApp" data-es="Reservar por WhatsApp">Book on WhatsApp</a>
     </div>
   </div>
@@ -826,28 +659,18 @@ footer{
 <section id="about">
   <div class="container">
     <div class="about-copy">
-      <h2 data-en="About Peninsula Surf School" data-es="Sobre Peninsula Surf School">
-        About Peninsula Surf School
+      <h2 data-en="About Peninsula" data-es="Sobre Peninsula">
+        About Peninsula
       </h2>
 
-      <p data-en="Peninsula Surf School is based at beautiful Playa Bonita in Las Terrenas on the Samaná Peninsula."
-         data-es="Peninsula Surf School está en la hermosa Playa Bonita, en Las Terrenas, en la península de Samaná.">
-        Peninsula Surf School is based at beautiful Playa Bonita in Las Terrenas on the Samaná Peninsula.
+      <p data-en="Here you won't just take a surf lesson, you'll learn to surf with one of the best surfers in the country. At Peninsula, we share our passion for surfing and will teach you technique, reading the ocean, safety, and real progression."
+         data-es="Aquí no solo tomarás una clase de surf, aprenderás a surfear con uno de los mejores surfistas del país. En Peninsula compartimos nuestra pasión por el surf y te enseñaremos técnica, lectura del océano, seguridad y progreso real.">
+        Here you won't just take a surf lesson, you'll learn to surf with one of the best surfers in the country. At Peninsula, we share our passion for surfing and will teach you technique, reading the ocean, safety, and real progression.
       </p>
 
-      <p data-en="Surfing here isn’t just a lesson - it’s one of the most fun experiences you can have while visiting the area. Whether you’re travelling solo, with friends, or as a family, catching your first wave together is something you’ll never forget."
-         data-es="Surfear aquí no es solo una clase, es una de las experiencias más divertidas que puedes vivir durante tu visita. Ya sea que viajes solo, con amigos o en familia, atrapar tu primera ola juntos es algo que nunca olvidarás.">
-        Surfing here isn’t just a lesson - it’s one of the most fun experiences you can have while visiting the area. Whether you’re travelling solo, with friends, or as a family, catching your first wave together is something you’ll never forget.
-      </p>
-
-      <p data-en="Our sessions focus on clear coaching, safety, and helping you progress quickly while keeping the relaxed Caribbean vibe that makes Las Terrenas so special."
-         data-es="Nuestras sesiones se enfocan en una enseñanza clara, seguridad y ayudarte a progresar rápido, manteniendo la vibra relajada del Caribe que hace tan especial a Las Terrenas.">
-        Our sessions focus on clear coaching, safety, and helping you progress quickly while keeping the relaxed Caribbean vibe that makes Las Terrenas so special.
-      </p>
-
-      <p data-en="With warm water, beautiful beaches, and beginner-friendly waves, Playa Bonita is the perfect place to learn to surf."
-         data-es="Con agua cálida, playas hermosas y olas ideales para principiantes, Playa Bonita es el lugar perfecto para aprender a surfear.">
-        With warm water, beautiful beaches, and beginner-friendly waves, Playa Bonita is the perfect place to learn to surf.
+      <p data-en="A true experience on the Caribbean beaches of the Samaná Peninsula."
+         data-es="Una verdadera experiencia en las playas caribeñas de la península de Samaná.">
+        A true experience on the Caribbean beaches of the Samaná Peninsula.
       </p>
     </div>
   </div>
@@ -856,23 +679,26 @@ footer{
 <!-- SERVICES -->
 <section id="services">
   <div class="container">
-    <h2 data-en="Surf Lessons & Experiences" data-es="Clases y Experiencias de Surf">
-      Surf Lessons & Experiences
+    <h2 data-en="Lesson Info" data-es="Información de Clases">
+      Lesson Info
     </h2>
 
     <div class="services-grid">
       <div class="service-card">
-        <h3 data-en="Beginner Surf Lesson" data-es="Clase de Surf para Principiantes">Beginner Surf Lesson</h3>
+        <h3 data-en="Beginner Lesson" data-es="Clase para Principiantes">Beginner Lesson</h3>
 
-        <p data-en="A 2 hour session perfect for first-time surfers."
-           data-es="Una sesión de 2 horas perfecta para quienes surfearán por primera vez.">
-          A 2 hour session perfect for first-time surfers.
+        <p data-en="A perfect 2-hour session if it's your first time or if you want to improve your skills. For families, friends, and couples who want to have fun and try something new during their vacation."
+           data-es="Una sesión perfecta de 2 horas si es tu primera vez o si quieres mejorar tus habilidades. Para familias, amigos y parejas que quieren divertirse y probar algo nuevo durante sus vacaciones.">
+          A perfect 2-hour session if it's your first time or if you want to improve your skills. For families, friends, and couples who want to have fun and try something new during their vacation.
         </p>
 
         <ul class="service-points">
-          <li data-en="Around 45 minutes of beach instruction" data-es="Aproximadamente 45 minutos de instrucción en la playa">Around 45 minutes of beach instruction</li>
-          <li data-en="Ocean safety and wave awareness" data-es="Seguridad en el mar y lectura de olas">Ocean safety and wave awareness</li>
-          <li data-en="Pop-up technique training" data-es="Técnica para ponerse de pie en la tabla">Pop-up technique training</li>
+          <li data-en="Private Lesson - US$75" data-es="Clase privada - US$75">Private Lesson - US$75</li>
+          <li data-en="Lesson for 2 to 3 people - US$60 per person" data-es="Clase para 2 a 3 personas - US$60 por persona">Lesson for 2 to 3 people - US$60 per person</li>
+          <li data-en="Group Lesson - US$50" data-es="Clase grupal - US$50">Group Lesson - US$50</li>
+          <li data-en="30 minutes of instruction on the beach" data-es="30 minutos de instrucción en la playa">30 minutes of instruction on the beach</li>
+          <li data-en="Water safety and wave reading" data-es="Seguridad en el agua y lectura de olas">Water safety and wave reading</li>
+          <li data-en="Stand-up technique on the board" data-es="Técnica para ponerse de pie en la tabla">Stand-up technique on the board</li>
           <li data-en="The rest of the lesson in the water catching waves" data-es="El resto de la clase en el agua atrapando olas">The rest of the lesson in the water catching waves</li>
         </ul>
 
@@ -884,39 +710,39 @@ footer{
       <div class="service-card">
         <h3 data-en="Private Surf Coaching" data-es="Coaching Privado de Surf">Private Surf Coaching</h3>
 
-        <p data-en="One-on-one coaching for faster progression."
+        <p data-en="Individual coaching for faster progress."
            data-es="Coaching individual para progresar más rápido.">
-          One-on-one coaching for faster progression.
+          Individual coaching for faster progress.
         </p>
 
         <ul class="service-points">
-          <li data-en="Personal instruction tailored to your level" data-es="Instrucción personalizada según tu nivel">Personal instruction tailored to your level</li>
-          <li data-en="Technique improvement" data-es="Mejora de técnica">Technique improvement</li>
-          <li data-en="Wave selection guidance" data-es="Guía para elegir mejores olas">Wave selection guidance</li>
-          <li data-en="Ideal for beginner or intermediate surfers" data-es="Ideal para surfistas principiantes o intermedios">Ideal for beginner or intermediate surfers</li>
+          <li data-en="Personalized instruction to elevate your level" data-es="Instrucción personalizada para elevar tu nivel">Personalized instruction to elevate your level</li>
+          <li data-en="Video analysis" data-es="Análisis de video">Video analysis</li>
+          <li data-en="Improve your wave selection and learn to read the ocean" data-es="Mejora tu selección de olas y aprende a leer el océano">Improve your wave selection and learn to read the ocean</li>
+          <li data-en="Ideal for intermediate and advanced surfers" data-es="Ideal para surfistas intermedios y avanzados">Ideal for intermediate and advanced surfers</li>
         </ul>
 
-        <a class="whatsapp-btn" href="https://wa.me/18295865262?text=Hi!%20I%20would%20like%20to%20book%20a%20private%20surf%20lesson" data-en="Book on WhatsApp" data-es="Reservar por WhatsApp">
+        <a class="whatsapp-btn" href="https://wa.me/18295865262?text=Hi!%20I%20would%20like%20to%20book%20private%20surf%20coaching" data-en="Book on WhatsApp" data-es="Reservar por WhatsApp">
           Book on WhatsApp
         </a>
       </div>
 
       <div class="service-card">
-        <h3 data-en="Guided Surf Session" data-es="Sesión Guiada de Surf">Guided Surf Session</h3>
+        <h3 data-en="Surf Trips" data-es="Surf Trips">Surf Trips</h3>
 
-        <p data-en="For surfers who want local knowledge of the best waves."
-           data-es="Para surfistas que quieren conocimiento local de las mejores olas.">
-          For surfers who want local knowledge of the best waves.
+        <p data-en="For surfers who want to experience the best waves with Cristian Padilla, a local professional surfer from Las Terrenas."
+           data-es="Para surfistas que quieren experimentar las mejores olas con Cristian Padilla, surfista profesional local de Las Terrenas.">
+          For surfers who want to experience the best waves with Cristian Padilla, a local professional surfer from Las Terrenas.
         </p>
 
         <ul class="service-points">
-          <li data-en="Local surf guidance" data-es="Guía local de surf">Local surf guidance</li>
-          <li data-en="Best conditions and spot choice" data-es="Mejores condiciones y elección del spot">Best conditions and spot choice</li>
-          <li data-en="Safer, more confident surf sessions" data-es="Sesiones más seguras y con mayor confianza">Safer, more confident surf sessions</li>
-          <li data-en="Usually at Playa Bonita, but available across the Samaná Peninsula on request" data-es="Normalmente en Playa Bonita, pero disponible en toda la península de Samaná bajo solicitud">Usually at Playa Bonita, but available across the Samaná Peninsula on request</li>
+          <li data-en="Local Surf Guide" data-es="Guía local de surf">Local Surf Guide</li>
+          <li data-en="Find the best spot of the day" data-es="Encuentra el mejor spot del día">Find the best spot of the day</li>
+          <li data-en="Safer and more confident sessions" data-es="Sesiones más seguras y con mayor confianza">Safer and more confident sessions</li>
+          <li data-en="Available throughout the Samaná Peninsula and other parts of the country" data-es="Disponible en toda la península de Samaná y otras partes del país">Available throughout the Samaná Peninsula and other parts of the country</li>
         </ul>
 
-        <a class="whatsapp-btn" href="https://wa.me/18295865262?text=Hi!%20I%20would%20like%20to%20book%20a%20guided%20surf%20session" data-en="Book on WhatsApp" data-es="Reservar por WhatsApp">
+        <a class="whatsapp-btn" href="https://wa.me/18295865262?text=Hi!%20I%20would%20like%20to%20book%20a%20surf%20trip" data-en="Book on WhatsApp" data-es="Reservar por WhatsApp">
           Book on WhatsApp
         </a>
       </div>
@@ -927,35 +753,65 @@ footer{
 <!-- TEAM -->
 <section id="team">
   <div class="container">
-    <h2 data-en="Meet Your Instructor" data-es="Conoce a Tu Instructor">
-      Meet Your Instructor
+    <h2 data-en="Meet The Team" data-es="Conoce al Equipo">
+      Meet The Team
     </h2>
 
-    <div class="team-profile">
-      <img src="Cristian.png" alt="Cristian Padilla">
+    <div class="team-grid">
 
-      <div class="team-text">
-        <h3>Cristian Padilla</h3>
+      <div class="team-profile">
+        <img src="Cristian.png" alt="Cristian Padilla">
 
-        <p data-en="Born in 1997 and raised in Las Terrenas, Cristian Padilla is one of the Dominican Republic's most prominent surfers. He began surfing at age 11 and, thanks to his discipline, perseverance, and passion for the ocean, has represented the country in international competitions in more than 15 countries, including WSL Qualifying Series events, the ISA World Surfing Games, and the ALAS Global Tour."
-           data-es="Nacido en 1997 y criado en Las Terrenas, Cristian Padilla es uno de los surfistas más destacados de la República Dominicana. Comenzó a surfear a los 11 años y, gracias a su disciplina, perseverancia y pasión por el océano, ha representado al país en competencias internacionales en más de 15 países, incluyendo eventos WSL Qualifying Series, los ISA World Surfing Games y el ALAS Global Tour.">
-          Born in 1997 and raised in Las Terrenas, Cristian Padilla is one of the Dominican Republic's most prominent surfers. He began surfing at age 11 and, thanks to his discipline, perseverance, and passion for the ocean, has represented the country in international competitions in more than 15 countries, including WSL Qualifying Series events, the ISA World Surfing Games, and the ALAS Global Tour.
-        </p>
+        <div class="team-text">
+          <h3>Cristian Padilla</h3>
 
-        <p data-en="In 2026, he founded Península Surf School in Las Terrenas with the goal of sharing everything he has learned throughout a lifetime dedicated to surfing. Through his school, Cristian seeks to impart not only technique and experience, but also respect for the ocean, confidence in the water, and a passion for the sport, helping new generations and visitors discover the world of surfing in a safe, authentic, and fun way."
-           data-es="En 2026, fundó Península Surf School en Las Terrenas con el objetivo de compartir todo lo que ha aprendido a lo largo de una vida dedicada al surf. A través de su escuela, Cristian busca transmitir no solo técnica y experiencia, sino también respeto por el océano, confianza en el agua y pasión por el deporte, ayudando a nuevas generaciones y visitantes a descubrir el mundo del surf de una forma segura, auténtica y divertida.">
-          In 2026, he founded Península Surf School in Las Terrenas with the goal of sharing everything he has learned throughout a lifetime dedicated to surfing. Through his school, Cristian seeks to impart not only technique and experience, but also respect for the ocean, confidence in the water, and a passion for the sport, helping new generations and visitors discover the world of surfing in a safe, authentic, and fun way.
-        </p>
-        
-        <div class="team-buttons">
-          <a class="team-btn" href="https://www.instagram.com/cristianppadilla/?hl=en" target="_blank" rel="noopener" data-en="Follow on Instagram" data-es="Seguir en Instagram">
-            Follow on Instagram
-          </a>
-          <a class="team-btn" href="https://wa.me/18295865262?text=Hi!%20I%20would%20like%20to%20book%20a%20surf%20lesson" data-en="Book a Lesson" data-es="Reservar una Clase">
-            Book a Lesson
-          </a>
+          <p data-en="Born in 1997 and raised in Las Terrenas, Cristian Padilla is one of the Dominican Republic's most prominent surfers. He began surfing at age 11 and, thanks to his discipline, perseverance, and passion for the ocean, has represented the country in international competitions in more than 15 countries, including WSL Qualifying Series events, the ISA World Surfing Games, and the ALAS Global Tour."
+             data-es="Nacido en 1997 y criado en Las Terrenas, Cristian Padilla es uno de los surfistas más destacados de la República Dominicana. Comenzó a surfear a los 11 años y, gracias a su disciplina, perseverancia y pasión por el océano, ha representado al país en competencias internacionales en más de 15 países, incluyendo eventos WSL Qualifying Series, los ISA World Surfing Games y el ALAS Global Tour.">
+            Born in 1997 and raised in Las Terrenas, Cristian Padilla is one of the Dominican Republic's most prominent surfers. He began surfing at age 11 and, thanks to his discipline, perseverance, and passion for the ocean, has represented the country in international competitions in more than 15 countries, including WSL Qualifying Series events, the ISA World Surfing Games, and the ALAS Global Tour.
+          </p>
+
+          <p data-en="In 2026, he founded Península Surf School in Las Terrenas with the goal of sharing everything he has learned throughout a lifetime dedicated to surfing. Through his school, Cristian seeks to impart not only technique and experience, but also respect for the ocean, confidence in the water, and a passion for the sport, helping new generations and visitors discover the world of surfing in a safe, authentic, and fun way."
+             data-es="En 2026, fundó Península Surf School en Las Terrenas con el objetivo de compartir todo lo que ha aprendido a lo largo de una vida dedicada al surf. A través de su escuela, Cristian busca transmitir no solo técnica y experiencia, sino también respeto por el océano, confianza en el agua y pasión por el deporte, ayudando a nuevas generaciones y visitantes a descubrir el mundo del surf de una forma segura, auténtica y divertida.">
+            In 2026, he founded Península Surf School in Las Terrenas with the goal of sharing everything he has learned throughout a lifetime dedicated to surfing. Through his school, Cristian seeks to impart not only technique and experience, but also respect for the ocean, confidence in the water, and a passion for the sport, helping new generations and visitors discover the world of surfing in a safe, authentic, and fun way.
+          </p>
+          
+          <div class="team-buttons">
+            <a class="team-btn" href="https://www.instagram.com/cristianppadilla/?hl=en" target="_blank" rel="noopener" data-en="Follow on Instagram" data-es="Seguir en Instagram">
+              Follow on Instagram
+            </a>
+            <a class="team-btn" href="https://wa.me/18295865262?text=Hi!%20I%20would%20like%20to%20book%20a%20surf%20lesson" data-en="Book a Lesson" data-es="Reservar una Clase">
+              Book a Lesson
+            </a>
+          </div>
         </div>
       </div>
+
+      <div class="team-profile">
+        <div class="team-placeholder">Mizael<br>Image</div>
+
+        <div class="team-text">
+          <h3>Mizael Hernandez</h3>
+
+          <p data-en="Born in 2002 and raised in Las Terrenas, he is passionate about surfing and very hardworking. He is a very affectionate and cheerful person, always willing to teach with a smile. He has worked alongside Cristian in the world of surfing since 2020 and is now part of this new project."
+             data-es="Nacido en 2002 y criado en Las Terrenas, es un apasionado del surf y muy trabajador. Es una persona muy cariñosa y alegre, siempre dispuesto a enseñar con una sonrisa. Ha trabajado junto a Cristian en el mundo del surf desde 2020 y ahora forma parte de este nuevo proyecto.">
+            Born in 2002 and raised in Las Terrenas, he is passionate about surfing and very hardworking. He is a very affectionate and cheerful person, always willing to teach with a smile. He has worked alongside Cristian in the world of surfing since 2020 and is now part of this new project.
+          </p>
+        </div>
+      </div>
+
+      <div class="team-profile">
+        <div class="team-placeholder">Miguel<br>Image</div>
+
+        <div class="team-text">
+          <h3>Miguel de León</h3>
+
+          <p data-en="Born in 2006 and raised in Las Terrenas, Miguel has a gift for sports, especially surfing. He was part of the national team and represented the Dominican Republic in the ISA World Surfing Games Junior, and has participated in the ALAS Global Tour. Always willing to help, he has worked with Cristian in Las Terrenas, in training in Peru, and they have competed together on several occasions."
+             data-es="Nacido en 2006 y criado en Las Terrenas, Miguel tiene un don para los deportes, especialmente el surf. Formó parte de la selección nacional y representó a la República Dominicana en los ISA World Surfing Games Junior, y ha participado en el ALAS Global Tour. Siempre dispuesto a ayudar, ha trabajado con Cristian en Las Terrenas, en entrenamientos en Perú, y han competido juntos en varias ocasiones.">
+            Born in 2006 and raised in Las Terrenas, Miguel has a gift for sports, especially surfing. He was part of the national team and represented the Dominican Republic in the ISA World Surfing Games Junior, and has participated in the ALAS Global Tour. Always willing to help, he has worked with Cristian in Las Terrenas, in training in Peru, and they have competed together on several occasions.
+          </p>
+        </div>
+      </div>
+
     </div>
   </div>
 </section>
@@ -972,11 +828,11 @@ footer{
           <span class="faq-arrow">⌄</span>
         </button>
         <div class="faq-answer">
-          <p data-en="RD$____ per person. If you're in a group of 4+, the price drops to RD$____ per person. We'll always try to group lessons together when possible to keep the cost lower for everyone."
-             data-es="RD$____ por persona. Si estás en un grupo de 4 o más, el precio baja a RD$____ por persona. Siempre intentaremos agrupar clases cuando sea posible para mantener el costo más bajo para todos.">
-            RD$____ per person.<br><br>
-            If you're in a group of 4+, the price drops to RD$____ per person.<br><br>
-            <em>*We’ll always try to group lessons together when possible to keep the cost lower for everyone.</em>
+          <p data-en="Private Lesson - US$75. Lesson for 2 to 3 people - US$60 per person. Group Lesson - US$50."
+             data-es="Clase privada - US$75. Clase para 2 a 3 personas - US$60 por persona. Clase grupal - US$50.">
+            Private Lesson - US$75.<br><br>
+            Lesson for 2 to 3 people - US$60 per person.<br><br>
+            Group Lesson - US$50.
           </p>
         </div>
       </div>
@@ -987,9 +843,9 @@ footer{
           <span class="faq-arrow">⌄</span>
         </button>
         <div class="faq-answer">
-          <p data-en="Not at all. Most students are learning to surf for the first time."
-             data-es="Para nada. La mayoría de los alumnos están aprendiendo a surfear por primera vez.">
-            Not at all. Most students are learning to surf for the first time.
+          <p data-en="Not at all. Beginner lessons are perfect if it is your first time surfing or if you want to improve your skills."
+             data-es="Para nada. Las clases para principiantes son perfectas si es tu primera vez surfeando o si quieres mejorar tus habilidades.">
+            Not at all. Beginner lessons are perfect if it is your first time surfing or if you want to improve your skills.
           </p>
         </div>
       </div>
@@ -1000,9 +856,9 @@ footer{
           <span class="faq-arrow">⌄</span>
         </button>
         <div class="faq-answer">
-          <p data-en="Lessons usually last around 1.5 to 2 hours. Beginner lessons include around 45 minutes of instruction on land before heading into the water."
-             data-es="Las clases suelen durar entre 1.5 y 2 horas. Las clases para principiantes incluyen unos 45 minutos de instrucción en tierra antes de entrar al agua.">
-            Lessons usually last around 1.5 to 2 hours. Beginner lessons include around 45 minutes of instruction on land before heading into the water.
+          <p data-en="Beginner lessons are around 2 hours, including 30 minutes of instruction on the beach before heading into the water."
+             data-es="Las clases para principiantes duran alrededor de 2 horas, incluyendo 30 minutos de instrucción en la playa antes de entrar al agua.">
+            Beginner lessons are around 2 hours, including 30 minutes of instruction on the beach before heading into the water.
           </p>
         </div>
       </div>
@@ -1013,9 +869,9 @@ footer{
           <span class="faq-arrow">⌄</span>
         </button>
         <div class="faq-answer">
-          <p data-en="Most lessons take place at Playa Bonita in Las Terrenas. On request, sessions can also be arranged anywhere on the Samaná Peninsula depending on conditions."
-             data-es="La mayoría de las clases se realizan en Playa Bonita, en Las Terrenas. Bajo solicitud, también se pueden organizar sesiones en cualquier parte de la península de Samaná según las condiciones.">
-            Most lessons take place at Playa Bonita in Las Terrenas. On request, sessions can also be arranged anywhere on the Samaná Peninsula depending on conditions.
+          <p data-en="Most lessons take place in Las Terrenas, with surf trips available throughout the Samaná Peninsula and other parts of the country depending on conditions."
+             data-es="La mayoría de las clases se realizan en Las Terrenas, con surf trips disponibles en toda la península de Samaná y otras partes del país según las condiciones.">
+            Most lessons take place in Las Terrenas, with surf trips available throughout the Samaná Peninsula and other parts of the country depending on conditions.
           </p>
         </div>
       </div>
@@ -1029,19 +885,6 @@ footer{
           <p data-en="Yes, surfboards are provided for lessons."
              data-es="Sí, las tablas de surf están incluidas en las clases.">
             Yes, surfboards are provided for lessons.
-          </p>
-        </div>
-      </div>
-
-      <div class="faq-item">
-        <button class="faq-question" type="button">
-          <span data-en="What should I bring?" data-es="¿Qué debo llevar?">What should I bring?</span>
-          <span class="faq-arrow">⌄</span>
-        </button>
-        <div class="faq-answer">
-          <p data-en="Bring swimwear, a towel, sunscreen, and water."
-             data-es="Trae traje de baño, toalla, protector solar y agua.">
-            Bring swimwear, a towel, sunscreen, and water.
           </p>
         </div>
       </div>
@@ -1088,15 +931,10 @@ footer{
 /* LANGUAGE TOGGLE */
 let currentLang = "en";
 const toggleBtn = document.getElementById("langToggle");
-const toggleBtnMobile = document.getElementById("langToggleMobile");
 
-function applyLanguage() {
-  if (toggleBtn) {
-    toggleBtn.textContent = currentLang === "en" ? "Español" : "English";
-  }
-  if (toggleBtnMobile) {
-    toggleBtnMobile.textContent = currentLang === "en" ? "Español" : "English";
-  }
+toggleBtn.addEventListener("click", () => {
+  currentLang = currentLang === "en" ? "es" : "en";
+  toggleBtn.textContent = currentLang === "en" ? "Español" : "English";
 
   document.querySelectorAll("[data-en]").forEach(el => {
     if (el.dataset[currentLang]) {
@@ -1106,39 +944,6 @@ function applyLanguage() {
         el.textContent = el.dataset[currentLang];
       }
     }
-  });
-}
-
-if (toggleBtn) {
-  toggleBtn.addEventListener("click", () => {
-    currentLang = currentLang === "en" ? "es" : "en";
-    applyLanguage();
-  });
-}
-
-if (toggleBtnMobile) {
-  toggleBtnMobile.addEventListener("click", () => {
-    currentLang = currentLang === "en" ? "es" : "en";
-    applyLanguage();
-  });
-}
-
-/* MOBILE MENU TOGGLE */
-const siteNav = document.getElementById("siteNav");
-const menuToggle = document.getElementById("menuToggle");
-const mobileMenuLinks = document.querySelectorAll(".mobile-links a");
-
-if (menuToggle && siteNav) {
-  menuToggle.addEventListener("click", () => {
-    const isOpen = siteNav.classList.toggle("open");
-    menuToggle.setAttribute("aria-expanded", isOpen ? "true" : "false");
-  });
-}
-
-mobileMenuLinks.forEach(link => {
-  link.addEventListener("click", () => {
-    siteNav.classList.remove("open");
-    menuToggle.setAttribute("aria-expanded", "false");
   });
 });
 
