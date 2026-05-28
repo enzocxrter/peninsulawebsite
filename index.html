@@ -51,6 +51,7 @@ body{
   gap:12px;
 }
 .brand strong{
+  font-family:'Poppins', sans-serif;
   font-weight:600;
   font-size:18px;
   letter-spacing:.5px;
@@ -203,6 +204,7 @@ body{
   transform:translateY(-2px);
   background:rgba(255,255,255,.16);
   box-shadow:0 14px 30px rgba(0,0,0,.24);
+  color:white;
 }
 .hero-buttons .primary-btn{
   background:rgba(255,255,255,.14);
@@ -364,23 +366,6 @@ p{
   object-fit:cover;
   box-shadow:0 20px 60px rgba(0,0,0,.25);
 }
-.team-placeholder{
-  width:380px;
-  max-width:100%;
-  aspect-ratio:4/5;
-  border-radius:22px;
-  background:rgba(255,255,255,.1);
-  border:1px solid rgba(255,255,255,.25);
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  text-align:center;
-  box-shadow:0 20px 60px rgba(0,0,0,.25);
-  font-family:'Bebas Neue', sans-serif;
-  font-size:42px;
-  letter-spacing:1px;
-  color:rgba(255,255,255,.85);
-}
 .team-text{
   flex:1;
   min-width:280px;
@@ -418,6 +403,48 @@ p{
   transform:translateY(-2px);
   background:rgba(255,255,255,.16);
   box-shadow:0 14px 30px rgba(0,0,0,.24);
+  color:white;
+}
+
+.team-support-grid{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:30px;
+  margin-top:20px;
+}
+.support-card{
+  background:rgba(255,255,255,.04);
+  border:1px solid rgba(255,255,255,.08);
+  border-radius:24px;
+  overflow:hidden;
+  backdrop-filter:blur(6px);
+}
+.support-card img,
+.support-card .team-placeholder{
+  width:100%;
+  aspect-ratio:4/4.5;
+  object-fit:cover;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  font-family:'Bebas Neue', sans-serif;
+  font-size:42px;
+  letter-spacing:1px;
+  color:rgba(255,255,255,.85);
+  background:rgba(255,255,255,.08);
+}
+.support-text{
+  padding:28px;
+}
+.support-text h3{
+  margin-top:0;
+  margin-bottom:14px;
+  font-size:30px;
+  color:white;
+}
+.support-text p{
+  margin:0;
 }
 
 /* FAQ */
@@ -527,6 +554,7 @@ footer{
     flex-wrap:wrap;
     gap:14px;
   }
+
   .nav-links{
     width:100%;
     justify-content:center;
@@ -534,22 +562,56 @@ footer{
     gap:16px;
     font-size:16px;
   }
+
   .hero-content{
     padding-top:190px;
   }
+
   .hero-text{
     font-size:40px;
   }
+
   .services-grid{
     grid-template-columns:1fr;
   }
+
   .gallery-grid{
     grid-template-columns:repeat(2,1fr);
   }
+
+  .team-support-grid{
+    grid-template-columns:1fr;
+  }
+
   section::before{
     width:760px;
     height:760px;
     opacity:.04;
+  }
+
+  #about::before{
+    top:-180px;
+    right:-220px;
+  }
+
+  #services::before{
+    left:-300px;
+    top:40px;
+  }
+
+  #team::before{
+    right:-240px;
+    bottom:-180px;
+  }
+
+  #faq::before{
+    left:-260px;
+    bottom:-200px;
+  }
+
+  #gallery::before{
+    right:-240px;
+    top:-160px;
   }
 }
 
@@ -557,36 +619,55 @@ footer{
   .brand strong{
     font-size:16px;
   }
+
   .brand-logo{
     width:54px;
     height:54px;
   }
+
   .hero-main-logo{
     width:92vw;
   }
+
   .hero-text{
     font-size:32px;
   }
+
   h2{
     font-size:30px;
   }
+
   .team-text h3{
     font-size:26px;
   }
+
+  .team-profile img{
+    width:100%;
+  }
+
   .team-btn,
   .hero-buttons a{
     min-width:unset;
     width:100%;
   }
+
   .gallery-grid{
     grid-template-columns:1fr;
   }
+
+  section::before{
+    width:560px;
+    height:560px;
+    opacity:.035;
+  }
+
   .floating-whatsapp{
     right:14px;
     bottom:14px;
     width:60px;
     height:60px;
   }
+
   .floating-whatsapp img{
     width:54px;
     height:54px;
@@ -783,30 +864,36 @@ footer{
         </div>
       </div>
 
-      <div class="team-profile">
-        <div class="team-placeholder">Mizael<br>Image</div>
+      <div class="team-support-grid">
 
-        <div class="team-text">
-          <h3>Mizael Hernandez</h3>
+        <div class="support-card">
+          <div class="team-placeholder">
+            Mizael<br>Image
+          </div>
 
-          <p data-en="Born in 2002 and raised in Las Terrenas, he is passionate about surfing and very hardworking. He is a very affectionate and cheerful person, always willing to teach with a smile. He has worked alongside Cristian in the world of surfing since 2020 and is now part of this new project."
-             data-es="Nacido en 2002 y criado en Las Terrenas, es un apasionado del surf y muy trabajador. Es una persona muy cariñosa y alegre, siempre dispuesto a enseñar con una sonrisa. Ha trabajado junto a Cristian en el mundo del surf desde 2020 y ahora forma parte de este nuevo proyecto.">
-            Born in 2002 and raised in Las Terrenas, he is passionate about surfing and very hardworking. He is a very affectionate and cheerful person, always willing to teach with a smile. He has worked alongside Cristian in the world of surfing since 2020 and is now part of this new project.
-          </p>
+          <div class="support-text">
+            <h3>Mizael Hernandez</h3>
+
+            <p data-en="Born in 2002 and raised in Las Terrenas, he is passionate about surfing and very hardworking. He is a very affectionate and cheerful person, always willing to teach with a smile. He has worked alongside Cristian in the world of surfing since 2020 and is now part of this new project."
+               data-es="Nacido en 2002 y criado en Las Terrenas, es un apasionado del surf y muy trabajador. Es una persona muy cariñosa y alegre, siempre dispuesto a enseñar con una sonrisa. Ha trabajado junto a Cristian en el mundo del surf desde 2020 y ahora forma parte de este nuevo proyecto.">
+              Born in 2002 and raised in Las Terrenas, he is passionate about surfing and very hardworking. He is a very affectionate and cheerful person, always willing to teach with a smile. He has worked alongside Cristian in the world of surfing since 2020 and is now part of this new project.
+            </p>
+          </div>
         </div>
-      </div>
 
-      <div class="team-profile">
-        <div class="team-placeholder">Miguel<br>Image</div>
+        <div class="support-card">
+          <img src="Miguel.jpeg" alt="Miguel de León">
 
-        <div class="team-text">
-          <h3>Miguel de León</h3>
+          <div class="support-text">
+            <h3>Miguel de León</h3>
 
-          <p data-en="Born in 2006 and raised in Las Terrenas, Miguel has a gift for sports, especially surfing. He was part of the national team and represented the Dominican Republic in the ISA World Surfing Games Junior, and has participated in the ALAS Global Tour. Always willing to help, he has worked with Cristian in Las Terrenas, in training in Peru, and they have competed together on several occasions."
-             data-es="Nacido en 2006 y criado en Las Terrenas, Miguel tiene un don para los deportes, especialmente el surf. Formó parte de la selección nacional y representó a la República Dominicana en los ISA World Surfing Games Junior, y ha participado en el ALAS Global Tour. Siempre dispuesto a ayudar, ha trabajado con Cristian en Las Terrenas, en entrenamientos en Perú, y han competido juntos en varias ocasiones.">
-            Born in 2006 and raised in Las Terrenas, Miguel has a gift for sports, especially surfing. He was part of the national team and represented the Dominican Republic in the ISA World Surfing Games Junior, and has participated in the ALAS Global Tour. Always willing to help, he has worked with Cristian in Las Terrenas, in training in Peru, and they have competed together on several occasions.
-          </p>
+            <p data-en="Born in 2006 and raised in Las Terrenas, Miguel has a gift for sports, especially surfing. He was part of the national team and represented the Dominican Republic in the ISA World Surfing Games Junior, and has participated in the ALAS Global Tour. Always willing to help, he has worked with Cristian in Las Terrenas, in training in Peru, and they have competed together on several occasions."
+               data-es="Nacido en 2006 y criado en Las Terrenas, Miguel tiene un don para los deportes, especialmente el surf. Formó parte de la selección nacional y representó a la República Dominicana en los ISA World Surfing Games Junior, y ha participado en el ALAS Global Tour. Siempre dispuesto a ayudar, ha trabajado con Cristian en Las Terrenas, en entrenamientos en Perú, y han competido juntos en varias ocasiones.">
+              Born in 2006 and raised in Las Terrenas, Miguel has a gift for sports, especially surfing. He was part of the national team and represented the Dominican Republic in the ISA World Surfing Games Junior, and has participated in the ALAS Global Tour. Always willing to help, he has worked with Cristian in Las Terrenas, in training in Peru, and they have competed together on several occasions.
+            </p>
+          </div>
         </div>
+
       </div>
 
     </div>
@@ -882,6 +969,19 @@ footer{
           <p data-en="Yes, surfboards are provided for lessons."
              data-es="Sí, las tablas de surf están incluidas en las clases.">
             Yes, surfboards are provided for lessons.
+          </p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" type="button">
+          <span data-en="What should I bring?" data-es="¿Qué debo llevar?">What should I bring?</span>
+          <span class="faq-arrow">⌄</span>
+        </button>
+        <div class="faq-answer">
+          <p data-en="Bring swimwear, a towel, sunscreen, and water."
+             data-es="Trae traje de baño, toalla, protector solar y agua.">
+            Bring swimwear, a towel, sunscreen, and water.
           </p>
         </div>
       </div>
