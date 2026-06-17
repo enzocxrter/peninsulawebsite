@@ -5,22 +5,28 @@
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
 <title>Peninsula Surf School — Samaná</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
 
 <style>
 :root{
-  --brand:#434933;
-  --brand-light:#596040;
+  --sage:#AFA985;
+  --sage-rgb:175,169,133;
+  --olive:#79734F;
+  --olive-rgb:121,115,79;
+  --brand:#79734F;
+  --brand-light:#8c865f;
   --sand:#f2e0c4;
   --dark:#1f1f1f;
   --nav-offset:126px;
+  --heading-font:'Recoleta', 'Georgia', serif;
+  --body-font:'Montserrat', Arial, sans-serif;
 }
 
 body{
   margin:0;
-  font-family:'Poppins', sans-serif;
+  font-family:var(--body-font);
   color:white;
-  background:#434933;
+  background:var(--sage);
   overflow-x:hidden;
   cursor:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='96' height='96' viewBox='0 0 96 96'%3E%3Cg transform='translate(48 48) rotate(-25) translate(-48 -48)'%3E%3Cpath d='M48 6 C34 15, 28 30, 28 48 C28 66, 34 81, 48 90 C62 81, 68 66, 68 48 C68 30, 62 15, 48 6 Z' fill='white' stroke='black' stroke-width='1.1'/%3E%3Cpath d='M46.8 11.5 C36.2 20.4, 32.5 32.0, 32.5 48 C32.5 64.0, 36.2 75.6, 46.8 84.5' fill='none' stroke='black' stroke-width='0.85'/%3E%3C/g%3E%3C/svg%3E") 26 26, auto;
 }
@@ -65,16 +71,11 @@ html{
   align-items:center;
   gap:12px;
 }
-.brand strong{
-  font-family:'Poppins', sans-serif;
-  font-weight:600;
-  font-size:18px;
-  letter-spacing:.5px;
-}
 .brand-logo{
-  width:70px;
-  height:70px;
+  width:250px;
+  height:64px;
   object-fit:contain;
+  display:block;
 }
 .nav-links{
   display:flex;
@@ -159,7 +160,7 @@ html{
     rgba(0,0,0,.18);
   color:white;
   cursor:pointer;
-  font-family:'Poppins', sans-serif;
+  font-family:var(--body-font);
   font-size:15px;
   transition:.25s ease;
   appearance:none;
@@ -174,7 +175,7 @@ html{
     rgba(255,255,255,.08);
 }
 .lang-select option{
-  background:#24301f;
+  background:var(--olive);
   color:white;
 }
 
@@ -199,12 +200,12 @@ html{
   pointer-events:none;
   background:linear-gradient(
     to bottom,
-    rgba(67,73,51,0) 0%,
-    rgba(67,73,51,.22) 26%,
-    rgba(67,73,51,.58) 52%,
-    rgba(67,73,51,.92) 74%,
-    #434933 92%,
-    rgba(67,73,51,0) 100%
+    rgba(var(--sage-rgb),0) 0%,
+    rgba(var(--sage-rgb),.22) 26%,
+    rgba(var(--sage-rgb),.58) 52%,
+    rgba(var(--sage-rgb),.92) 74%,
+    var(--sage) 92%,
+    rgba(var(--sage-rgb),0) 100%
   );
 }
 .hero-video{
@@ -214,7 +215,7 @@ html{
   height:100%;
   z-index:0;
   overflow:hidden;
-  background:#434933;
+  background:var(--sage);
 }
 .hero-video video{
   position:absolute;
@@ -230,12 +231,12 @@ html{
   inset:0;
   background:linear-gradient(
     to bottom,
-    rgba(67,73,51,.62) 0%,
+    rgba(var(--olive-rgb),.56) 0%,
     rgba(0,0,0,.08) 18%,
     rgba(0,0,0,.14) 44%,
-    rgba(67,73,51,.36) 68%,
-    rgba(67,73,51,.78) 90%,
-    #434933 100%
+    rgba(var(--olive-rgb),.34) 68%,
+    rgba(var(--sage-rgb),.78) 90%,
+    var(--sage) 100%
   );
   z-index:1;
 }
@@ -254,9 +255,9 @@ html{
   transition:opacity .5s ease, transform .5s ease;
 }
 .hero-text{
-  font-family:'Bebas Neue', sans-serif;
+  font-family:var(--heading-font);
   font-size:68px;
-  letter-spacing:1px;
+  letter-spacing:0;
   line-height:1.08;
   text-shadow:0 4px 20px rgba(0,0,0,.6);
   margin:0 auto 38px;
@@ -298,7 +299,7 @@ html{
 section{
   position:relative;
   padding:90px 20px;
-  background:#434933;
+  background:var(--sage);
   color:white;
   --parallax-y:0px;
   overflow:visible;
@@ -350,11 +351,11 @@ section::before{
   margin:auto;
 }
 h2{
-  font-family:'Bebas Neue', sans-serif;
+  font-family:var(--heading-font);
   font-size:48px;
-  letter-spacing:1px;
+  letter-spacing:0;
   margin-bottom:20px;
-  color:white;
+  color:var(--olive);
 }
 p{
   line-height:1.7;
@@ -370,22 +371,22 @@ p{
   min-width:190px;
   padding:14px 28px;
   border-radius:999px;
-  border:1px solid rgba(67,73,51,.28);
-  background:linear-gradient(180deg,#596040 0%,#3f462f 100%);
+  border:1px solid rgba(255,255,255,.28);
+  background:linear-gradient(180deg,#8c865f 0%,#635e40 100%);
   color:white;
   text-decoration:none;
   margin:14px auto 0 auto;
   font-size:14px;
   font-weight:600;
   letter-spacing:.2px;
-  box-shadow:0 12px 26px rgba(67,73,51,.22), inset 0 1px 0 rgba(255,255,255,.16);
+  box-shadow:0 12px 26px rgba(var(--olive-rgb),.24), inset 0 1px 0 rgba(255,255,255,.18);
   transition:transform .25s ease, box-shadow .25s ease, background .25s ease;
   text-align:center;
 }
 .whatsapp-btn:hover{
-  background:linear-gradient(180deg,#65704a 0%,#434933 100%);
+  background:linear-gradient(180deg,#958f67 0%,var(--olive) 100%);
   transform:translateY(-3px);
-  box-shadow:0 18px 34px rgba(67,73,51,.30), inset 0 1px 0 rgba(255,255,255,.2);
+  box-shadow:0 18px 34px rgba(var(--olive-rgb),.32), inset 0 1px 0 rgba(255,255,255,.22);
 }
 
 /* ABOUT */
@@ -409,12 +410,12 @@ p{
 }
 .service-card{
   background:white;
-  color:#1f1f1f;
+  color:var(--olive);
   padding:28px;
   border-radius:18px;
   text-align:left;
   transition:.25s ease;
-  box-shadow:0 6px 20px rgba(0,0,0,.10);
+  box-shadow:0 12px 26px rgba(var(--olive-rgb),.22);
   display:flex;
   flex-direction:column;
 }
@@ -433,17 +434,23 @@ p{
 }
 .service-card:hover{
   transform:translateY(-6px);
-  box-shadow:0 14px 30px rgba(0,0,0,.16);
+  box-shadow:0 18px 36px rgba(var(--olive-rgb),.30);
 }
 .service-card h3{
   margin-top:0;
   margin-bottom:10px;
-  color:var(--brand);
+  font-family:var(--heading-font);
+  color:var(--olive);
   font-size:24px;
+  letter-spacing:0;
 }
 .service-card p{
   font-size:16px;
   margin:0 0 12px;
+}
+.service-card .service-points,
+.service-card .service-points li{
+  color:var(--olive);
 }
 .service-points{
   margin:0 0 18px;
@@ -456,7 +463,7 @@ p{
 .service-subheading{
   margin-top:18px;
   font-weight:600;
-  color:var(--brand);
+  color:var(--olive);
 }
 
 /* TEAM */
@@ -486,9 +493,10 @@ p{
 }
 .team-text h3{
   margin:0 0 18px;
+  font-family:var(--heading-font);
   color:white;
   font-size:34px;
-  letter-spacing:.3px;
+  letter-spacing:0;
 }
 .team-buttons{
   display:flex;
@@ -548,7 +556,7 @@ p{
   align-items:center;
   justify-content:center;
   text-align:center;
-  font-family:'Bebas Neue', sans-serif;
+  font-family:var(--heading-font);
   font-size:24px;
   color:rgba(255,255,255,.85);
 }
@@ -557,7 +565,9 @@ p{
 }
 .support-text h3{
   margin:0 0 10px;
+  font-family:var(--heading-font);
   font-size:24px;
+  letter-spacing:0;
   color:white;
 }
 .support-card .support-text p{
@@ -589,12 +599,14 @@ p{
   justify-content:space-between;
   align-items:center;
   text-align:left;
-  font-family:'Poppins', sans-serif;
+  font-family:var(--body-font);
   font-size:22px;
   font-weight:600;
   cursor:pointer;
 }
 .faq-question span:first-child{
+  font-family:var(--heading-font);
+  letter-spacing:0;
   padding-right:20px;
 }
 .faq-arrow{
@@ -770,7 +782,7 @@ p{
 
 /* FOOTER */
 footer{
-  background:#434933;
+  background:var(--sage);
   color:white;
   padding:40px 20px;
   text-align:center;
@@ -839,12 +851,6 @@ footer a:hover{
     min-width:0;
   }
 
-  .brand strong{
-    white-space:nowrap;
-    overflow:hidden;
-    text-overflow:ellipsis;
-  }
-
   .menu-toggle{
     display:flex;
   }
@@ -862,7 +868,7 @@ footer a:hover{
     font-size:16px;
     padding:20px 20px 84px;
     border-radius:22px;
-    background:rgba(67,73,51,.94);
+    background:rgba(var(--olive-rgb),.94);
     backdrop-filter:blur(12px);
     -webkit-backdrop-filter:blur(12px);
     border:1px solid rgba(255,255,255,.18);
@@ -886,7 +892,7 @@ footer a:hover{
     inset:-18px 0 0;
     z-index:-1;
     border-radius:0 0 22px 22px;
-    background:rgba(67,73,51,.94);
+    background:rgba(var(--olive-rgb),.94);
     border:1px solid rgba(255,255,255,.18);
     border-top:0;
     box-shadow:0 18px 40px rgba(0,0,0,.22);
@@ -960,13 +966,10 @@ footer a:hover{
 }
 
 @media (max-width: 640px){
-  .brand strong{
-    font-size:16px;
-  }
-
   .brand-logo{
-    width:54px;
-    height:54px;
+    width:190px;
+    height:50px;
+    transform:translateX(-10px);
   }
 
   .hero-main-logo{
@@ -1058,8 +1061,7 @@ footer a:hover{
 <div class="nav">
   <div class="nav-inner">
     <div class="brand">
-      <img src="peninsulalogoonly.png" class="brand-logo" alt="Peninsula Surf School logo">
-      <strong>Pen&iacute;nsula Surf School</strong>
+      <img src="Logo.png" class="brand-logo" alt="Península Surf School">
     </div>
 
     <button class="menu-toggle" id="menuToggle" type="button" aria-label="Open menu" aria-expanded="false">
@@ -1104,7 +1106,7 @@ footer a:hover{
   <div class="hero-overlay"></div>
 
   <div class="hero-content">
-    <img src="peninsulalogo.png" class="hero-main-logo" id="heroLogo" alt="Peninsula Surf School">
+    <img src="Logo main.png" class="hero-main-logo" id="heroLogo" alt="Península Surf School">
 
     <p class="hero-text"
        data-en="Start your adventure.<br>Learn to surf with us." data-fr="Commencez votre aventure.<br>Apprenez &agrave; surfer avec nous." data-fr="Commencez votre aventure.<br>Apprenez ? surfer avec nous."
@@ -1128,17 +1130,17 @@ footer a:hover{
         About Península Surf School
       </h2>
 
-      <p data-en="At Península Surf School, you won't just take a surf lesson: you'll learn to surf with one of the best surfers in the Dominican Republic." data-fr="&Agrave; Pen&iacute;nsula Surf School, vous ne prendrez pas simplement un cours de surf : vous apprendrez &agrave; surfer avec l&rsquo;un des meilleurs surfeurs de la R&eacute;publique dominicaine."
+      <p data-en="Here, you won&rsquo;t just take a surf lesson - you&rsquo;ll learn how to surf with one of the best surfers in the country. At Pen&iacute;nsula, we share surfing through our passion, teaching you technique, ocean reading, safety, and real progression so you can keep improving from anywhere in the world." data-fr="&Agrave; Pen&iacute;nsula Surf School, vous ne prendrez pas simplement un cours de surf : vous apprendrez &agrave; surfer avec l&rsquo;un des meilleurs surfeurs de la R&eacute;publique dominicaine."
          data-es="En Pen?nsula Surf School no solo tomar?s una clase de surf: aprender?s a surfear con uno de los mejores surfistas de la Rep?blica Dominicana.">
         At Península Surf School, you won't just take a surf lesson: you'll learn to surf with one of the best surfers in the Dominican Republic.
       </p>
 
-      <p data-en="We share our passion for the ocean, combining technique, safety, wave reading, and real progression. Our goal is for everyone to have an authentic, fun, and safe experience while discovering surfing on the Caribbean beaches of the Samaná Peninsula." data-fr="Nous partageons notre passion pour l&rsquo;oc&eacute;an en combinant technique, s&eacute;curit&eacute;, lecture des vagues et vraie progression. Notre objectif est que chacun vive une exp&eacute;rience authentique, amusante et s&ucirc;re en d&eacute;couvrant le surf sur les plages carib&eacute;ennes de la p&eacute;ninsule de Saman&aacute;."
+      <p data-en="A true experience on the Caribbean beaches of the Saman&aacute; Peninsula." data-fr="Nous partageons notre passion pour l&rsquo;oc&eacute;an en combinant technique, s&eacute;curit&eacute;, lecture des vagues et vraie progression. Notre objectif est que chacun vive une exp&eacute;rience authentique, amusante et s&ucirc;re en d&eacute;couvrant le surf sur les plages carib&eacute;ennes de la p&eacute;ninsule de Saman&aacute;."
          data-es="Transmitimos el surf desde nuestra pasi?n por el mar, combinando t?cnica, seguridad, lectura de olas y progresi?n real. Nuestro objetivo es que cada persona viva una experiencia aut?ntica, divertida y segura, mientras descubre el surf en las playas caribe?as de la pen?nsula de Saman?.">
         We share our passion for the ocean, combining technique, safety, wave reading, and real progression. Our goal is for everyone to have an authentic, fun, and safe experience while discovering surfing on the Caribbean beaches of the Samaná Peninsula.
       </p>
 
-      <p data-en="A true surf experience in Las Terrenas." data-fr="Une v&eacute;ritable exp&eacute;rience de surf &agrave; Las Terrenas."
+      <p data-en="" data-fr="Une v&eacute;ritable exp&eacute;rience de surf &agrave; Las Terrenas."
          data-es="Una verdadera experiencia de surf en Las Terrenas.">
         A true surf experience in Las Terrenas.
       </p>
@@ -1247,11 +1249,20 @@ footer a:hover{
       </div>
 
       <div class="service-card">
-        <h3 data-en="Equipment hire" data-fr="Location d&rsquo;&eacute;quipement" data-es="Equipment hire">Equipment hire</h3>
+        <h3 data-en="Equipment hire" data-fr="Location de planches" data-es="Renta de tablas">Equipment hire</h3>
 
-        <p data-en="More details coming soon." data-fr="Plus d&rsquo;informations bient&ocirc;t disponibles." data-es="M&aacute;s informaci&oacute;n pr&oacute;ximamente.">
-          More details coming soon.
+        <p data-en="Rent your board and enjoy the ocean at your own pace. Perfect if you already know how to surf and want to make the most of your vacation in Las Terrenas. We offer quality boards and options for different levels, designed for surfers looking for good equipment during their trip." data-fr="Louez votre planche et profitez de l&rsquo;oc&eacute;an &agrave; votre rythme. Parfait si vous savez d&eacute;j&agrave; surfer et souhaitez profiter de vos vacances &agrave; Las Terrenas. Nous proposons des planches de qualit&eacute; et des options pour diff&eacute;rents niveaux." data-es="Alquila tu tabla y disfruta del mar a tu ritmo. Perfecto si ya sabes surfear y quieres aprovechar durante tus vacaciones en Las Terrenas. Contamos con tablas de calidad y opciones para diferentes niveles, pensadas para quienes buscan buen equipo durante sus vacaciones.">
+          Rent your board and enjoy the ocean at your own pace.
         </p>
+
+        <ul class="service-points">
+          <li data-en="2 hours - US$15" data-fr="2 heures - 15 USD" data-es="2 horas - 15 US">2 hours - US$15</li>
+          <li data-en="Half day - US$25" data-fr="Demi-journ&eacute;e - 25 USD" data-es="Medio d&iacute;a - 25 US">Half day - US$25</li>
+          <li data-en="Full day - US$40" data-fr="Journ&eacute;e compl&egrave;te - 40 USD" data-es="D&iacute;a completo - 40 US">Full day - US$40</li>
+          <li data-en="2 to 5 days - US$30 / day" data-fr="De 2 &agrave; 5 jours - 30 USD / jour" data-es="De 2 a 5 d&iacute;as - 30 US / d&iacute;a">2 to 5 days - US$30 / day</li>
+          <li data-en="6 to 10 days - US$25 / day" data-fr="De 6 &agrave; 10 jours - 25 USD / jour" data-es="De 6 a 10 d&iacute;as - 25 US / d&iacute;a">6 to 10 days - US$25 / day</li>
+          <li data-en="More than 10 days - US$20 / day" data-fr="Plus de 10 jours - 20 USD / jour" data-es="M&aacute;s de 10 d&iacute;as - 20 US / d&iacute;a">More than 10 days - US$20 / day</li>
+        </ul>
 
         <a class="whatsapp-btn" href="https://wa.me/18295865262?text=Hi!%20I%20would%20like%20to%20ask%20about%20equipment%20hire" data-en="Ask on WhatsApp" data-fr="Demander sur WhatsApp" data-es="Consultar por WhatsApp">
           Ask on WhatsApp
@@ -1300,20 +1311,18 @@ footer a:hover{
       <div class="team-support-grid">
 
         <div class="support-card">
-          <div class="team-placeholder">
-            Mizael<br>Image
-          </div>
+          <img src="Mizael.jpeg" alt="Mizael Hern&aacute;ndez">
 
           <div class="support-text">
             <h3>Mizael Hernández</h3>
 
             <p data-en="Mizael Hernández, born in 2002 and raised in Las Terrenas, is passionate about surfing and a dedicated, cheerful, and hardworking person. Since 2020, he has worked as a surf instructor, sharing his knowledge with patience, enthusiasm, and always with a smile." data-fr="Mizael Hern&aacute;ndez, n&eacute; en 2002 et &eacute;lev&eacute; &agrave; Las Terrenas, est passionn&eacute; de surf. C&rsquo;est une personne d&eacute;vou&eacute;e, joyeuse et travailleuse. Depuis 2020, il travaille comme moniteur de surf, partageant ses connaissances avec patience, enthousiasme et toujours avec le sourire."
-               data-es="Mizael Hern&aacute;ndez, nacido en 2002 y criado en Las Terrenas, es un apasionado del surf y una persona dedicada, alegre y trabajadora. Desde 2020 se ha desempe&ntilde;ado como instructor de surf, compartiendo su conocimiento con paciencia, entusiasmo y siempre con una sonrisa.">
+               data-es="Nacido en 2002 y criado en Las Terrenas, es un apasionado del surf y muy trabajador. Es una persona muy cari&ntilde;osa y alegre, siempre dispuesto a ense&ntilde;ar con una sonrisa. Ha trabajado junto con Cristian en el mundo del surf desde el 2020 y ahora es parte de este nuevo proyecto.">
               Mizael Hernández, born in 2002 and raised in Las Terrenas, is passionate about surfing and a dedicated, cheerful, and hardworking person. Since 2020, he has worked as a surf instructor, sharing his knowledge with patience, enthusiasm, and always with a smile.
             </p>
 
             <p data-en="His charisma and love for the sea make him an essential part of Península Surf School, where he guides students of all levels to gain confidence in the water and enjoy the process of learning to surf." data-fr="Son charisme et son amour de la mer font de lui un membre essentiel de Pen&iacute;nsula Surf School, o&ugrave; il accompagne les &eacute;l&egrave;ves de tous niveaux pour gagner en confiance dans l&rsquo;eau et appr&eacute;cier le processus d&rsquo;apprentissage du surf."
-               data-es="Su carisma y amor por el mar lo convierten en una parte esencial de Pen&iacute;nsula Surf School, donde acompa&ntilde;a a estudiantes de todos los niveles a ganar confianza en el agua y disfrutar del proceso de aprender a surfear.">
+               data-es="">
               His charisma and love for the sea make him an essential part of Península Surf School, where he guides students of all levels to gain confidence in the water and enjoy the process of learning to surf.
             </p>
           </div>
@@ -1326,12 +1335,12 @@ footer a:hover{
             <h3>Miguel de León</h3>
 
             <p data-en="Miguel de León, born in 2006 and raised in Las Terrenas, is a competitive surfer and instructor with a natural talent for sports, especially surfing. He was a member of the national team and represented the Dominican Republic at the ISA World Surfing Games Junior. He has also participated in the ALAS Global Tour, gaining experience in international competitions." data-fr="Miguel de Le&oacute;n, n&eacute; en 2006 et &eacute;lev&eacute; &agrave; Las Terrenas, est un surfeur de comp&eacute;tition et moniteur dot&eacute; d&rsquo;un talent naturel pour le sport, en particulier le surf. Il a fait partie de l&rsquo;&eacute;quipe nationale et a repr&eacute;sent&eacute; la R&eacute;publique dominicaine aux ISA World Surfing Games Junior. Il a &eacute;galement particip&eacute; &agrave; l&rsquo;ALAS Global Tour, acqu&eacute;rant de l&rsquo;exp&eacute;rience en comp&eacute;tition internationale."
-               data-es="Miguel de Le&oacute;n, nacido en 2006 y criado en Las Terrenas, es un surfista competitivo e instructor con un talento natural para los deportes, especialmente para el surf. Form&oacute; parte de la selecci&oacute;n nacional y represent&oacute; a la Rep&uacute;blica Dominicana en los ISA World Surfing Games Junior. Tambi&eacute;n ha participado en el ALAS Global Tour, acumulando experiencia en competencias internacionales.">
+               data-es="Nacido en 2006 y criado en Las Terrenas, Miguel tiene un don para los deportes pero sobretodo para el surf. Fue parte de la selecci&oacute;n nacional y represent&oacute; a la Rep&uacute;blica Dominicana en los ISA World Surfing Games Junior, y ha participado en el ALAS Global Tour. Siempre dispuesto a ayudar, ha trabajado con Cristian en Las Terrenas, en entrenamientos en Per&uacute;, y han competido juntos en varias ocasiones.">
               Miguel de León, born in 2006 and raised in Las Terrenas, is a competitive surfer and instructor with a natural talent for sports, especially surfing. He was a member of the national team and represented the Dominican Republic at the ISA World Surfing Games Junior. He has also participated in the ALAS Global Tour, gaining experience in international competitions.
             </p>
 
             <p data-en="Miguel has shared training and competitions with Cristian Padilla in various locations, including Las Terrenas and Peru. Always willing to help and motivate others, he is now part of Península Surf School, where he combines his experience as a competitive surfer with his passion for teaching." data-fr="Miguel a partag&eacute; des entra&icirc;nements et des comp&eacute;titions avec Cristian Padilla dans diff&eacute;rents lieux, notamment &agrave; Las Terrenas et au P&eacute;rou. Toujours pr&ecirc;t &agrave; aider et &agrave; motiver les autres, il fait maintenant partie de Pen&iacute;nsula Surf School, o&ugrave; il combine son exp&eacute;rience de surfeur de comp&eacute;tition avec sa passion pour l&rsquo;enseignement."
-               data-es="Miguel ha compartido entrenamientos y competencias con Cristian Padilla en diferentes escenarios, incluyendo Las Terrenas y Per&uacute;. Siempre dispuesto a ayudar y motivar a otros, hoy forma parte de Pen&iacute;nsula Surf School, donde combina su experiencia como surfista competitivo con su vocaci&oacute;n para ense&ntilde;ar.">
+               data-es="">
               Miguel has shared training and competitions with Cristian Padilla in various locations, including Las Terrenas and Peru. Always willing to help and motivate others, he is now part of Península Surf School, where he combines his experience as a competitive surfer with his passion for teaching.
             </p>
           </div>
@@ -1531,11 +1540,15 @@ function applyLanguage(lang) {
   document.documentElement.lang = currentLang;
 
   document.querySelectorAll("[data-en]").forEach(el => {
-    if (el.dataset[currentLang]) {
-      if (el.innerHTML.includes("<br>") || el.dataset[currentLang].includes("<br>")) {
-        el.innerHTML = el.dataset[currentLang];
+    if (Object.prototype.hasOwnProperty.call(el.dataset, currentLang)) {
+      const value = el.dataset[currentLang];
+      el.hidden = value === "";
+      if (el.hidden) return;
+
+      if (el.innerHTML.includes("<br>") || value.includes("<br>")) {
+        el.innerHTML = value;
       } else {
-        el.textContent = el.dataset[currentLang];
+        el.textContent = value;
       }
     }
   });
