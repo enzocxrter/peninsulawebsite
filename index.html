@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
 <title>Peninsula Surf School — Samaná</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
 
 <style>
 :root{
@@ -13,12 +13,14 @@
   --sage-rgb:175,169,133;
   --olive:#79734F;
   --olive-rgb:121,115,79;
+  --heading-color:#4A371F;
   --brand:#79734F;
   --brand-light:#8c865f;
   --sand:#f2e0c4;
   --dark:#1f1f1f;
   --nav-offset:126px;
   --heading-font:'Recoleta', 'Georgia', serif;
+  --nav-font:'Fraunces', 'Georgia', serif;
   --body-font:'Montserrat', Arial, sans-serif;
 }
 
@@ -72,17 +74,18 @@ html{
   gap:12px;
 }
 .brand-logo{
-  width:250px;
-  height:64px;
+  width:320px;
+  height:78px;
   object-fit:contain;
   display:block;
 }
 .nav-links{
   display:flex;
   gap:32px;
+  font-family:var(--nav-font);
   font-size:17px;
-  font-weight:500;
-  letter-spacing:.5px;
+  font-weight:600;
+  letter-spacing:0;
 }
 .nav-links a{
   color:#f8f8f2;
@@ -160,8 +163,9 @@ html{
     rgba(0,0,0,.18);
   color:white;
   cursor:pointer;
-  font-family:var(--body-font);
+  font-family:var(--nav-font);
   font-size:15px;
+  font-weight:600;
   transition:.25s ease;
   appearance:none;
   -webkit-appearance:none;
@@ -355,7 +359,7 @@ h2{
   font-size:48px;
   letter-spacing:0;
   margin-bottom:20px;
-  color:var(--olive);
+  color:var(--heading-color);
 }
 p{
   line-height:1.7;
@@ -440,7 +444,7 @@ p{
   margin-top:0;
   margin-bottom:10px;
   font-family:var(--heading-font);
-  color:var(--olive);
+  color:var(--heading-color);
   font-size:24px;
   letter-spacing:0;
 }
@@ -494,7 +498,7 @@ p{
 .team-text h3{
   margin:0 0 18px;
   font-family:var(--heading-font);
-  color:white;
+  color:var(--heading-color);
   font-size:34px;
   letter-spacing:0;
 }
@@ -568,7 +572,7 @@ p{
   font-family:var(--heading-font);
   font-size:24px;
   letter-spacing:0;
-  color:white;
+  color:var(--heading-color);
 }
 .support-card .support-text p{
   margin:0;
@@ -967,8 +971,8 @@ footer a:hover{
 
 @media (max-width: 640px){
   .brand-logo{
-    width:190px;
-    height:50px;
+    width:240px;
+    height:62px;
     transform:translateX(-10px);
   }
 
@@ -1061,7 +1065,7 @@ footer a:hover{
 <div class="nav">
   <div class="nav-inner">
     <div class="brand">
-      <img src="Logo.png" class="brand-logo" alt="Península Surf School">
+      <img src="Logo península en blanco.svg" class="brand-logo" alt="Península Surf School">
     </div>
 
     <button class="menu-toggle" id="menuToggle" type="button" aria-label="Open menu" aria-expanded="false">
@@ -1082,7 +1086,10 @@ footer a:hover{
         <img src="Instagramlogowhite.png" alt="Instagram">
       </a>
 
-      <a href="https://wa.me/18295865262?text=Hi%20I%20would%20like%20to%20book%20a%20surf%20lesson" class="circle-btn">
+      <a href="https://wa.me/18295865262?text=Hi%20I%20would%20like%20to%20book%20a%20surf%20lesson" class="circle-btn"
+         data-wa-en="Hi! I would like to book a surf lesson."
+         data-wa-es="Hola, me gustar&iacute;a reservar una clase de surf."
+         data-wa-fr="Bonjour, j'aimerais r&eacute;server un cours de surf.">
         <img src="Whatsapplogowhite.png" alt="WhatsApp">
       </a>
 
@@ -1106,10 +1113,10 @@ footer a:hover{
   <div class="hero-overlay"></div>
 
   <div class="hero-content">
-    <img src="Logo main.png" class="hero-main-logo" id="heroLogo" alt="Península Surf School">
+    <img src="Logo península en blanco.svg" class="hero-main-logo" id="heroLogo" alt="Península Surf School">
 
     <p class="hero-text"
-       data-en="Start your adventure.<br>Learn to surf with us." data-fr="Commencez votre aventure.<br>Apprenez &agrave; surfer avec nous." data-fr="Commencez votre aventure.<br>Apprenez ? surfer avec nous."
+       data-en="Start your adventure.<br>Learn to surf with us." data-fr="Commencez votre aventure.<br>Apprenez &agrave; surfer avec nous."
        data-es="Comienza tu aventura.<br>Aprende a surfear con nosotros.">
       Start your adventure.<br>
       Learn to surf with us.
@@ -1117,7 +1124,10 @@ footer a:hover{
 
     <div class="hero-buttons">
       <a href="#services" class="primary-btn" data-en="View Lessons" data-fr="Voir les cours" data-es="Ver Clases">View Lessons</a>
-      <a href="https://wa.me/18295865262?text=Hi%20I%E2%80%99m%20visiting%20Las%20Terrenas%20and%20would%20like%20to%20book%20a%20surf%20lesson" class="primary-btn" data-en="Book on WhatsApp" data-fr="R&eacute;server sur WhatsApp" data-es="Reservar por WhatsApp">Book on WhatsApp</a>
+      <a href="https://wa.me/18295865262?text=Hi%20I%E2%80%99m%20visiting%20Las%20Terrenas%20and%20would%20like%20to%20book%20a%20surf%20lesson" class="primary-btn" data-en="Book on WhatsApp" data-fr="R&eacute;server sur WhatsApp" data-es="Reservar por WhatsApp"
+         data-wa-en="Hi! I'm visiting Las Terrenas and would like to book a surf lesson."
+         data-wa-es="Hola, estoy de visita en Las Terrenas y me gustar&iacute;a reservar una clase de surf."
+         data-wa-fr="Bonjour, je visite Las Terrenas et j'aimerais r&eacute;server un cours de surf.">Book on WhatsApp</a>
     </div>
   </div>
 </header>
@@ -1187,7 +1197,10 @@ footer a:hover{
           </div>
         </div>
 
-        <a class="whatsapp-btn" href="https://wa.me/18295865262?text=Hi!%20I%20would%20like%20to%20book%20a%20beginner%20surf%20lesson" data-en="Book on WhatsApp" data-fr="R&eacute;server sur WhatsApp" data-es="Reservar por WhatsApp">
+        <a class="whatsapp-btn" href="https://wa.me/18295865262?text=Hi!%20I%20would%20like%20to%20book%20a%20beginner%20surf%20lesson" data-en="Book on WhatsApp" data-fr="R&eacute;server sur WhatsApp" data-es="Reservar por WhatsApp"
+           data-wa-en="Hi! I would like to book a beginner surf lesson."
+           data-wa-es="Hola, me gustar&iacute;a reservar una clase de surf para principiantes."
+           data-wa-fr="Bonjour, j'aimerais r&eacute;server un cours de surf d&eacute;butant.">
           Book on WhatsApp
         </a>
       </div>
@@ -1216,7 +1229,10 @@ footer a:hover{
           <li data-en="Specific recommendations for your level" data-fr="Recommandations sp&eacute;cifiques &agrave; votre niveau" data-es="Recomendaciones espec&iacute;ficas para tu nivel">Specific recommendations for your level</li>
         </ul>
 
-        <a class="whatsapp-btn" href="https://wa.me/18295865262?text=Hi!%20I%20would%20like%20to%20book%20private%20surf%20coaching" data-en="Book on WhatsApp" data-fr="R&eacute;server sur WhatsApp" data-es="Reservar por WhatsApp">
+        <a class="whatsapp-btn" href="https://wa.me/18295865262?text=Hi!%20I%20would%20like%20to%20book%20private%20surf%20coaching" data-en="Book on WhatsApp" data-fr="R&eacute;server sur WhatsApp" data-es="Reservar por WhatsApp"
+           data-wa-en="Hi! I would like to book private surf coaching."
+           data-wa-es="Hola, me gustar&iacute;a reservar un coaching privado de surf."
+           data-wa-fr="Bonjour, j'aimerais r&eacute;server un coaching priv&eacute; de surf.">
           Book on WhatsApp
         </a>
       </div>
@@ -1243,7 +1259,10 @@ footer a:hover{
           <li data-en="Available throughout the Saman&aacute; Peninsula and other areas of the country" data-fr="Disponible dans toute la p&eacute;ninsule de Saman&aacute; et dans d&rsquo;autres r&eacute;gions du pays" data-es="Disponible en toda la pen&iacute;nsula de Saman&aacute; y otras zonas del pa&iacute;s">Available throughout the Saman&aacute; Peninsula and other areas of the country</li>
         </ul>
 
-        <a class="whatsapp-btn" href="https://wa.me/18295865262?text=Hi!%20I%20would%20like%20to%20book%20a%20surf%20trip" data-en="Book on WhatsApp" data-fr="R&eacute;server sur WhatsApp" data-es="Reservar por WhatsApp">
+        <a class="whatsapp-btn" href="https://wa.me/18295865262?text=Hi!%20I%20would%20like%20to%20book%20a%20surf%20trip" data-en="Book on WhatsApp" data-fr="R&eacute;server sur WhatsApp" data-es="Reservar por WhatsApp"
+           data-wa-en="Hi! I would like to book a surf trip."
+           data-wa-es="Hola, me gustar&iacute;a reservar un surf trip."
+           data-wa-fr="Bonjour, j'aimerais r&eacute;server un surf trip.">
           Book on WhatsApp
         </a>
       </div>
@@ -1264,7 +1283,10 @@ footer a:hover{
           <li data-en="More than 10 days - US$20 / day" data-fr="Plus de 10 jours - 20 USD / jour" data-es="M&aacute;s de 10 d&iacute;as - 20 US / d&iacute;a">More than 10 days - US$20 / day</li>
         </ul>
 
-        <a class="whatsapp-btn" href="https://wa.me/18295865262?text=Hi!%20I%20would%20like%20to%20ask%20about%20equipment%20hire" data-en="Ask on WhatsApp" data-fr="Demander sur WhatsApp" data-es="Consultar por WhatsApp">
+        <a class="whatsapp-btn" href="https://wa.me/18295865262?text=Hi!%20I%20would%20like%20to%20ask%20about%20equipment%20hire" data-en="Ask on WhatsApp" data-fr="Demander sur WhatsApp" data-es="Consultar por WhatsApp"
+           data-wa-en="Hi! I would like to ask about equipment hire."
+           data-wa-es="Hola, me gustar&iacute;a consultar sobre la renta de tablas."
+           data-wa-fr="Bonjour, j'aimerais avoir des informations sur la location de planches.">
           Ask on WhatsApp
         </a>
       </div>
@@ -1301,7 +1323,10 @@ footer a:hover{
             <a class="team-btn" href="https://www.instagram.com/cristianppadilla/?hl=en" target="_blank" rel="noopener" data-en="Follow on Instagram" data-fr="Suivre sur Instagram" data-es="Seguir en Instagram">
               Follow on Instagram
             </a>
-            <a class="team-btn" href="https://wa.me/18295865262?text=Hi!%20I%20would%20like%20to%20book%20a%20surf%20lesson" data-en="Book a Lesson" data-fr="R&eacute;server un cours" data-es="Reservar una Clase">
+            <a class="team-btn" href="https://wa.me/18295865262?text=Hi!%20I%20would%20like%20to%20book%20a%20surf%20lesson" data-en="Book a Lesson" data-fr="R&eacute;server un cours" data-es="Reservar una Clase"
+               data-wa-en="Hi! I would like to book a surf lesson."
+               data-wa-es="Hola, me gustar&iacute;a reservar una clase de surf."
+               data-wa-fr="Bonjour, j'aimerais r&eacute;server un cours de surf.">
               Book a Lesson
             </a>
           </div>
@@ -1316,12 +1341,12 @@ footer a:hover{
           <div class="support-text">
             <h3>Mizael Hernández</h3>
 
-            <p data-en="Mizael Hernández, born in 2002 and raised in Las Terrenas, is passionate about surfing and a dedicated, cheerful, and hardworking person. Since 2020, he has worked as a surf instructor, sharing his knowledge with patience, enthusiasm, and always with a smile." data-fr="Mizael Hern&aacute;ndez, n&eacute; en 2002 et &eacute;lev&eacute; &agrave; Las Terrenas, est passionn&eacute; de surf. C&rsquo;est une personne d&eacute;vou&eacute;e, joyeuse et travailleuse. Depuis 2020, il travaille comme moniteur de surf, partageant ses connaissances avec patience, enthousiasme et toujours avec le sourire."
+            <p data-en="Born in 2002 and raised in Las Terrenas, he is passionate about surfing and very hardworking. He is a very caring and cheerful person, always willing to teach with a smile. He has worked alongside Cristian in the world of surfing since 2020 and is now part of this new project." data-fr="N&eacute; en 2002 et &eacute;lev&eacute; &agrave; Las Terrenas, il est passionn&eacute; de surf et tr&egrave;s travailleur. C&rsquo;est une personne tr&egrave;s attentionn&eacute;e et joyeuse, toujours pr&ecirc;te &agrave; enseigner avec le sourire. Il travaille aux c&ocirc;t&eacute;s de Cristian dans le monde du surf depuis 2020 et fait maintenant partie de ce nouveau projet."
                data-es="Nacido en 2002 y criado en Las Terrenas, es un apasionado del surf y muy trabajador. Es una persona muy cari&ntilde;osa y alegre, siempre dispuesto a ense&ntilde;ar con una sonrisa. Ha trabajado junto con Cristian en el mundo del surf desde el 2020 y ahora es parte de este nuevo proyecto.">
               Mizael Hernández, born in 2002 and raised in Las Terrenas, is passionate about surfing and a dedicated, cheerful, and hardworking person. Since 2020, he has worked as a surf instructor, sharing his knowledge with patience, enthusiasm, and always with a smile.
             </p>
 
-            <p data-en="His charisma and love for the sea make him an essential part of Península Surf School, where he guides students of all levels to gain confidence in the water and enjoy the process of learning to surf." data-fr="Son charisme et son amour de la mer font de lui un membre essentiel de Pen&iacute;nsula Surf School, o&ugrave; il accompagne les &eacute;l&egrave;ves de tous niveaux pour gagner en confiance dans l&rsquo;eau et appr&eacute;cier le processus d&rsquo;apprentissage du surf."
+            <p data-en="" data-fr=""
                data-es="">
               His charisma and love for the sea make him an essential part of Península Surf School, where he guides students of all levels to gain confidence in the water and enjoy the process of learning to surf.
             </p>
@@ -1334,12 +1359,12 @@ footer a:hover{
           <div class="support-text">
             <h3>Miguel de León</h3>
 
-            <p data-en="Miguel de León, born in 2006 and raised in Las Terrenas, is a competitive surfer and instructor with a natural talent for sports, especially surfing. He was a member of the national team and represented the Dominican Republic at the ISA World Surfing Games Junior. He has also participated in the ALAS Global Tour, gaining experience in international competitions." data-fr="Miguel de Le&oacute;n, n&eacute; en 2006 et &eacute;lev&eacute; &agrave; Las Terrenas, est un surfeur de comp&eacute;tition et moniteur dot&eacute; d&rsquo;un talent naturel pour le sport, en particulier le surf. Il a fait partie de l&rsquo;&eacute;quipe nationale et a repr&eacute;sent&eacute; la R&eacute;publique dominicaine aux ISA World Surfing Games Junior. Il a &eacute;galement particip&eacute; &agrave; l&rsquo;ALAS Global Tour, acqu&eacute;rant de l&rsquo;exp&eacute;rience en comp&eacute;tition internationale."
+            <p data-en="Born in 2006 and raised in Las Terrenas, Miguel has a gift for sports, especially surfing. He was part of the national team and represented the Dominican Republic at the ISA World Surfing Games Junior, and he has participated in the ALAS Global Tour. Always willing to help, he has worked with Cristian in Las Terrenas, during training in Peru, and they have competed together on several occasions." data-fr="N&eacute; en 2006 et &eacute;lev&eacute; &agrave; Las Terrenas, Miguel a un don pour le sport, surtout pour le surf. Il a fait partie de l&rsquo;&eacute;quipe nationale et a repr&eacute;sent&eacute; la R&eacute;publique dominicaine aux ISA World Surfing Games Junior, et il a particip&eacute; &agrave; l&rsquo;ALAS Global Tour. Toujours pr&ecirc;t &agrave; aider, il a travaill&eacute; avec Cristian &agrave; Las Terrenas, lors d&rsquo;entra&icirc;nements au P&eacute;rou, et ils ont particip&eacute; ensemble &agrave; plusieurs comp&eacute;titions."
                data-es="Nacido en 2006 y criado en Las Terrenas, Miguel tiene un don para los deportes pero sobretodo para el surf. Fue parte de la selecci&oacute;n nacional y represent&oacute; a la Rep&uacute;blica Dominicana en los ISA World Surfing Games Junior, y ha participado en el ALAS Global Tour. Siempre dispuesto a ayudar, ha trabajado con Cristian en Las Terrenas, en entrenamientos en Per&uacute;, y han competido juntos en varias ocasiones.">
               Miguel de León, born in 2006 and raised in Las Terrenas, is a competitive surfer and instructor with a natural talent for sports, especially surfing. He was a member of the national team and represented the Dominican Republic at the ISA World Surfing Games Junior. He has also participated in the ALAS Global Tour, gaining experience in international competitions.
             </p>
 
-            <p data-en="Miguel has shared training and competitions with Cristian Padilla in various locations, including Las Terrenas and Peru. Always willing to help and motivate others, he is now part of Península Surf School, where he combines his experience as a competitive surfer with his passion for teaching." data-fr="Miguel a partag&eacute; des entra&icirc;nements et des comp&eacute;titions avec Cristian Padilla dans diff&eacute;rents lieux, notamment &agrave; Las Terrenas et au P&eacute;rou. Toujours pr&ecirc;t &agrave; aider et &agrave; motiver les autres, il fait maintenant partie de Pen&iacute;nsula Surf School, o&ugrave; il combine son exp&eacute;rience de surfeur de comp&eacute;tition avec sa passion pour l&rsquo;enseignement."
+            <p data-en="" data-fr=""
                data-es="">
               Miguel has shared training and competitions with Cristian Padilla in various locations, including Las Terrenas and Peru. Always willing to help and motivate others, he is now part of Península Surf School, where he combines his experience as a competitive surfer with his passion for teaching.
             </p>
@@ -1488,7 +1513,10 @@ footer a:hover{
 </footer>
 
 <a class="floating-whatsapp"
-   href="https://wa.me/18295865262?text=Hi%20I%E2%80%99m%20visiting%20Las%20Terrenas%20and%20would%20like%20to%20book%20a%20surf%20lesson">
+   href="https://wa.me/18295865262?text=Hi%20I%E2%80%99m%20visiting%20Las%20Terrenas%20and%20would%20like%20to%20book%20a%20surf%20lesson"
+   data-wa-en="Hi! I'm visiting Las Terrenas and would like to book a surf lesson."
+   data-wa-es="Hola, estoy de visita en Las Terrenas y me gustar&iacute;a reservar una clase de surf."
+   data-wa-fr="Bonjour, je visite Las Terrenas et j'aimerais r&eacute;server un cours de surf.">
   <img src="Whatsapplogo.png" alt="WhatsApp">
 </a>
 
@@ -1533,6 +1561,22 @@ updateNavVisibility();
 /* LANGUAGE TOGGLE */
 let currentLang = "es";
 const languageSelect = document.getElementById("langToggle");
+const whatsappNumber = "18295865262";
+
+function whatsappHref(message) {
+  return `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
+}
+
+function updateWhatsAppLinks(lang) {
+  const messageKey = `wa${lang.charAt(0).toUpperCase()}${lang.slice(1)}`;
+
+  document.querySelectorAll("[data-wa-en]").forEach(link => {
+    const message = link.dataset[messageKey] || link.dataset.waEn;
+    if (message) {
+      link.href = whatsappHref(message);
+    }
+  });
+}
 
 function applyLanguage(lang) {
   currentLang = lang;
@@ -1552,6 +1596,8 @@ function applyLanguage(lang) {
       }
     }
   });
+
+  updateWhatsAppLinks(currentLang);
 }
 
 languageSelect.addEventListener("change", () => {
